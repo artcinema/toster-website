@@ -1,0 +1,76 @@
+{
+  "Common": {
+    "tryDemo": "[DRAFT DE] Try Demo",
+    "requestDemo": "[DRAFT DE] Request Demo",
+    "learnMore": "[DRAFT DE] Learn more",
+    "getStarted": "[DRAFT DE] Get started",
+    "seeInAction": "[DRAFT DE] See in action",
+    "comingSoon": "[DRAFT DE] Coming soon"
+  },
+  "Nav": {
+    "features": "[DRAFT DE] Features",
+    "ai": "AI",
+    "integrations": "[DRAFT DE] Integrations",
+    "forChains": "[DRAFT DE] For Chains",
+    "pricing": "[DRAFT DE] Pricing",
+    "about": "[DRAFT DE] About"
+  },
+  "Footer": {
+    "tagline": "[DRAFT DE] The command center for food delivery chains.",
+    "madeWith": "[DRAFT DE] Made with care",
+    "copyright": "© 2026 Toster. All rights reserved.",
+    "columns": {
+      "product": "[DRAFT DE] Product",
+      "company": "[DRAFT DE] Company",
+      "legal": "[DRAFT DE] Legal",
+      "contact": "[DRAFT DE] Contact"
+    },
+    "nav": {
+      "features": "[DRAFT DE] Features",
+      "ai": "AI",
+      "integrations": "[DRAFT DE] Integrations",
+      "forChains": "[DRAFT DE] For Chains",
+      "forSingleLocation": "[DRAFT DE] Single Location",
+      "pricing": "[DRAFT DE] Pricing",
+      "about": "[DRAFT DE] About",
+      "blog": "[DRAFT DE] Blog",
+      "security": "[DRAFT DE] Security",
+      "privacy": "[DRAFT DE] Privacy Policy",
+      "terms": "[DRAFT DE] Terms of Service"
+    },
+    "contact": {
+      "email": "hello@toster.co",
+      "telegram": "Telegram"
+    }
+  },
+  "LanguageSwitcher": {
+    "label": "[DRAFT DE] Language"
+  },
+  "Home": {
+    "hero": {
+      "eyebrow": "[DRAFT DE] The all-in-one food delivery platform",
+      "title": "[DRAFT DE] Run your delivery network on autopilot",
+      "subtitle": "[DRAFT DE] Toster is the command center for food delivery chains.",
+      "cta": {
+        "primary": "[DRAFT DE] Try Demo",
+        "secondary": "[DRAFT DE] Request Demo"
+      },
+      "trust": "[DRAFT DE] Powers 966 Network · 4 countries · 20k+ orders/day"
+    },
+    "socialProof": { "title": "[DRAFT DE] Trusted by forward-thinking delivery chains" },
+    "problem": { "title": "[DRAFT DE] The problem", "items": [] },
+    "solution": { "title": "[DRAFT DE] With Toster", "items": [] },
+    "features": { "title": "[DRAFT DE] What makes Toster different", "items": [] },
+    "howItWorks": { "title": "[DRAFT DE] Up and running in one day", "steps": [] },
+    "ai": { "title": "[DRAFT DE] Meet your AI co-pilot", "subtitle": "[DRAFT DE] Claude-powered intelligence", "items": [] },
+    "comparison": { "title": "[DRAFT DE] How Toster compares", "subtitle": "", "features": [], "toster": [], "iiko": [], "posterPos": [], "excel": [] },
+    "testimonials": { "title": "[DRAFT DE] Join early customers", "subtitle": "" },
+    "faq": { "title": "[DRAFT DE] FAQ", "items": [] },
+    "cta": {
+      "title": "[DRAFT DE] Ready to see Toster in action?",
+      "subtitle": "[DRAFT DE] Join the delivery chains that run on Toster.",
+      "primary": "[DRAFT DE] Try Demo",
+      "secondary": "[DRAFT DE] Request Demo"
+    }
+  }
+}

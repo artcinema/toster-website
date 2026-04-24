@@ -1,0 +1,205 @@
+{
+  "Common": {
+    "tryDemo": "Try Demo",
+    "requestDemo": "Request Demo",
+    "learnMore": "Learn more",
+    "getStarted": "Get started",
+    "seeInAction": "See in action",
+    "comingSoon": "Coming soon"
+  },
+  "Nav": {
+    "features": "Features",
+    "ai": "AI",
+    "integrations": "Integrations",
+    "forChains": "For Chains",
+    "pricing": "Pricing",
+    "about": "About"
+  },
+  "Footer": {
+    "tagline": "The command center for food delivery chains.",
+    "madeWith": "Made with care",
+    "copyright": "© 2026 Toster. All rights reserved.",
+    "columns": {
+      "product": "Product",
+      "company": "Company",
+      "legal": "Legal",
+      "contact": "Contact"
+    },
+    "nav": {
+      "features": "Features",
+      "ai": "AI",
+      "integrations": "Integrations",
+      "forChains": "For Chains",
+      "forSingleLocation": "Single Location",
+      "pricing": "Pricing",
+      "about": "About",
+      "blog": "Blog",
+      "security": "Security",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "contact": {
+      "email": "hello@toster.co",
+      "telegram": "Telegram"
+    }
+  },
+  "LanguageSwitcher": {
+    "label": "Language"
+  },
+  "Home": {
+    "hero": {
+      "eyebrow": "The all-in-one food delivery platform",
+      "title": "Run your delivery network on autopilot",
+      "subtitle": "Toster is the command center for food delivery chains. Orders, kitchen, couriers, marketing, and AI — in one platform.",
+      "cta": {
+        "primary": "Try Demo",
+        "secondary": "Request Demo"
+      },
+      "trust": "Powers 966 Network · 4 countries · 20k+ orders/day"
+    },
+    "socialProof": {
+      "title": "Trusted by forward-thinking delivery chains"
+    },
+    "problem": {
+      "title": "The problem",
+      "items": [
+        "5+ tools that don't talk to each other",
+        "Order chaos managed in Telegram groups",
+        "Kitchen slowed down by missing coordination",
+        "Couriers tracked on paper or not at all",
+        "Marketing done in Excel — if done at all"
+      ]
+    },
+    "solution": {
+      "title": "With Toster",
+      "items": [
+        "One platform for your entire operation",
+        "Every order tracked from placement to door",
+        "Kitchen gets tasks automatically, roll by roll",
+        "Live courier map with route optimization",
+        "AI marketing agent that campaigns on its own"
+      ]
+    },
+    "features": {
+      "title": "What makes Toster different",
+      "items": [
+        {
+          "title": "13 Telegram bots, zero training",
+          "description": "Every role — cook, courier, manager, owner — gets their own bot. No apps to install, no training needed. If they use Telegram, they're ready."
+        },
+        {
+          "title": "AI that actually delivers results",
+          "description": "Claude-powered agents handle marketing, demand forecasting, influencer vetting, and photo QC. Not chatbots — AI that does real work."
+        },
+        {
+          "title": "Built for multi-country chains",
+          "description": "Multi-currency, multi-language, multi-fiscal. Checkbox in Ukraine, KSEF in Poland, EET in Czech — all handled natively."
+        }
+      ]
+    },
+    "howItWorks": {
+      "title": "Up and running in one day",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Connect your locations",
+          "description": "Add your divisions, set delivery zones, import your menu. Takes one day."
+        },
+        {
+          "number": "02",
+          "title": "Your team logs into Telegram",
+          "description": "Cooks, couriers, managers — each gets their bot. No apps, no passwords, no onboarding sessions."
+        },
+        {
+          "number": "03",
+          "title": "Orders flow, AI does the rest",
+          "description": "Kitchen tasks auto-assigned. Couriers auto-dispatched. Marketing campaigns auto-triggered."
+        }
+      ]
+    },
+    "ai": {
+      "title": "Meet your AI co-pilot",
+      "subtitle": "Claude-powered intelligence across the entire delivery lifecycle",
+      "items": [
+        {
+          "title": "Voice Operator",
+          "description": "24/7 AI phone operator powered by ElevenLabs. Takes orders in Ukrainian, Russian, and Polish."
+        },
+        {
+          "title": "Marketing Agent",
+          "description": "Autonomous reactivation campaigns, abandoned cart recovery, weather-triggered promotions."
+        },
+        {
+          "title": "Collab AI",
+          "description": "Evaluates influencer deals in 30 seconds. Worth it or overpriced — clear verdict."
+        },
+        {
+          "title": "Digital Brain",
+          "description": "Predicts demand, recommends cook and courier counts per shift, adjusts for weather and holidays."
+        }
+      ]
+    },
+    "comparison": {
+      "title": "How Toster compares",
+      "subtitle": "See why chains are switching from legacy tools",
+      "features": [
+        "All-in-one platform",
+        "Telegram-first (13 bots)",
+        "AI voice operator",
+        "Multi-country fiscalization",
+        "Native aggregator sync",
+        "AI marketing agent",
+        "Real-time kitchen display",
+        "Route optimization",
+        "Starting price"
+      ],
+      "toster": ["✅", "✅", "✅", "✅", "✅", "✅", "✅", "✅", "Contact us"],
+      "iiko": ["⚠️", "❌", "❌", "⚠️", "⚠️", "❌", "✅", "⚠️", "€€€"],
+      "posterPos": ["⚠️", "❌", "❌", "⚠️", "⚠️", "❌", "✅", "❌", "€€"],
+      "excel": ["❌", "❌", "❌", "❌", "❌", "❌", "❌", "❌", "Free (costs you time)"]
+    },
+    "testimonials": {
+      "title": "Join early customers shaping the future of Toster",
+      "subtitle": "Be part of building something great."
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "question": "How long does onboarding take?",
+          "answer": "Most locations are fully operational within one business day. We help you import your menu, set up delivery zones, and connect your team to their Telegram bots."
+        },
+        {
+          "question": "Can I keep my current POS?",
+          "answer": "Toster has its own POS module, but we also have an open API for custom integrations. Talk to us about your current setup."
+        },
+        {
+          "question": "How does Toster handle multiple countries?",
+          "answer": "Natively. Each division can have its own currency, language, tax rules, and payment gateway. Fiscalization is handled automatically per jurisdiction."
+        },
+        {
+          "question": "Is my data safe?",
+          "answer": "Yes. Data is isolated per organization at the database level. We use JWT authentication, HMAC-signed webhooks, audit logs on every change, and rate limiting. GDPR-compliant with data export and deletion endpoints."
+        },
+        {
+          "question": "Do you support aggregators?",
+          "answer": "We support 11 aggregator platforms natively: Bolt, Glovo, Wolt, DoorDash, UberEats, GrubHub, JustEat, Pyszne.pl, DameJidlo, and more. Orders come in unified, statuses sync back automatically."
+        },
+        {
+          "question": "What if I only have one location?",
+          "answer": "Toster works great for single locations. You get the full platform and can add more locations whenever you're ready — no migration needed."
+        },
+        {
+          "question": "How much does it cost?",
+          "answer": "Pricing is based on your number of locations and order volume. Request a demo and we'll put together a proposal that fits your scale."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to see Toster in action?",
+      "subtitle": "Join the delivery chains that run on Toster.",
+      "primary": "Try Demo",
+      "secondary": "Request Demo"
+    }
+  }
+}
