@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useLocale } from 'next-intl';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -35,29 +35,23 @@ interface LanguageSwitcherProps {
 
 export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
   const locale = useLocale() as Locale;
-  const router = useRouter();
   const pathname = usePathname();
 
   const handleLocaleChange = (newLocale: Locale) => {
-    document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=31536000`;
-
+    // Strip current locale prefix from pathname
     const segments = pathname.split('/');
-    const currentLocaleIndex = locales.includes(segments[1] as Locale) ? 1 : -1;
+    const hasLocalePrefix = locales.includes(segments[1] as Locale);
+    const pathWithoutLocale = hasLocalePrefix
+      ? '/' + segments.slice(2).join('/')
+      : pathname;
 
-    let newPath: string;
-    if (currentLocaleIndex !== -1) {
-      if (newLocale === 'en') {
-        segments.splice(1, 1);
-        newPath = segments.join('/') || '/';
-      } else {
-        segments[1] = newLocale;
-        newPath = segments.join('/');
-      }
-    } else {
-      newPath = newLocale === 'en' ? pathname : `/${newLocale}${pathname}`;
-    }
+    // Build new URL — English has no prefix (localePrefix: 'as-needed')
+    const newPath = newLocale === 'en'
+      ? pathWithoutLocale || '/'
+      : `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
 
-    router.push(newPath);
+    // Full page navigation so next-intl reads the new locale from URL server-side
+    window.location.href = newPath;
   };
 
   return (
