@@ -7,6 +7,7 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { locales, type Locale } from '@/i18n/config';
+import { FlagIcon } from '@/components/ui/FlagIcon';
 
 const languageNames: Record<Locale, string> = {
   en: 'English',
@@ -18,14 +19,14 @@ const languageNames: Record<Locale, string> = {
   es: 'Español',
 };
 
-const languageFlags: Record<Locale, string> = {
-  en: '🇬🇧',
-  ru: '🇷🇺',
-  uk: '🇺🇦',
-  pl: '🇵🇱',
-  cs: '🇨🇿',
-  de: '🇩🇪',
-  es: '🇪🇸',
+const localeFlagCode: Record<Locale, string> = {
+  en: 'gb',
+  ru: 'ru',
+  uk: 'ua',
+  pl: 'pl',
+  cs: 'cz',
+  de: 'de',
+  es: 'es',
 };
 
 interface LanguageSwitcherProps {
@@ -69,7 +70,7 @@ export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
             : 'text-[#525252] hover:bg-[#F5F5F5] hover:text-[#0A0A0A]',
         )}
       >
-        <span>{languageFlags[locale]}</span>
+        <FlagIcon code={localeFlagCode[locale]} className="h-4 w-5 rounded-sm" />
         <span className="hidden sm:inline">{languageNames[locale]}</span>
         <ChevronDown className="h-3.5 w-3.5 opacity-60" />
       </DropdownMenu.Trigger>
@@ -91,7 +92,7 @@ export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
               )}
               onSelect={() => handleLocaleChange(loc)}
             >
-              <span>{languageFlags[loc]}</span>
+              <FlagIcon code={localeFlagCode[loc]} className="h-4 w-5 rounded-sm" />
               <span>{languageNames[loc]}</span>
             </DropdownMenu.Item>
           ))}

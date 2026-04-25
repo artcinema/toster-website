@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, MapPin, UtensilsCrossed, Bot, Globe } from 'lucide-react';
 import { Container } from '@/components/ui/container';
+import { FlagIcon } from '@/components/ui/FlagIcon';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { fadeInUp, staggerChildren } from '@/lib/motion';
@@ -255,7 +256,12 @@ export default function AboutPage() {
               <MapPin className="h-4 w-4" /> Kyiv · Warsaw · Prague · Berlin
             </span>
             <span>·</span>
-            <span>🇺🇦 🇵🇱 🇨🇿 🇩🇪</span>
+            <span className="flex items-center gap-1.5">
+              <FlagIcon code="ua" className="h-4 w-5 rounded-sm" />
+              <FlagIcon code="pl" className="h-4 w-5 rounded-sm" />
+              <FlagIcon code="cz" className="h-4 w-5 rounded-sm" />
+              <FlagIcon code="de" className="h-4 w-5 rounded-sm" />
+            </span>
             <span>·</span>
             <a href="mailto:hello@toster.co" className="underline underline-offset-2 hover:text-[#0A0A0A]">
               hello@toster.co

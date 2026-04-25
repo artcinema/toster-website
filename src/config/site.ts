@@ -8,7 +8,7 @@ export const siteConfig = {
   links: {
     linkedin: 'https://linkedin.com/company/toster-co',
     youtube: 'https://youtube.com/@toster-co',
-    telegram: 'https://t.me/toster_crm',
+    telegram: 'https://t.me/no8288',
   },
 };
 

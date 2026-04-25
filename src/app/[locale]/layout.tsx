@@ -100,7 +100,7 @@ const organizationSchema = {
   },
   sameAs: [
     'https://linkedin.com/company/toster-co',
-    'https://t.me/toster_crm',
+    'https://t.me/no8288',
   ],
   foundingDate: '2024',
   numberOfEmployees: { '@type': 'QuantitativeValue', value: 10 },
