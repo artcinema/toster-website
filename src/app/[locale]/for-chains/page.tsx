@@ -352,7 +352,7 @@ export default function ForChainsPage() {
             >
               {[
                 { value: '4', label: 'Countries', sub: 'UA · PL · CZ · DE' },
-                { value: '8+', label: 'Active locations', sub: 'and growing' },
+                { value: '25+', label: 'Active locations', sub: 'and growing' },
                 { value: '500+', label: 'Orders / day', sub: 'peak season' },
                 { value: '70%', label: 'Automated', sub: 'no manual routing' },
               ].map((stat) => (
