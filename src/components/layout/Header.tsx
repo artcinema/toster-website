@@ -68,6 +68,9 @@ export function Header() {
             {/* Desktop Actions */}
             <div className="hidden items-center gap-2 lg:flex">
               <LanguageSwitcher />
+              <Button variant="ghost" size="sm" asChild>
+                <a href={siteConfig.appUrl}>{t('Common.signIn')}</a>
+              </Button>
               <Button variant="secondary" size="sm" asChild>
                 <Link href={siteConfig.demoUrl}>{t('Common.tryDemo')}</Link>
               </Button>
@@ -122,6 +125,11 @@ export function Header() {
 
                   <div className="mt-auto flex flex-col gap-2 border-t border-[#E5E5E5] p-4">
                     <LanguageSwitcher />
+                    <Button variant="ghost" size="md" className="w-full" asChild>
+                      <a href={siteConfig.appUrl} onClick={() => setMobileOpen(false)}>
+                        {t('Common.signIn')}
+                      </a>
+                    </Button>
                     <Button variant="secondary" size="md" className="w-full" asChild>
                       <Link href={siteConfig.demoUrl} onClick={() => setMobileOpen(false)}>
                         {t('Common.tryDemo')}

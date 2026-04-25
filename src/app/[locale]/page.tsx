@@ -167,13 +167,30 @@ export default function HomePage() {
           <p className="mb-6 text-center text-sm font-medium text-[#A3A3A3] uppercase tracking-widest">
             {t('socialProof.title')}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div
-                key={i}
-                className="flex h-10 w-28 items-center justify-center rounded-lg bg-[#E5E5E5]"
-              >
-                <span className="text-xs font-medium text-[#A3A3A3]">LOGO {i}</span>
+          <div className="flex flex-wrap items-center justify-center gap-8">
+            {[
+              { name: 'Bolt Food', domain: 'bolt.eu' },
+              { name: 'Glovo', domain: 'glovoapp.com' },
+              { name: 'Wolt', domain: 'wolt.com' },
+              { name: 'DoorDash', domain: 'doordash.com' },
+              { name: 'Uber Eats', domain: 'ubereats.com' },
+              { name: 'Just Eat', domain: 'just-eat.com' },
+            ].map(({ name, domain }) => (
+              <div key={name} className="flex h-10 w-28 items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-200">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`https://logo.clearbit.com/${domain}`}
+                  alt={name}
+                  className="max-h-8 max-w-[100px] object-contain"
+                  onError={(e) => {
+                    const el = e.currentTarget;
+                    el.style.display = 'none';
+                    const span = document.createElement('span');
+                    span.textContent = name;
+                    span.className = 'text-xs font-medium text-[#A3A3A3]';
+                    el.parentNode?.appendChild(span);
+                  }}
+                />
               </div>
             ))}
           </div>
@@ -420,15 +437,50 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ─── TESTIMONIALS PLACEHOLDER ─────────────────────────────────── */}
+      {/* ─── FOUNDING CUSTOMERS CTA ───────────────────────────────────── */}
       <section className="bg-[#F5F5F5] py-24 sm:py-32">
         <Container>
-          <div className="text-center">
-            <h2 className="mb-3 text-3xl font-semibold tracking-tight text-[#0A0A0A]">
-              {t('testimonials.title')}
-            </h2>
-            <p className="text-[#525252]">{t('testimonials.subtitle')}</p>
-          </div>
+          <motion.div
+            variants={staggerChildren}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="mx-auto max-w-3xl text-center"
+          >
+            <motion.div variants={fadeInUp}>
+              <Badge variant="yellow" className="mb-4">{t('testimonials.title')}</Badge>
+            </motion.div>
+            <motion.p variants={fadeInUp} className="mb-10 text-lg text-[#525252]">
+              {t('testimonials.subtitle')}
+            </motion.p>
+            <motion.div variants={staggerChildren} className="grid grid-cols-1 gap-4 sm:grid-cols-3 mb-10">
+              {[
+                { icon: '🚀', title: 'Priority onboarding', desc: 'We set everything up for you — menu, zones, bots — in one day.' },
+                { icon: '🎯', title: 'Direct founder access', desc: 'Shape the product roadmap. Your feedback ships next sprint.' },
+                { icon: '💰', title: 'Founding price', desc: 'Lock in early pricing. Never pays more as we scale the platform.' },
+              ].map((item) => (
+                <motion.div
+                  key={item.title}
+                  variants={fadeInUp}
+                  className="rounded-2xl border border-[#E5E5E5] bg-white p-6 text-left"
+                >
+                  <div className="mb-3 text-2xl">{item.icon}</div>
+                  <h3 className="mb-1 font-semibold text-[#0A0A0A]">{item.title}</h3>
+                  <p className="text-sm text-[#525252] leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+            <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-3">
+              <Button variant="primary" size="lg" asChild>
+                <Link href="/request-demo">
+                  {tCommon('requestDemo')} <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="secondary" size="lg" asChild>
+                <Link href={siteConfig.demoUrl}>{tCommon('tryDemo')}</Link>
+              </Button>
+            </motion.div>
+          </motion.div>
         </Container>
       </section>
 

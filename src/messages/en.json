@@ -5,7 +5,8 @@
     "learnMore": "Learn more",
     "getStarted": "Get started",
     "seeInAction": "See in action",
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "signIn": "Sign In"
   },
   "Nav": {
     "features": "Features",
@@ -153,10 +154,50 @@
         "Route optimization",
         "Starting price"
       ],
-      "toster": ["✅", "✅", "✅", "✅", "✅", "✅", "✅", "✅", "Contact us"],
-      "iiko": ["⚠️", "❌", "❌", "⚠️", "⚠️", "❌", "✅", "⚠️", "€€€"],
-      "posterPos": ["⚠️", "❌", "❌", "⚠️", "⚠️", "❌", "✅", "❌", "€€"],
-      "excel": ["❌", "❌", "❌", "❌", "❌", "❌", "❌", "❌", "Free (costs you time)"]
+      "toster": [
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "Contact us"
+      ],
+      "iiko": [
+        "⚠️",
+        "❌",
+        "❌",
+        "⚠️",
+        "⚠️",
+        "❌",
+        "✅",
+        "⚠️",
+        "€€€"
+      ],
+      "posterPos": [
+        "⚠️",
+        "❌",
+        "❌",
+        "⚠️",
+        "⚠️",
+        "❌",
+        "✅",
+        "❌",
+        "€€"
+      ],
+      "excel": [
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "Free (costs you time)"
+      ]
     },
     "testimonials": {
       "title": "Join early customers shaping the future of Toster",

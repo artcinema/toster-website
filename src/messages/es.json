@@ -5,7 +5,8 @@
     "learnMore": "[DRAFT ES] Learn more",
     "getStarted": "[DRAFT ES] Get started",
     "seeInAction": "[DRAFT ES] See in action",
-    "comingSoon": "[DRAFT ES] Coming soon"
+    "comingSoon": "[DRAFT ES] Coming soon",
+    "signIn": "Iniciar sesión"
   },
   "Nav": {
     "features": "[DRAFT ES] Features",
@@ -57,15 +58,47 @@
       },
       "trust": "[DRAFT ES] Powers 966 Network · 4 countries · 20k+ orders/day"
     },
-    "socialProof": { "title": "[DRAFT ES] Trusted by forward-thinking delivery chains" },
-    "problem": { "title": "[DRAFT ES] The problem", "items": [] },
-    "solution": { "title": "[DRAFT ES] With Toster", "items": [] },
-    "features": { "title": "[DRAFT ES] What makes Toster different", "items": [] },
-    "howItWorks": { "title": "[DRAFT ES] Up and running in one day", "steps": [] },
-    "ai": { "title": "[DRAFT ES] Meet your AI co-pilot", "subtitle": "[DRAFT ES] Claude-powered intelligence", "items": [] },
-    "comparison": { "title": "[DRAFT ES] How Toster compares", "subtitle": "", "features": [], "toster": [], "iiko": [], "posterPos": [], "excel": [] },
-    "testimonials": { "title": "[DRAFT ES] Join early customers", "subtitle": "" },
-    "faq": { "title": "[DRAFT ES] FAQ", "items": [] },
+    "socialProof": {
+      "title": "[DRAFT ES] Trusted by forward-thinking delivery chains"
+    },
+    "problem": {
+      "title": "[DRAFT ES] The problem",
+      "items": []
+    },
+    "solution": {
+      "title": "[DRAFT ES] With Toster",
+      "items": []
+    },
+    "features": {
+      "title": "[DRAFT ES] What makes Toster different",
+      "items": []
+    },
+    "howItWorks": {
+      "title": "[DRAFT ES] Up and running in one day",
+      "steps": []
+    },
+    "ai": {
+      "title": "[DRAFT ES] Meet your AI co-pilot",
+      "subtitle": "[DRAFT ES] Claude-powered intelligence",
+      "items": []
+    },
+    "comparison": {
+      "title": "[DRAFT ES] How Toster compares",
+      "subtitle": "",
+      "features": [],
+      "toster": [],
+      "iiko": [],
+      "posterPos": [],
+      "excel": []
+    },
+    "testimonials": {
+      "title": "[DRAFT ES] Join early customers",
+      "subtitle": ""
+    },
+    "faq": {
+      "title": "[DRAFT ES] FAQ",
+      "items": []
+    },
     "cta": {
       "title": "[DRAFT ES] Ready to see Toster in action?",
       "subtitle": "[DRAFT ES] Join the delivery chains that run on Toster.",
