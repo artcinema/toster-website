@@ -4,7 +4,7 @@ export const siteConfig = {
   url: process.env['NEXT_PUBLIC_SITE_URL'] ?? 'https://toster.co',
   appUrl: process.env['NEXT_PUBLIC_APP_URL'] ?? 'https://app.toster.co',
   demoUrl: process.env['NEXT_PUBLIC_DEMO_URL'] ?? 'https://app.toster.co',
-  apiUrl: process.env['NEXT_PUBLIC_API_URL'] ?? 'https://app.toster.co/api',
+  apiUrl: process.env['NEXT_PUBLIC_API_URL'] ?? 'https://api.toster.co/api',
   links: {
     linkedin: 'https://linkedin.com/company/toster-co',
     youtube: 'https://youtube.com/@toster-co',
