@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
 import { DemoButton } from '@/components/ui/demo-button';
 import { fadeInUp, staggerChildren, viewportConfig } from '@/lib/motion';
+import { NeuralBackground } from '@/components/ui/neural-background';
 
 const useCases = [
   {
@@ -238,8 +239,9 @@ export default function AiPage() {
   return (
     <div className="bg-[#0A0A0A] text-white">
       {/* Hero */}
-      <section className="py-24 sm:py-32">
-        <Container>
+      <section className="relative overflow-hidden py-24 sm:py-32">
+        <NeuralBackground />
+        <Container className="relative z-10">
           <motion.div
             variants={staggerChildren}
             initial="hidden"
@@ -268,6 +270,7 @@ export default function AiPage() {
           </motion.div>
         </Container>
       </section>
+
 
       {/* Use Cases */}
       {useCases.map((uc, i) => {
