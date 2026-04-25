@@ -22,7 +22,7 @@ import { fadeInUp, staggerChildren } from '@/lib/motion';
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
 // ISO 3166-1 numeric — UA=804, PL=616, CZ=203, DE=276
-const HIGHLIGHTED = new Set([804, 616, 203, 276]);
+const HIGHLIGHTED = new Set([804, 616, 203, 276, 724, 784]); // UA, PL, CZ, DE, ES, UAE
 
 interface Pin {
   name: string;
@@ -68,11 +68,11 @@ function EuropeMap() {
     >
       <ComposableMap
         projection="geoMercator"
-        projectionConfig={{ center: [22, 51], scale: 900 }}
+        projectionConfig={{ center: [22, 44], scale: 480 }}
         height={320}
         style={{ width: '100%', height: 'auto' }}
       >
-        <ZoomableGroup zoom={1} minZoom={0.8} maxZoom={6} center={[22, 51]}>
+        <ZoomableGroup zoom={1} minZoom={0.8} maxZoom={6} center={[22, 44]}>
           <Geographies geography={GEO_URL}>
             {({ geographies }) =>
               geographies.map((geo) => {
