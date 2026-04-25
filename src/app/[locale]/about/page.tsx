@@ -51,9 +51,10 @@ const team = [
     note: 'Full-stack, TypeScript, distributed systems, and too many Telegram bots.',
   },
   {
-    initials: 'OPS',
-    name: 'Head of Operations',
+    initials: 'AS',
+    name: 'Alexander Smiyan',
     role: 'Head of Operations',
+    photo: '/team/alexander.jpg',
     note: 'Runs the 966 Network. Every workflow in Toster started as their spreadsheet.',
   },
 ];
