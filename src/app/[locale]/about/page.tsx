@@ -44,9 +44,10 @@ const team = [
     photo: '/team/artem.jpg',
   },
   {
-    initials: 'CTO',
-    name: 'Engineering Lead',
+    initials: 'DK',
+    name: 'Dmitry Khvostik',
     role: 'CTO',
+    photo: '/team/dmitry.jpg',
     note: 'Full-stack, TypeScript, distributed systems, and too many Telegram bots.',
   },
   {
