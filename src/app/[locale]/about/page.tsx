@@ -4,7 +4,7 @@ import * as React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, MapPin } from 'lucide-react';
+import { ArrowRight, MapPin, UtensilsCrossed, Bot, Globe } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -12,17 +12,17 @@ import { fadeInUp, staggerChildren } from '@/lib/motion';
 
 const values = [
   {
-    emoji: '🍽️',
+    icon: UtensilsCrossed,
     title: 'We eat our own dogfood',
     body: '966 Network runs on Toster every day — 4 countries, 25+ locations, real orders. Every feature we ship, we use ourselves. When something breaks at 2am, we feel it too.',
   },
   {
-    emoji: '🤖',
+    icon: Bot,
     title: 'AI-first, human-accountable',
     body: 'We believe AI should handle the repetitive — routing, reactivation, reporting — while humans make the judgment calls. Claude handles the noise. Your team handles the signal.',
   },
   {
-    emoji: '🌍',
+    icon: Globe,
     title: 'Multi-country native',
     body: 'We didn\'t design for one market and then patch for others. Fiscalization, currencies, languages, and compliance are first-class citizens — not afterthoughts.',
   },
@@ -229,7 +229,9 @@ export default function AboutPage() {
                   variants={fadeInUp}
                   className="rounded-2xl bg-white border border-[#E5E5E5] p-7"
                 >
-                  <p className="mb-3 text-3xl">{v.emoji}</p>
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#FFD600]/15">
+                    <v.icon className="h-5 w-5 text-[#0A0A0A]" />
+                  </div>
                   <h3 className="mb-2 font-semibold text-[#0A0A0A]">{v.title}</h3>
                   <p className="text-sm text-[#525252] leading-relaxed">{v.body}</p>
                 </motion.div>
