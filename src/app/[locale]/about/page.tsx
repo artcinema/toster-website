@@ -146,13 +146,21 @@ export default function AboutPage() {
             </motion.div>
 
             {/* Milestones */}
-            <motion.div variants={fadeInUp} className="mt-12">
-              <div className="relative border-l-2 border-[#FFD600] pl-6 space-y-6">
+            <motion.div variants={fadeInUp} className="mt-14">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {milestones.map((m, i) => (
-                  <div key={i} className="relative">
-                    <div className="absolute -left-[1.65rem] top-1 h-4 w-4 rounded-full border-2 border-[#FFD600] bg-white" />
-                    <p className="text-xs font-semibold uppercase tracking-widest text-[#A3A3A3]">{m.year}</p>
-                    <p className="mt-0.5 font-medium text-[#0A0A0A]">{m.label}</p>
+                  <div
+                    key={i}
+                    className="group relative overflow-hidden rounded-2xl border border-[#E5E5E5] bg-white p-5 transition-shadow hover:shadow-md"
+                  >
+                    {/* yellow accent bar top */}
+                    <div className="mb-4 h-0.5 w-8 rounded-full bg-[#FFD600]" />
+                    <p className="text-2xl font-bold text-[#0A0A0A]">{m.year}</p>
+                    <p className="mt-2 text-sm leading-snug text-[#525252]">{m.label}</p>
+                    {/* subtle number watermark */}
+                    <span className="pointer-events-none absolute -right-1 -bottom-3 text-6xl font-black text-[#F5F5F5] select-none">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
                   </div>
                 ))}
               </div>
