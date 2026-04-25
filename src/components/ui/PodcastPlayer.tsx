@@ -75,13 +75,12 @@ export function PodcastPlayer({ src, title, subtitle, autoPlay = false }: Podcas
     setCurrentTime(a.currentTime);
   };
 
-  const seek = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
+  const seek = (e: React.MouseEvent<HTMLDivElement>) => {
     const bar = progressRef.current;
     const a = audioRef.current;
     if (!bar || !a || !duration) return;
     const rect = bar.getBoundingClientRect();
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
     a.currentTime = ratio * duration;
     setCurrentTime(a.currentTime);
   };
@@ -115,7 +114,7 @@ export function PodcastPlayer({ src, title, subtitle, autoPlay = false }: Podcas
           </div>
 
           {/* Waveform */}
-          <div className="flex items-end gap-[2px] h-12 cursor-pointer" onClick={seek as React.MouseEventHandler<HTMLDivElement>}>
+          <div className="flex items-end gap-[2px] h-12 cursor-pointer" onClick={seek}>
             {BARS.map((h, i) => {
               const barPct = (i / BARS.length) * 100;
               const isPast = barPct <= progress;
