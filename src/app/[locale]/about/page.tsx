@@ -36,10 +36,11 @@ const milestones = [
 
 const team = [
   {
-    initials: 'АТ',
-    name: 'Артём Теслєнко',
+    initials: 'AT',
+    name: 'Artem Teslenko',
     role: 'Founder & CEO',
     note: 'Built 966 Network from one kitchen. Now building the platform for everyone else.',
+    photo: '/team/artem.jpg',
   },
   {
     initials: 'CTO',
@@ -97,7 +98,7 @@ export default function AboutPage() {
           >
             <motion.div variants={fadeInUp} className="prose prose-lg text-[#525252] max-w-none">
               <p>
-                In 2022, Артём Теслєнко launched 966 Network — a food delivery operation
+                In 2022, Artem Teslenko launched 966 Network — a food delivery operation
                 starting with one kitchen in Kyiv. Orders came in via phone and Telegram.
                 Couriers were tracked in a spreadsheet. Marketing was a group chat broadcast.
               </p>
@@ -181,10 +182,19 @@ export default function AboutPage() {
                   variants={fadeInUp}
                   className="rounded-2xl border border-[#E5E5E5] p-6"
                 >
-                  {/* Avatar placeholder */}
-                  <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFD600] text-sm font-bold text-[#0A0A0A]">
-                    {member.initials}
-                  </div>
+                  {/* Avatar */}
+                  {'photo' in member && member.photo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="mb-4 h-14 w-14 rounded-2xl object-cover object-top"
+                    />
+                  ) : (
+                    <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFD600] text-sm font-bold text-[#0A0A0A]">
+                      {member.initials}
+                    </div>
+                  )}
                   <p className="font-semibold text-[#0A0A0A]">{member.name}</p>
                   <p className="text-sm text-[#525252]">{member.role}</p>
                   <p className="mt-3 text-sm text-[#525252] leading-relaxed">{member.note}</p>
