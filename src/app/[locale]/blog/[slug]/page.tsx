@@ -15,7 +15,8 @@ function formatDate(iso: string) {
 
 export default function BlogPostPage() {
   const params = useParams();
-  const slug = typeof params.slug === 'string' ? params.slug : Array.isArray(params.slug) ? params.slug[0] : '';
+  const rawSlug = params.slug;
+  const slug = typeof rawSlug === 'string' ? rawSlug : Array.isArray(rawSlug) && rawSlug[0] ? rawSlug[0] : '';
   const post = getPostBySlug(slug);
 
   if (!post) notFound();
