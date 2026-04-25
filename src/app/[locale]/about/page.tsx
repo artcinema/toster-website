@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, MapPin } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
@@ -184,11 +185,12 @@ export default function AboutPage() {
                 >
                   {/* Avatar */}
                   {'photo' in member && member.photo ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
+                    <Image
                       src={member.photo}
                       alt={member.name}
-                      className="mb-4 h-14 w-14 rounded-2xl object-cover object-top"
+                      width={56}
+                      height={56}
+                      className="mb-4 rounded-2xl object-cover object-top"
                     />
                   ) : (
                     <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFD600] text-sm font-bold text-[#0A0A0A]">
