@@ -70,7 +70,11 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-[#E5E5E5] py-3">
-          <p className="text-center text-xs text-[#A3A3A3]">{t('Footer.copyright')}</p>
+          <p className="text-center text-xs text-[#A3A3A3]">
+            {t('Footer.copyright')}
+            <span className="mx-2 opacity-40">·</span>
+            ADS L.L.C-FZ, Meydan Grandstand, 6th Floor, Meydan Road, Nad Al Sheba, Dubai, UAE
+          </p>
         </div>
       </Container>
     </footer>
