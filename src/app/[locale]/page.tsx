@@ -167,30 +167,21 @@ export default function HomePage() {
           <p className="mb-6 text-center text-sm font-medium text-[#A3A3A3] uppercase tracking-widest">
             {t('socialProof.title')}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8">
+          <div className="flex flex-wrap items-center justify-center gap-6">
             {[
-              { name: 'Bolt Food', domain: 'bolt.eu' },
-              { name: 'Glovo', domain: 'glovoapp.com' },
-              { name: 'Wolt', domain: 'wolt.com' },
-              { name: 'DoorDash', domain: 'doordash.com' },
-              { name: 'Uber Eats', domain: 'ubereats.com' },
-              { name: 'Just Eat', domain: 'just-eat.com' },
-            ].map(({ name, domain }) => (
-              <div key={name} className="flex h-10 w-28 items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-200">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`https://logo.clearbit.com/${domain}`}
-                  alt={name}
-                  className="max-h-8 max-w-[100px] object-contain"
-                  onError={(e) => {
-                    const el = e.currentTarget;
-                    el.style.display = 'none';
-                    const span = document.createElement('span');
-                    span.textContent = name;
-                    span.className = 'text-xs font-medium text-[#A3A3A3]';
-                    el.parentNode?.appendChild(span);
-                  }}
-                />
+              { name: 'Bolt Food', color: '#34D186' },
+              { name: 'Glovo', color: '#FFC244' },
+              { name: 'Wolt', color: '#009DE0' },
+              { name: 'DoorDash', color: '#FF3008' },
+              { name: 'Uber Eats', color: '#06C167' },
+              { name: 'Just Eat', color: '#FF8000' },
+            ].map(({ name, color }) => (
+              <div
+                key={name}
+                className="flex h-9 items-center gap-2 rounded-full border border-[#E5E5E5] bg-white px-4 opacity-70 hover:opacity-100 transition-opacity duration-200"
+              >
+                <span className="h-2.5 w-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
+                <span className="text-sm font-semibold text-[#0A0A0A] whitespace-nowrap">{name}</span>
               </div>
             ))}
           </div>
