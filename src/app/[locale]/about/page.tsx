@@ -14,7 +14,7 @@ const values = [
   {
     emoji: '🍽️',
     title: 'We eat our own dogfood',
-    body: '966 Network runs on Toster every day — 4 countries, 8+ locations, real orders. Every feature we ship, we use ourselves. When something breaks at 2am, we feel it too.',
+    body: '966 Network runs on Toster every day — 4 countries, 25+ locations, real orders. Every feature we ship, we use ourselves. When something breaks at 2am, we feel it too.',
   },
   {
     emoji: '🤖',
@@ -150,7 +150,7 @@ export default function AboutPage() {
           >
             {[
               { value: '4', label: 'Countries', sub: 'UA · PL · CZ · DE' },
-              { value: '8+', label: 'Active locations', sub: 'and growing' },
+              { value: '25+', label: 'Active locations', sub: 'and growing' },
               { value: '100+', label: 'Data models', sub: 'in the schema' },
               { value: '13', label: 'Telegram bots', sub: 'built and running' },
             ].map((s) => (

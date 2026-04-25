@@ -40,7 +40,12 @@ const PINS: Pin[] = [
   { name: 'Prague',  coordinates: [14.42, 50.08], active: true,  stat: '40+ orders/day' },
   { name: 'Berlin',  coordinates: [13.40, 52.52], active: true,  stat: '30+ orders/day' },
   { name: 'Dnipro',  coordinates: [35.04, 48.46], active: true,  stat: '70+ orders/day' },
-  { name: 'Munich',  coordinates: [11.58, 48.14], active: false, stat: 'Expanding soon' },
+  { name: 'Munich',    coordinates: [11.58, 48.14], active: false, stat: 'Expanding soon' },
+  { name: 'Dubai',     coordinates: [55.27, 25.20], active: false, stat: 'Expanding soon' },
+  { name: 'Valencia',  coordinates: [-0.38, 39.47], active: false, stat: 'Expanding soon' },
+  { name: 'Madrid',    coordinates: [-3.70, 40.42], active: false, stat: 'Expanding soon' },
+  { name: 'Barcelona', coordinates: [2.17,  41.39], active: false, stat: 'Expanding soon' },
+  { name: 'Zürich',    coordinates: [8.54,  47.37], active: false, stat: 'Expanding soon' },
 ];
 
 /* ── Interactive Europe map ─────────────────────────────────────── */
