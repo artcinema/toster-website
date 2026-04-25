@@ -33,10 +33,10 @@ const values = [
 ];
 
 const milestones = [
-  { year: '2022', label: 'Started 966 Network delivery in Kyiv' },
-  { year: '2023', label: 'Expanded to Poland and Czech Republic' },
-  { year: '2024', label: 'Built Toster to replace 5+ fragmented tools' },
-  { year: '2025', label: 'Added Germany · AI features · Opened to external clients' },
+  { year: '2014', label: 'First CRM system launched for food delivery operators in Ukraine' },
+  { year: '2018', label: 'Scaled to 50+ delivery businesses — kitchen, couriers, and orders in one platform' },
+  { year: '2022', label: 'Built 966 Network on Toster — 4 countries, real orders, real pressure' },
+  { year: '2025', label: 'AI features, mobile apps, managed marketing · Opened to global operators' },
 ];
 
 const team = [
@@ -83,11 +83,11 @@ export default function AboutPage() {
               className="mb-5 text-4xl font-semibold tracking-tight text-[#0A0A0A] sm:text-5xl"
               style={{ lineHeight: 1.08 }}
             >
-              We built Toster for ourselves first
+              10 years building CRM for food delivery — in the market that demands it most
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-lg text-[#525252] leading-relaxed">
-              Toster didn&apos;t start as a SaaS idea. It started as the only way
-              to keep 966 Network from collapsing under its own growth.
+              Toster started in Ukraine in 2014. Not as a SaaS experiment —
+              as the operational backbone for delivery businesses that couldn&apos;t afford to fail.
             </motion.p>
           </motion.div>
         </Container>
@@ -124,24 +124,26 @@ export default function AboutPage() {
           >
             <motion.div variants={fadeInUp} className="prose prose-lg text-[#525252] max-w-none">
               <p>
-                In 2022, Artem Teslenko launched 966 Network — a food delivery operation
-                starting with one kitchen in Kyiv. Orders came in via phone and Telegram.
-                Couriers were tracked in a spreadsheet. Marketing was a group chat broadcast.
+                Toster has its roots in Ukraine, where the team began building CRM software
+                for food delivery operators back in 2014 — long before "dark kitchen" became
+                a buzzword. Orders, couriers, kitchens, and customer data: all in one place,
+                from day one.
               </p>
               <p className="mt-4">
-                By 2023, they were operating in three countries. The spreadsheet became a disaster.
-                Five different tools — for orders, kitchen, delivery, CRM, and marketing — refused
-                to talk to each other. Managers spent half their day copy-pasting data.
+                Over a decade, the platform evolved alongside the operators who ran it.
+                By 2018, 50+ delivery businesses across Ukraine relied on Toster
+                to manage their daily operations. Every edge case, every fiscal rule,
+                every shift pattern — baked in from real experience, not guesswork.
               </p>
               <p className="mt-4">
-                Every existing platform was either built for restaurants (not delivery chains),
-                too expensive per-location to scale, or missing critical features like fiscal
-                integration for Eastern Europe.
+                In 2022, the team put the platform to its hardest test: running 966 Network —
+                a multi-brand food delivery chain across 4 countries. That pressure
+                pushed Toster to add AI automation, multi-country fiscalization,
+                and the managed marketing layer it has today.
               </p>
               <p className="mt-4">
-                So we built Toster. Not as a startup idea — as the only way to
-                survive our own growth. The platform that runs 966 Network today is
-                the same one we&apos;re opening to other operators.
+                The platform that has been running Ukrainian delivery operations since 2014
+                is now open to operators worldwide.
               </p>
             </motion.div>
 
