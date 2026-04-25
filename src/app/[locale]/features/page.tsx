@@ -9,7 +9,7 @@ import {
   BarChart3, DollarSign, Package, ArrowRight,
   Kanban, Zap, Globe, Camera, Clock, MapPin,
   Bot, Brain, TrendingUp, Shield, FileText,
-  Warehouse, AlertTriangle, Import,
+  Warehouse, AlertTriangle, Import, Smartphone, Star, Bell, Search, Palette,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Container } from '@/components/ui/container';
@@ -135,6 +135,32 @@ const tabs: TabConfig[] = [
       { icon: AlertTriangle, title: 'Min-stock alerts', description: 'Set minimum stock thresholds. Automatic alerts when stock falls below par.' },
       { icon: FileText, title: 'Inventory audit', description: 'Count sheets, reconciliation reports, variance analysis. Full inventory management workflow.' },
       { icon: Import, title: '1C import', description: 'Import products and inventory data from 1C ERP. Bulk sync with field mapping.' },
+    ],
+  },
+  {
+    id: 'website',
+    label: 'Website',
+    icon: Globe,
+    features: [
+      { icon: Globe, title: 'Branded ordering website', description: 'A fully branded customer-facing website on your domain. Menu, cart, checkout, and order tracking — ready to launch.' },
+      { icon: Palette, title: 'Custom branding', description: 'Your logo, colours, and fonts. The storefront looks like your brand, not a white-label template.' },
+      { icon: ShoppingCart, title: 'Full ordering flow', description: 'Category browsing, product pages, modifiers, cart, address input, promo codes, and multiple payment methods.' },
+      { icon: Star, title: 'Loyalty & bonuses', description: 'Customers see their bonus balance, redeem points at checkout, and track order history — all on your website.' },
+      { icon: Search, title: 'SEO-ready', description: 'Server-side rendered pages, structured data, sitemap, and canonical URLs. Ranks for your city and cuisine.' },
+      { icon: Zap, title: 'Real-time order tracking', description: 'Live order status page with courier location on a map. Reduces support calls by up to 60%.' },
+    ],
+  },
+  {
+    id: 'apps',
+    label: 'Apps',
+    icon: Smartphone,
+    features: [
+      { icon: Smartphone, title: 'iOS & Android apps', description: 'Native mobile apps for your customers, published under your brand on the App Store and Google Play.' },
+      { icon: Palette, title: 'White-label branding', description: 'Your name, icon, and splash screen. Customers download your app — not a generic platform.' },
+      { icon: Bell, title: 'Push notifications', description: 'Order status updates, promo campaigns, and re-engagement pushes delivered natively to the lock screen.' },
+      { icon: Star, title: 'Loyalty in-app', description: 'Bonus balance, order history, referral codes, and birthday rewards — all inside the app.' },
+      { icon: ShoppingCart, title: 'Full ordering flow', description: 'Identical ordering experience to the website: menu, modifiers, cart, saved addresses, and one-tap reorder.' },
+      { icon: MapPin, title: 'Live delivery tracking', description: 'Customers track their courier on a live map inside the app. ETA updates in real time.' },
     ],
   },
 ];
