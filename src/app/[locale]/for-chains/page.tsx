@@ -7,105 +7,153 @@ import {
   ArrowRight, Globe, TrendingUp, Brain, AlertCircle,
   CheckCircle2, MapPin, DollarSign, Shield, Layers,
 } from 'lucide-react';
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Marker,
+  ZoomableGroup,
+} from 'react-simple-maps';
 import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { fadeInUp, staggerChildren } from '@/lib/motion';
 
-/* ── Europe map SVG with location pins ─────────────────────────── */
+const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
+
+// ISO 3166-1 numeric — UA=804, PL=616, CZ=203, DE=276
+const HIGHLIGHTED = new Set([804, 616, 203, 276]);
+
+interface Pin {
+  name: string;
+  coordinates: [number, number];
+  active: boolean;
+  stat: string;
+}
+
+const PINS: Pin[] = [
+  { name: 'Kyiv',    coordinates: [30.52, 50.45], active: true,  stat: '200+ orders/day' },
+  { name: 'Kharkiv', coordinates: [36.23, 49.99], active: true,  stat: '50+ orders/day' },
+  { name: 'Lviv',    coordinates: [24.03, 49.84], active: true,  stat: '90+ orders/day' },
+  { name: 'Warsaw',  coordinates: [21.01, 52.23], active: true,  stat: '80+ orders/day' },
+  { name: 'Krakow',  coordinates: [19.94, 50.06], active: true,  stat: '60+ orders/day' },
+  { name: 'Prague',  coordinates: [14.42, 50.08], active: true,  stat: '40+ orders/day' },
+  { name: 'Berlin',  coordinates: [13.40, 52.52], active: true,  stat: '30+ orders/day' },
+  { name: 'Munich',  coordinates: [11.58, 48.14], active: false, stat: 'Expanding soon' },
+];
+
+/* ── Interactive Europe map ─────────────────────────────────────── */
 function EuropeMap() {
-  const pins = [
-    { cx: 310, cy: 148, label: 'Kyiv', country: 'UA', active: true },
-    { cx: 222, cy: 102, label: 'Warsaw', country: 'PL', active: true },
-    { cx: 226, cy: 130, label: 'Krakow', country: 'PL', active: true },
-    { cx: 230, cy: 142, label: 'Prague', country: 'CZ', active: true },
-    { cx: 197, cy: 108, label: 'Berlin', country: 'DE', active: true },
-    { cx: 178, cy: 130, label: 'Munich', country: 'DE', active: false },
-    { cx: 268, cy: 162, label: 'Lviv', country: 'UA', active: true },
-    { cx: 290, cy: 155, label: 'Kharkiv', country: 'UA', active: true },
-  ];
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const [hovered, setHovered] = React.useState<Pin | null>(null);
+  const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
+
+  function handleMouseMove(e: React.MouseEvent) {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  }
 
   return (
-    <div className="relative mx-auto w-full max-w-lg select-none">
-      <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-        {/* Simplified Europe outline */}
-        <path
-          d="M60,80 L90,60 L130,55 L160,50 L200,45 L240,42 L270,48 L310,52 L350,60 L390,70 L420,90 L430,120 L420,150 L400,180 L380,210 L360,230 L330,250 L300,265 L270,270 L240,268 L210,262 L180,250 L160,235 L140,215 L120,200 L100,185 L80,165 L65,145 L55,120 L60,80Z"
-          fill="#F5F5F5"
-          stroke="#E5E5E5"
-          strokeWidth="1.5"
-        />
-        {/* Country blobs */}
-        <path d="M240,42 L280,48 L320,58 L350,80 L360,110 L340,130 L310,148 L280,155 L260,165 L240,160 L220,150 L215,130 L220,108 L230,88 L240,68 L240,42Z"
-          fill="#FFF9C4" stroke="#FFD600" strokeWidth="1" opacity="0.8" /> {/* UA/PL/CZ region */}
+    <div
+      ref={containerRef}
+      className="relative mx-auto w-full select-none"
+      onMouseMove={handleMouseMove}
+    >
+      <ComposableMap
+        projection="geoMercator"
+        projectionConfig={{ center: [22, 51], scale: 900 }}
+        height={320}
+        style={{ width: '100%', height: 'auto' }}
+      >
+        <ZoomableGroup zoom={1} minZoom={0.8} maxZoom={6} center={[22, 51]}>
+          <Geographies geography={GEO_URL}>
+            {({ geographies }) =>
+              geographies.map((geo) => {
+                const hi = HIGHLIGHTED.has(Number(geo.id));
+                return (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    fill={hi ? '#FFF9C4' : '#F0F0F0'}
+                    stroke={hi ? '#FFD600' : '#D4D4D4'}
+                    strokeWidth={hi ? 1 : 0.4}
+                    style={{
+                      default: { outline: 'none' },
+                      hover:   { fill: hi ? '#FFE566' : '#E8E8E8', outline: 'none', cursor: 'grab' },
+                      pressed: { outline: 'none', cursor: 'grabbing' },
+                    }}
+                  />
+                );
+              })
+            }
+          </Geographies>
 
-        {/* Grid lines subtle */}
-        {[80, 110, 140, 170, 200, 230].map((y) => (
-          <line key={y} x1="50" y1={y} x2="430" y2={y} stroke="#E5E5E5" strokeWidth="0.5" strokeDasharray="4 4" />
-        ))}
-        {[120, 180, 240, 300, 360].map((x) => (
-          <line key={x} x1={x} y1="40" x2={x} y2="280" stroke="#E5E5E5" strokeWidth="0.5" strokeDasharray="4 4" />
-        ))}
-
-        {/* Pulse rings for active pins */}
-        {pins.filter(p => p.active).map((pin, i) => (
-          <g key={`pulse-${i}`}>
-            <circle cx={pin.cx} cy={pin.cy} r="12" fill="#FFD600" opacity="0.15">
-              <animate attributeName="r" values="8;16;8" dur="3s" begin={`${i * 0.4}s`} repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.3;0;0.3" dur="3s" begin={`${i * 0.4}s`} repeatCount="indefinite" />
-            </circle>
-          </g>
-        ))}
-
-        {/* Pins */}
-        {pins.map((pin, i) => (
-          <g key={i}>
-            <circle
-              cx={pin.cx}
-              cy={pin.cy}
-              r="5"
-              fill={pin.active ? '#FFD600' : '#E5E5E5'}
-              stroke={pin.active ? '#0A0A0A' : '#A3A3A3'}
-              strokeWidth="1.5"
-            />
-            {/* Tooltip */}
-            <g>
-              <rect
-                x={pin.cx + 8}
-                y={pin.cy - 10}
-                width={pin.label.length * 6.5 + 8}
-                height="18"
-                rx="4"
-                fill="white"
-                stroke="#E5E5E5"
-                strokeWidth="1"
-                opacity="0.9"
+          {PINS.map((pin, i) => (
+            <Marker
+              key={pin.name}
+              coordinates={pin.coordinates}
+              onMouseEnter={() => setHovered(pin)}
+              onMouseLeave={() => setHovered(null)}
+            >
+              {/* Pulse ring */}
+              {pin.active && (
+                <circle r={10} fill="#FFD600" opacity={0.2}>
+                  <animate
+                    attributeName="r"
+                    values="5;14;5"
+                    dur="2.5s"
+                    begin={`${i * 0.35}s`}
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="opacity"
+                    values="0.35;0;0.35"
+                    dur="2.5s"
+                    begin={`${i * 0.35}s`}
+                    repeatCount="indefinite"
+                  />
+                </circle>
+              )}
+              {/* Pin dot */}
+              <circle
+                r={hovered?.name === pin.name ? 7 : 5}
+                fill={pin.active ? '#FFD600' : '#D4D4D4'}
+                stroke={pin.active ? '#0A0A0A' : '#888'}
+                strokeWidth={1.5}
+                style={{ cursor: 'pointer', transition: 'r 0.15s ease' }}
               />
-              <text
-                x={pin.cx + 12}
-                y={pin.cy + 3}
-                fontSize="9"
-                fill="#0A0A0A"
-                fontFamily="system-ui"
-                fontWeight="600"
-              >
-                {pin.label}
-              </text>
-            </g>
-          </g>
-        ))}
-      </svg>
+            </Marker>
+          ))}
+        </ZoomableGroup>
+      </ComposableMap>
 
-      {/* Legend */}
-      <div className="mt-2 flex items-center justify-center gap-6 text-xs text-[#525252]">
+      {/* Tooltip */}
+      {hovered && (
+        <div
+          className="pointer-events-none absolute z-50 rounded-xl border border-[#E5E5E5] bg-white px-3 py-2 shadow-lg"
+          style={{
+            left: mousePos.x + 14,
+            top:  mousePos.y - 48,
+            whiteSpace: 'nowrap',
+          }}
+        >
+          <p className="text-sm font-semibold text-[#0A0A0A]">{hovered.name}</p>
+          <p className="text-xs text-[#525252]">{hovered.stat}</p>
+        </div>
+      )}
+
+      {/* Legend + hint */}
+      <div className="mt-3 flex flex-wrap items-center justify-center gap-6 text-xs text-[#525252]">
         <span className="flex items-center gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-[#FFD600] ring-1 ring-[#0A0A0A]/20" />
           Active location
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#E5E5E5] ring-1 ring-[#A3A3A3]/20" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#D4D4D4] ring-1 ring-[#888]/20" />
           Expanding
         </span>
+        <span className="text-[#A3A3A3]">Scroll to zoom · drag to pan</span>
       </div>
     </div>
   );
