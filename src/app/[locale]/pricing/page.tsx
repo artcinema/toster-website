@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Loader2, Percent, Megaphone, LayoutDashboard, Zap } from 'lucide-react';
+import { CheckCircle2, Loader2, Percent, Megaphone, LayoutDashboard, Zap, Globe, Smartphone } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -19,6 +19,16 @@ const whatsIncluded = [
     icon: LayoutDashboard,
     title: 'Full CRM platform',
     body: 'Orders, kitchen display, courier tracking, analytics, POS terminal, and loyalty — all configured for your chain.',
+  },
+  {
+    icon: Globe,
+    title: 'Customer website',
+    body: 'A branded ordering website for your chain — menu, cart, checkout, loyalty, and order tracking. Ready to go live on your domain.',
+  },
+  {
+    icon: Smartphone,
+    title: 'iOS & Android apps',
+    body: 'Native mobile apps for your customers published under your brand on the App Store and Google Play — included in the package.',
   },
   {
     icon: Megaphone,
@@ -296,7 +306,7 @@ export default function PricingPage() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {whatsIncluded.map((item) => (
                 <motion.div
                   key={item.title}
