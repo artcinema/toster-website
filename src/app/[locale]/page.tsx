@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Container } from '@/components/ui/container';
 import { siteConfig } from '@/config/site';
+import { DemoButton } from '@/components/ui/demo-button';
 import { fadeInUp, staggerChildren, viewportConfig } from '@/lib/motion';
 
 // ─── Animated Kanban Mockup ───────────────────────────────────────────────────
@@ -135,7 +136,7 @@ export default function HomePage() {
               </motion.p>
               <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap gap-3">
                 <Button variant="primary" size="lg" asChild>
-                  <Link href={siteConfig.demoUrl}>{tCommon('tryDemo')}</Link>
+                  <DemoButton>{tCommon('tryDemo')}</DemoButton>
                 </Button>
                 <Button variant="secondary" size="lg" asChild>
                   <Link href="/request-demo">{tCommon('requestDemo')}</Link>
@@ -468,7 +469,7 @@ export default function HomePage() {
                 </Link>
               </Button>
               <Button variant="secondary" size="lg" asChild>
-                <Link href={siteConfig.demoUrl}>{tCommon('tryDemo')}</Link>
+                <DemoButton>{tCommon('tryDemo')}</DemoButton>
               </Button>
             </motion.div>
           </motion.div>
@@ -534,7 +535,7 @@ export default function HomePage() {
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-3">
               <Button variant="primary" size="lg" asChild>
-                <Link href={siteConfig.demoUrl}>{t('cta.primary')}</Link>
+                <DemoButton>{t('cta.primary')}</DemoButton>
               </Button>
               <Button variant="secondary-dark" size="lg" asChild>
                 <Link href="/request-demo">{t('cta.secondary')}</Link>

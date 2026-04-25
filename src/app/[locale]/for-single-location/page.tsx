@@ -11,6 +11,7 @@ import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
+import { DemoButton } from '@/components/ui/demo-button';
 import { fadeInUp, staggerChildren } from '@/lib/motion';
 
 const entryFeatures = [
@@ -56,9 +57,9 @@ export default function ForSingleLocationPage() {
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-3">
               <Button variant="primary" size="lg" asChild>
-                <Link href={siteConfig.demoUrl}>
+                <DemoButton>
                   Try the demo <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
+                </DemoButton>
               </Button>
               <Button variant="secondary" size="lg" asChild>
                 <Link href="/request-demo">Talk to us</Link>
@@ -234,9 +235,9 @@ export default function ForSingleLocationPage() {
               Explore every feature with real demo data. No signup needed.
             </p>
             <Button variant="primary" size="xl" asChild>
-              <Link href={siteConfig.demoUrl}>
+              <DemoButton>
                 Try the demo <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
+              </DemoButton>
             </Button>
           </motion.div>
         </Container>

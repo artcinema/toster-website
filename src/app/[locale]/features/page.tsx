@@ -16,6 +16,7 @@ import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
+import { DemoButton } from '@/components/ui/demo-button';
 import { fadeInUp, staggerChildren, viewportConfig } from '@/lib/motion';
 
 interface Feature {
@@ -237,9 +238,9 @@ export default function FeaturesPage() {
             <p className="mb-8 text-white/60">Explore every feature with real demo data.</p>
             <div className="flex flex-wrap justify-center gap-3">
               <Button variant="primary" size="lg" asChild>
-                <Link href={siteConfig.demoUrl}>
+                <DemoButton>
                   {t('tryDemo')} <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
+                </DemoButton>
               </Button>
               <Button variant="secondary-dark" size="lg" asChild>
                 <Link href="/request-demo">{t('requestDemo')}</Link>
