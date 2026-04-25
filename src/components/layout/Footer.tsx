@@ -13,6 +13,7 @@ export function Footer() {
     { label: 'Integrations',    href: '/integrations' },
     { label: 'For Chains',      href: '/for-chains' },
     { label: 'Pricing',         href: '/pricing' },
+    { label: 'Blog',            href: '/blog' },
     { label: 'About',           href: '/about' },
     { label: 'Security',        href: '/security' },
     { label: 'Privacy',         href: '/privacy-policy' },
