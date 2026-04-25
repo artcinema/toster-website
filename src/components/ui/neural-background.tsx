@@ -40,10 +40,13 @@ export function NeuralBackground() {
   const scrollRef = useRef(0);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const canvasMaybe = canvasRef.current;
+    if (!canvasMaybe) return;
+    const ctxMaybe = canvasMaybe.getContext('2d');
+    if (!ctxMaybe) return;
+    // Assign to explicitly non-null types so nested functions don't see null
+    const canvas: HTMLCanvasElement = canvasMaybe;
+    const ctx: CanvasRenderingContext2D = ctxMaybe;
 
     let W = 0;
     let H = 0;
