@@ -39,6 +39,7 @@ const PINS: Pin[] = [
   { name: 'Krakow',  coordinates: [19.94, 50.06], active: true,  stat: '60+ orders/day' },
   { name: 'Prague',  coordinates: [14.42, 50.08], active: true,  stat: '40+ orders/day' },
   { name: 'Berlin',  coordinates: [13.40, 52.52], active: true,  stat: '30+ orders/day' },
+  { name: 'Dnipro',  coordinates: [35.04, 48.46], active: true,  stat: '70+ orders/day' },
   { name: 'Munich',  coordinates: [11.58, 48.14], active: false, stat: 'Expanding soon' },
 ];
 
