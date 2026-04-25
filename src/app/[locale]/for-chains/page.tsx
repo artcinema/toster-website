@@ -34,7 +34,7 @@ interface Pin {
 const PINS: Pin[] = [
   { name: 'Kyiv',    coordinates: [30.52, 50.45], active: true,  stat: '200+ orders/day' },
   { name: 'Kharkiv', coordinates: [36.23, 49.99], active: true,  stat: '50+ orders/day' },
-  { name: 'Lviv',    coordinates: [24.03, 49.84], active: true,  stat: '90+ orders/day' },
+  { name: 'Odessa',  coordinates: [30.73, 46.48], active: true,  stat: '90+ orders/day' },
   { name: 'Warsaw',  coordinates: [21.01, 52.23], active: true,  stat: '80+ orders/day' },
   { name: 'Krakow',  coordinates: [19.94, 50.06], active: true,  stat: '60+ orders/day' },
   { name: 'Prague',  coordinates: [14.42, 50.08], active: true,  stat: '40+ orders/day' },
