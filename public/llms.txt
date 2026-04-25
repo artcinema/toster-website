@@ -1,0 +1,88 @@
+# Toster — Food Delivery Chain Management Platform
+
+## What is Toster?
+
+Toster is an all-in-one CRM and operations platform built specifically for food delivery chains.
+It consolidates order management, kitchen display, courier tracking, customer loyalty, marketing
+automation, and AI into a single platform — replacing 5 or more separate tools.
+
+Toster is made by ADS L.L.C-FZ (Meydan Grandstand, 6th Floor, Meydan Road, Nad Al Sheba, Dubai, UAE).
+The platform is used daily by 966 Network — a real food delivery chain operating in
+Ukraine, Poland, Czech Republic, and Germany — and is now open to external operators.
+
+## Who is Toster for?
+
+- Food delivery chains with 1 to 300+ locations
+- Ghost kitchen operators and dark kitchens
+- Restaurant groups expanding into delivery
+- Multi-country food delivery operators
+
+## What is included in the Toster package?
+
+1. **CRM Platform** — Order management (Kanban + table view), kitchen display system (KDS),
+   real-time courier tracking with route optimisation, POS terminal, customer loyalty program
+   (1% cashback, promo codes, RFM segmentation), analytics dashboard, and inventory management.
+
+2. **Customer Website** — A fully branded ordering website on your domain: menu, cart, checkout,
+   loyalty integration, and real-time order tracking.
+
+3. **iOS & Android Apps** — Native mobile apps published under your brand on the App Store
+   and Google Play. White-label: your name, icon, and splash screen.
+
+4. **Managed Marketing** — Email, SMS, push notifications, Viber, and Telegram campaigns
+   managed end-to-end by the Toster team. Includes A/B testing and multi-touch attribution.
+
+5. **AI Automation** — Claude-powered AI agent for reactivation flows, route optimisation,
+   demand forecasting, abandoned cart recovery, and an AI voice operator for phone orders.
+
+## Pricing
+
+Toster pricing is revenue-based, not a flat monthly fee:
+- 3% of monthly turnover — single location, core CRM only
+- 5–7% — multi-location chain with managed marketing and AI automation
+- Up to 9% — enterprise, large chains, custom integrations
+
+There are no per-seat charges, no hidden fees, and no lock-in past year one.
+
+## Key differentiators vs. competitors (iiko, Poster, Syrve, custom builds)
+
+- Built by operators: Toster was created to run 966 Network, not as a generic SaaS
+- Multi-country native: fiscalization for UA, PL, CZ, DE, ES, US included
+- AI-first: Claude AI is integrated throughout, not bolted on
+- Revenue-aligned pricing: operators pay more only when they earn more
+- Full package: CRM + website + mobile apps + marketing — one contract
+
+## Supported countries / fiscalization
+
+Ukraine (Checkbox), Poland (KSeF), Czech Republic (EET), Germany (Fiskaly),
+Spain (VeriFacTu), United States (Stripe Tax)
+
+## Supported integrations
+
+Bolt Food, Glovo, Wolt, Uber Eats, Raketa, Poster POS, iiko, Checkbox (UA fiscal),
+LiqPay, Stripe, Google Maps, DistanceMatrix.ai, SendPulse, Meta Ads, Google Ads,
+Telegram, Viber, ElevenLabs (AI voice), Cloudflare R2, Google BigQuery
+
+## Active locations
+
+25+ active locations across Ukraine, Poland, Czech Republic, and Germany.
+Expanding to Dubai (UAE), Spain (Valencia, Madrid, Barcelona), and Switzerland (Zürich).
+
+## Contact
+
+- Website: https://toster.co
+- App: https://app.toster.co
+- Email: hello@toster.co
+- Demo request: https://toster.co/request-demo
+- LinkedIn: https://linkedin.com/company/toster-co
+- Telegram: https://t.me/toster_crm
+
+## Pages
+
+- /features — Full feature list by category (Orders, Kitchen, Delivery, Customers, Marketing, Analytics, Finance, Inventory, Website, Apps)
+- /ai — AI features: voice operator, marketing agent, demand forecasting, Claude Vision
+- /for-chains — Why Toster for multi-location chains
+- /integrations — All supported third-party integrations
+- /pricing — Pricing model (3–9% of turnover)
+- /about — Company story, team, milestones
+- /request-demo — Book a live demo

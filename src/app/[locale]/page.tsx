@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
-import { Check, X, AlertTriangle, ArrowRight, Bot, Brain, Mic, Users } from 'lucide-react';
+import { Check, X, AlertTriangle, ArrowRight, Bot, Brain, Mic, Users, Rocket, Target, BadgePercent } from 'lucide-react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -447,16 +447,18 @@ export default function HomePage() {
             </motion.p>
             <motion.div variants={staggerChildren} className="grid grid-cols-1 gap-4 sm:grid-cols-3 mb-10">
               {[
-                { icon: '🚀', title: 'Priority onboarding', desc: 'We set everything up for you — menu, zones, bots — in one day.' },
-                { icon: '🎯', title: 'Direct founder access', desc: 'Shape the product roadmap. Your feedback ships next sprint.' },
-                { icon: '💰', title: 'Founding price', desc: 'Lock in early pricing. Never pays more as we scale the platform.' },
+                { icon: Rocket,       title: 'Priority onboarding', desc: 'We set everything up for you — menu, zones, bots — in one day.' },
+                { icon: Target,       title: 'Direct founder access', desc: 'Shape the product roadmap. Your feedback ships next sprint.' },
+                { icon: BadgePercent, title: 'Founding price', desc: 'Lock in early pricing. Never pays more as we scale the platform.' },
               ].map((item) => (
                 <motion.div
                   key={item.title}
                   variants={fadeInUp}
                   className="rounded-2xl border border-[#E5E5E5] bg-white p-6 text-left"
                 >
-                  <div className="mb-3 text-2xl">{item.icon}</div>
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#FFD600]/15">
+                    <item.icon className="h-5 w-5 text-[#0A0A0A]" />
+                  </div>
                   <h3 className="mb-1 font-semibold text-[#0A0A0A]">{item.title}</h3>
                   <p className="text-sm text-[#525252] leading-relaxed">{item.desc}</p>
                 </motion.div>
