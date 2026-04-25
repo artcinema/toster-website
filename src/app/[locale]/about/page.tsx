@@ -7,9 +7,12 @@ import Image from 'next/image';
 import { ArrowRight, MapPin, UtensilsCrossed, Bot, Globe } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { FlagIcon } from '@/components/ui/FlagIcon';
+import { PodcastPlayer } from '@/components/ui/PodcastPlayer';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { fadeInUp, staggerChildren } from '@/lib/motion';
+
+const PODCAST_URL = 'https://github.com/artcinema/toster-website/releases/download/media-v1/The_AI_Brain_Running_Dark_Kitchens.m4a';
 
 const values = [
   {
@@ -86,6 +89,25 @@ export default function AboutPage() {
               Toster didn&apos;t start as a SaaS idea. It started as the only way
               to keep 966 Network from collapsing under its own growth.
             </motion.p>
+          </motion.div>
+        </Container>
+      </section>
+
+      {/* Podcast player */}
+      <section className="bg-white pb-10">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mx-auto max-w-2xl"
+          >
+            <PodcastPlayer
+              src={PODCAST_URL}
+              title="The AI Brain Running Dark Kitchens"
+              subtitle="Podcast · How Toster automates food delivery operations with AI"
+              autoPlay
+            />
           </motion.div>
         </Container>
       </section>
