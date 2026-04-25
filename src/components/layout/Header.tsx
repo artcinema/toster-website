@@ -12,10 +12,29 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import { mainNav } from '@/config/nav';
 import { siteConfig } from '@/config/site';
 
+async function startDemo() {
+  try {
+    const res = await fetch(`${siteConfig.apiUrl}/auth/demo`, { method: 'POST' });
+    if (!res.ok) throw new Error('demo_unavailable');
+    const { accessToken } = await res.json();
+    window.location.href = `${siteConfig.appUrl}?token=${encodeURIComponent(accessToken)}`;
+  } catch {
+    // Fallback: open app login page
+    window.location.href = siteConfig.appUrl;
+  }
+}
+
 export function Header() {
   const t = useTranslations();
   const [scrolled, setScrolled] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [demoLoading, setDemoLoading] = React.useState(false);
+
+  async function handleDemo() {
+    setDemoLoading(true);
+    await startDemo();
+    setDemoLoading(false);
+  }
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -71,8 +90,13 @@ export function Header() {
               <Button variant="ghost" size="sm" asChild>
                 <a href={siteConfig.appUrl}>{t('Common.signIn')}</a>
               </Button>
-              <Button variant="secondary" size="sm" asChild>
-                <Link href={siteConfig.demoUrl}>{t('Common.tryDemo')}</Link>
+              <Button
+                variant="secondary"
+                size="sm"
+                disabled={demoLoading}
+                onClick={handleDemo}
+              >
+                {demoLoading ? '…' : t('Common.tryDemo')}
               </Button>
               <Button variant="primary" size="sm" asChild>
                 <Link href="/request-demo">{t('Common.requestDemo')}</Link>
@@ -130,10 +154,14 @@ export function Header() {
                         {t('Common.signIn')}
                       </a>
                     </Button>
-                    <Button variant="secondary" size="md" className="w-full" asChild>
-                      <Link href={siteConfig.demoUrl} onClick={() => setMobileOpen(false)}>
-                        {t('Common.tryDemo')}
-                      </Link>
+                    <Button
+                      variant="secondary"
+                      size="md"
+                      className="w-full"
+                      disabled={demoLoading}
+                      onClick={() => { setMobileOpen(false); handleDemo(); }}
+                    >
+                      {demoLoading ? '…' : t('Common.tryDemo')}
                     </Button>
                     <Button variant="primary" size="md" className="w-full" asChild>
                       <Link href="/request-demo" onClick={() => setMobileOpen(false)}>
