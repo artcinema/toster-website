@@ -110,9 +110,9 @@ export function CourierMapBackground() {
         ctx.moveTo(seg.a.x, seg.a.y);
         ctx.lineTo(seg.b.x, seg.b.y);
         ctx.strokeStyle = seg.major
-          ? 'rgba(180,170,140,0.28)'
-          : 'rgba(200,195,175,0.18)';
-        ctx.lineWidth = seg.major ? 2.5 : 1.2;
+          ? 'rgba(160,150,110,0.55)'
+          : 'rgba(185,178,150,0.38)';
+        ctx.lineWidth = seg.major ? 2.8 : 1.4;
         ctx.stroke();
       }
 
@@ -144,8 +144,8 @@ export function CourierMapBackground() {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(255,214,0,${a})`;
-          ctx.lineWidth   = 1.2 * (i / c.trail.length);
+          ctx.strokeStyle = `rgba(255,214,0,${a * 1.5})`;
+          ctx.lineWidth   = 1.6 * (i / c.trail.length);
           ctx.stroke();
         }
 
@@ -159,8 +159,8 @@ export function CourierMapBackground() {
 
         /* Dot */
         ctx.beginPath();
-        ctx.arc(pos.x, pos.y, 3.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255,214,0,${0.55 + pv * 0.3})`;
+        ctx.arc(pos.x, pos.y, 4.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,200,0,${0.80 + pv * 0.2})`;
         ctx.fill();
       }
 
@@ -174,14 +174,14 @@ export function CourierMapBackground() {
       for (const p of pins) {
         ctx.beginPath();
         ctx.arc(p.x, p.y - 8, 5, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(60,60,80,0.22)';
+        ctx.fillStyle = 'rgba(40,40,65,0.45)';
         ctx.fill();
         ctx.beginPath();
-        ctx.moveTo(p.x - 3, p.y - 4);
-        ctx.lineTo(p.x + 3, p.y - 4);
-        ctx.lineTo(p.x, p.y);
+        ctx.moveTo(p.x - 3.5, p.y - 4);
+        ctx.lineTo(p.x + 3.5, p.y - 4);
+        ctx.lineTo(p.x, p.y + 1);
         ctx.closePath();
-        ctx.fillStyle = 'rgba(60,60,80,0.22)';
+        ctx.fillStyle = 'rgba(40,40,65,0.45)';
         ctx.fill();
       }
 
@@ -249,7 +249,7 @@ export function CourierMapBackground() {
         ref={canvasRef}
         className="h-full w-full"
         /* overall opacity keeps it ghost-like */
-        style={{ opacity: 0.55 }}
+        style={{ opacity: 0.78 }}
       />
     </div>
   );

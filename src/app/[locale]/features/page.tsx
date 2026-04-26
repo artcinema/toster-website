@@ -180,7 +180,7 @@ export default function FeaturesPage() {
         <div
           className="pointer-events-none absolute inset-0 z-10"
           style={{
-            background: 'radial-gradient(ellipse 55% 65% at 50% 50%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 55%, transparent 100%)',
+            background: 'radial-gradient(ellipse 50% 60% at 50% 50%, rgba(255,255,255,0.80) 0%, rgba(255,255,255,0.30) 55%, transparent 100%)',
           }}
         />
 
