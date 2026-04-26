@@ -7,7 +7,6 @@ import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
-import { DemoButton } from '@/components/ui/demo-button';
 import { fadeInUp, staggerChildren, viewportConfig } from '@/lib/motion';
 import { NeuralBackground } from '@/components/ui/neural-background';
 
@@ -264,7 +263,7 @@ export default function AiPage() {
             </motion.p>
             <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap justify-center gap-3">
               <Button variant="primary" size="lg" asChild>
-                <DemoButton>Try Demo</DemoButton>
+                <Link href="/request-demo">Request demo</Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -393,9 +392,7 @@ export default function AiPage() {
             <h2 className="mb-4 text-3xl font-semibold text-white">See AI in action</h2>
             <p className="mb-8 text-white/60">Explore every AI feature with live demo data.</p>
             <Button variant="primary" size="lg" asChild>
-              <DemoButton>
-                Try Demo <ArrowRight className="ml-1 h-4 w-4" />
-              </DemoButton>
+              <Link href="/request-demo">Request demo <ArrowRight className="ml-1 h-4 w-4" /></Link>
             </Button>
           </div>
         </Container>

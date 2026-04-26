@@ -10,7 +10,6 @@ import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
-import { DemoButton } from '@/components/ui/demo-button';
 import { fadeInUp, staggerChildren } from '@/lib/motion';
 
 interface Integration {
@@ -362,9 +361,7 @@ export default function IntegrationsPage() {
               See them in action with real demo data.
             </p>
             <Button variant="primary" size="lg" asChild>
-              <DemoButton>
-                Explore demo <ArrowRight className="ml-1 h-4 w-4" />
-              </DemoButton>
+              <Link href="/request-demo">Request demo <ArrowRight className="ml-1 h-4 w-4" /></Link>
             </Button>
           </div>
         </Container>
