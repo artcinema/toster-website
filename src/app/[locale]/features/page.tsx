@@ -172,15 +172,15 @@ export default function FeaturesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden py-20 sm:py-28" style={{ background: '#f5f3ec' }}>
-        {/* Animated courier map in the background */}
+      <section className="relative overflow-hidden bg-white py-20 sm:py-28">
+        {/* Animated courier map — ghost layer */}
         <CourierMapBackground />
 
-        {/* Subtle centre glow so text stays readable */}
+        {/* Centre radial fade so text is crisp */}
         <div
           className="pointer-events-none absolute inset-0 z-10"
           style={{
-            background: 'radial-gradient(ellipse 60% 70% at 50% 50%, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.3) 60%, transparent 100%)',
+            background: 'radial-gradient(ellipse 55% 65% at 50% 50%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 55%, transparent 100%)',
           }}
         />
 

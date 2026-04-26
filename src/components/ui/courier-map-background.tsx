@@ -2,107 +2,76 @@
 
 import { useEffect, useRef } from 'react';
 
-/* ─── tunables ─────────────────────────────────────────── */
-const COURIER_COUNT   = 7;
-const SCROLL_FACTOR   = 0.18;   // how much the canvas shifts on scroll
-const MOUSE_FACTOR    = 14;     // px of shift at screen edge
-const TILT_FACTOR     = 10;     // px of shift at max gyro tilt
-const TRAIL_LEN       = 28;     // past positions kept for trail
+/* ── tunables ─────────────────────────────────────────── */
+const COURIER_COUNT = 6;
+const TRAIL_LEN     = 20;
 
-/* ─── types ────────────────────────────────────────────── */
+// Parallax — very subtle, CSS transition smooths it
+const MOUSE_SHIFT   = 6;    // px at screen edge
+const SCROLL_SHIFT  = 0.08; // fraction of scrollY
+
+/* ── types ─────────────────────────────────────────────── */
 interface Pt  { x: number; y: number }
-interface Seg { a: Pt; b: Pt; width: number; type: 'highway' | 'main' | 'side' }
-
+interface Seg { a: Pt; b: Pt; major: boolean }
 interface Courier {
-  segIdx: number;
-  t:      number;   // 0–1 progress along seg
-  speed:  number;
-  dir:    1 | -1;
-  trail:  Pt[];
-  pulse:  number;
-  pulseSpeed: number;
+  segIdx: number; t: number; speed: number; dir: 1 | -1;
+  trail: Pt[]; pulse: number;
 }
 
-/* ─── build city street network ──────────────────────────
-   Returns a list of straight segments that look like real
-   city blocks: a few wide arterials + many side streets.
-*/
+/* ── build a light city grid ──────────────────────────── */
 function buildStreets(W: number, H: number): Seg[] {
   const segs: Seg[] = [];
+  const add = (ax: number, ay: number, bx: number, by: number, major: boolean) =>
+    segs.push({ a: { x: ax, y: ay }, b: { x: bx, y: by }, major });
 
-  const add = (ax: number, ay: number, bx: number, by: number, type: Seg['type']) =>
-    segs.push({ a: { x: ax, y: ay }, b: { x: bx, y: by }, width: type === 'highway' ? 4.5 : type === 'main' ? 2.5 : 1.2, type });
-
-  /* ── horizontal arterials ── */
-  const hRows = [0.14, 0.28, 0.42, 0.58, 0.72, 0.86];
-  hRows.forEach((ry, i) => {
-    const y = ry * H;
-    const type: Seg['type'] = i % 3 === 1 ? 'highway' : 'main';
-    add(0, y, W * 0.38, y + H * 0.012, type);
-    add(W * 0.38, y + H * 0.012, W * 0.62, y - H * 0.008, type);
-    add(W * 0.62, y - H * 0.008, W, y + H * 0.004, type);
+  // Gentle horizontal curves as straight segments
+  const hLines = [0.15, 0.30, 0.45, 0.60, 0.75, 0.88];
+  hLines.forEach((r, i) => {
+    const y = r * H;
+    const wobble = (i % 2 === 0 ? 1 : -1) * H * 0.015;
+    add(0, y, W * 0.5, y + wobble, i === 1 || i === 4);
+    add(W * 0.5, y + wobble, W, y - wobble * 0.5, i === 1 || i === 4);
   });
 
-  /* ── vertical arterials ── */
-  const vCols = [0.12, 0.25, 0.38, 0.52, 0.65, 0.78, 0.90];
-  vCols.forEach((rx, i) => {
-    const x = rx * W;
-    const type: Seg['type'] = i % 2 === 0 ? 'main' : 'highway';
-    add(x + W * 0.006, 0, x - W * 0.004, H * 0.45, type);
-    add(x - W * 0.004, H * 0.45, x + W * 0.008, H, type);
+  // Vertical
+  const vLines = [0.10, 0.22, 0.35, 0.50, 0.64, 0.78, 0.91];
+  vLines.forEach((r, i) => {
+    const x = r * W;
+    const wobble = (i % 2 === 0 ? 1 : -1) * W * 0.012;
+    add(x, 0, x + wobble, H * 0.5, i === 2 || i === 5);
+    add(x + wobble, H * 0.5, x - wobble * 0.5, H, i === 2 || i === 5);
   });
 
-  /* ── diagonal shortcuts ── */
-  add(0,        H * 0.05,  W * 0.32, H * 0.62,  'main');
-  add(W * 0.18, 0,         W * 0.72, H * 0.85,  'side');
-  add(W * 0.45, 0,         W,        H * 0.55,  'main');
-  add(0,        H * 0.70,  W * 0.55, H,         'side');
-  add(W * 0.60, 0,         W,        H * 0.40,  'highway');
-  add(W,        H * 0.20,  W * 0.35, H,         'main');
-
-  /* ── fine side streets (horizontal grid) ── */
-  for (let r = 1; r <= 10; r++) {
-    const y = (r / 11) * H;
-    if (hRows.some(ry => Math.abs(ry - r / 11) < 0.06)) continue;
-    add(0, y, W, y + (Math.random() - 0.5) * H * 0.02, 'side');
-  }
-  /* ── fine side streets (vertical grid) ── */
-  for (let c = 1; c <= 12; c++) {
-    const x = (c / 13) * W;
-    if (vCols.some(rx => Math.abs(rx - c / 13) < 0.05)) continue;
-    add(x, 0, x + (Math.random() - 0.5) * W * 0.02, H, 'side');
-  }
+  // Two diagonals
+  add(0, H * 0.08, W * 0.55, H * 0.72, false);
+  add(W * 0.40, 0, W, H * 0.65, true);
 
   return segs;
 }
 
-/* ─── lerp helper ── */
 function lerp(a: Pt, b: Pt, t: number): Pt {
   return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
 }
 
-/* ─── main component ──────────────────────────────────── */
+/* ── component ─────────────────────────────────────────── */
 export function CourierMapBackground() {
-  const canvasRef   = useRef<HTMLCanvasElement>(null);
-  const wrapperRef  = useRef<HTMLDivElement>(null);
-  const frameRef    = useRef<number>(0);
-  const mouseRef    = useRef<Pt>({ x: 0, y: 0 });   // normalised –1..1
-  const tiltRef     = useRef<Pt>({ x: 0, y: 0 });   // normalised –1..1
-  const scrollRef   = useRef(0);
+  const canvasRef  = useRef<HTMLCanvasElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const frameRef   = useRef<number>(0);
+
+  // Smoothed shift targets
+  const targetRef  = useRef({ x: 0, y: 0 });
+  const currentRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    const canvasMaybe  = canvasRef.current;
-    const wrapperMaybe = wrapperRef.current;
-    if (!canvasMaybe || !wrapperMaybe) return;
-    const canvas:  HTMLCanvasElement      = canvasMaybe;
-    const wrapper: HTMLDivElement         = wrapperMaybe;
-    const ctx:     CanvasRenderingContext2D = canvas.getContext('2d')!;
+    const canvas  = canvasRef.current!;
+    const wrapper = wrapperRef.current!;
+    const ctx     = canvas.getContext('2d')!;
 
     let W = 0, H = 0;
-    let segs: Seg[]     = [];
+    let segs: Seg[]      = [];
     let couriers: Courier[] = [];
 
-    /* ── resize & rebuild ── */
     function resize() {
       W = canvas.offsetWidth;
       H = canvas.offsetHeight;
@@ -111,92 +80,51 @@ export function CourierMapBackground() {
       canvas.height = H * dpr;
       ctx.scale(dpr, dpr);
       segs = buildStreets(W, H);
-      couriers = Array.from({ length: COURIER_COUNT }, () => {
-        const segIdx = Math.floor(Math.random() * segs.length);
-        return {
-          segIdx,
-          t:          Math.random(),
-          speed:      0.0006 + Math.random() * 0.0008,
-          dir:        (Math.random() < 0.5 ? 1 : -1) as 1 | -1,
-          trail:      [],
-          pulse:      Math.random() * Math.PI * 2,
-          pulseSpeed: 0.04 + Math.random() * 0.03,
-        };
-      });
+      couriers = Array.from({ length: COURIER_COUNT }, () => ({
+        segIdx: Math.floor(Math.random() * segs.length),
+        t:      Math.random(),
+        speed:  0.0003 + Math.random() * 0.0004,
+        dir:    (Math.random() < 0.5 ? 1 : -1) as 1 | -1,
+        trail:  [],
+        pulse:  Math.random() * Math.PI * 2,
+      }));
     }
 
-    /* ── draw a single frame ── */
     function draw() {
       ctx.clearRect(0, 0, W, H);
 
-      const mx = mouseRef.current.x;
-      const my = mouseRef.current.y;
-      const tx = tiltRef.current.x;
-      const ty = tiltRef.current.y;
-      const scroll = scrollRef.current;
+      /* Smooth lerp toward target shift */
+      const cr = currentRef.current;
+      const tr = targetRef.current;
+      cr.x += (tr.x - cr.x) * 0.06;
+      cr.y += (tr.y - cr.y) * 0.06;
+      wrapper.style.transform = `translate(${cr.x.toFixed(2)}px, ${cr.y.toFixed(2)}px)`;
 
-      /* Parallax shift applied via wrapper transform */
-      const shiftX = (mx + tx) * MOUSE_FACTOR;
-      const shiftY = (my + ty) * MOUSE_FACTOR - scroll * SCROLL_FACTOR;
-      wrapper.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
-
-      /* ── background ── */
-      ctx.fillStyle = '#f5f3ec';
+      /* Background — pure white */
+      ctx.fillStyle = '#ffffff';
       ctx.fillRect(0, 0, W, H);
 
-      /* ── city blocks (filled rectangles between major roads) ── */
-      // Just a subtle tint overlay — real geometry kept lightweight
-      ctx.globalAlpha = 0.45;
-      ctx.fillStyle = '#ede8d8';
-      for (let i = 0; i < 24; i++) {
-        const bx = (i % 6) * (W / 5.5) - W * 0.04;
-        const by = Math.floor(i / 6) * (H / 3.5) + (i % 3) * H * 0.04;
-        const bw = W * (0.09 + Math.sin(i) * 0.04);
-        const bh = H * (0.08 + Math.cos(i * 0.7) * 0.03);
-        ctx.fillRect(bx, by, bw, bh);
-      }
-      ctx.globalAlpha = 1;
-
-      /* ── street network ── */
+      /* Streets — very faint */
       for (const seg of segs) {
         ctx.beginPath();
         ctx.moveTo(seg.a.x, seg.a.y);
         ctx.lineTo(seg.b.x, seg.b.y);
-        if (seg.type === 'highway') {
-          ctx.strokeStyle = '#c8be84';
-          ctx.lineWidth   = seg.width;
-        } else if (seg.type === 'main') {
-          ctx.strokeStyle = '#d4cfa0';
-          ctx.lineWidth   = seg.width;
-        } else {
-          ctx.strokeStyle = '#ddd8c0';
-          ctx.lineWidth   = seg.width;
-        }
+        ctx.strokeStyle = seg.major
+          ? 'rgba(180,170,140,0.28)'
+          : 'rgba(200,195,175,0.18)';
+        ctx.lineWidth = seg.major ? 2.5 : 1.2;
         ctx.stroke();
-
-        /* brand-yellow centre line for highways */
-        if (seg.type === 'highway') {
-          ctx.beginPath();
-          ctx.setLineDash([12, 10]);
-          ctx.moveTo(seg.a.x, seg.a.y);
-          ctx.lineTo(seg.b.x, seg.b.y);
-          ctx.strokeStyle = 'rgba(255,214,0,0.35)';
-          ctx.lineWidth   = 1;
-          ctx.stroke();
-          ctx.setLineDash([]);
-        }
       }
 
-      /* ── update & draw couriers ── */
+      /* Couriers */
       for (const c of couriers) {
         c.t     += c.speed * c.dir;
-        c.pulse += c.pulseSpeed;
+        c.pulse += 0.035;
 
         if (c.t > 1 || c.t < 0) {
-          c.dir    = (c.dir * -1) as 1 | -1;
-          c.t      = Math.max(0, Math.min(1, c.t));
-          /* occasionally jump to a different street */
-          if (Math.random() < 0.3) {
+          c.dir = (c.dir * -1) as 1 | -1;
+          c.t   = Math.max(0, Math.min(1, c.t));
+          if (Math.random() < 0.25) {
             c.segIdx = Math.floor(Math.random() * segs.length);
             c.trail  = [];
           }
@@ -205,135 +133,91 @@ export function CourierMapBackground() {
         const seg = segs[c.segIdx];
         if (!seg) continue;
         const pos = lerp(seg.a, seg.b, c.t);
-
-        /* record trail */
         c.trail.push({ ...pos });
         if (c.trail.length > TRAIL_LEN) c.trail.shift();
 
-        /* draw trail */
-        if (c.trail.length > 1) {
-          for (let i = 1; i < c.trail.length; i++) {
-            const prev = c.trail[i - 1]!;
-            const curr = c.trail[i]!;
-            const alpha = (i / c.trail.length) * 0.55;
-            ctx.beginPath();
-            ctx.moveTo(prev.x, prev.y);
-            ctx.lineTo(curr.x, curr.y);
-            ctx.strokeStyle = `rgba(255,214,0,${alpha})`;
-            ctx.lineWidth   = 1.5 * (i / c.trail.length);
-            ctx.stroke();
-          }
+        /* Trail — very faint yellow */
+        for (let i = 1; i < c.trail.length; i++) {
+          const p = c.trail[i - 1]!;
+          const q = c.trail[i]!;
+          const a = (i / c.trail.length) * 0.35;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = `rgba(255,214,0,${a})`;
+          ctx.lineWidth   = 1.2 * (i / c.trail.length);
+          ctx.stroke();
         }
 
-        /* outer pulse ring */
-        const pulse = (Math.sin(c.pulse) + 1) / 2;
-        const ringR = 10 + pulse * 6;
+        /* Pulse ring */
+        const pv  = (Math.sin(c.pulse) + 1) / 2;
         ctx.beginPath();
-        ctx.arc(pos.x, pos.y, ringR, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(255,214,0,${0.15 + pulse * 0.2})`;
-        ctx.lineWidth   = 1.5;
-        ctx.stroke();
-
-        /* glow */
-        const glow = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 18);
-        glow.addColorStop(0, `rgba(255,214,0,${0.4 + pulse * 0.3})`);
-        glow.addColorStop(1, 'rgba(255,214,0,0)');
-        ctx.beginPath();
-        ctx.arc(pos.x, pos.y, 18, 0, Math.PI * 2);
-        ctx.fillStyle = glow;
-        ctx.fill();
-
-        /* dot */
-        ctx.beginPath();
-        ctx.arc(pos.x, pos.y, 5, 0, Math.PI * 2);
-        ctx.fillStyle = '#FFD600';
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(pos.x, pos.y, 5, 0, Math.PI * 2);
-        ctx.strokeStyle = '#a89000';
+        ctx.arc(pos.x, pos.y, 8 + pv * 4, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(255,214,0,${0.08 + pv * 0.10})`;
         ctx.lineWidth   = 1;
         ctx.stroke();
 
-        /* icon — motorcycle silhouette (simple shapes) */
-        ctx.save();
-        ctx.translate(pos.x, pos.y - 12);
-        ctx.fillStyle = '#1a1a1a';
+        /* Dot */
         ctx.beginPath();
-        ctx.ellipse(0, 0, 5, 3, 0, 0, Math.PI * 2);
+        ctx.arc(pos.x, pos.y, 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,214,0,${0.55 + pv * 0.3})`;
         ctx.fill();
-        ctx.restore();
       }
 
-      /* ── restaurant markers (static) ── */
+      /* Restaurant pins — minimal */
       const pins: Pt[] = [
-        { x: W * 0.22, y: H * 0.33 },
-        { x: W * 0.57, y: H * 0.55 },
-        { x: W * 0.78, y: H * 0.22 },
-        { x: W * 0.40, y: H * 0.72 },
+        { x: W * 0.20, y: H * 0.35 },
+        { x: W * 0.52, y: H * 0.60 },
+        { x: W * 0.76, y: H * 0.25 },
+        { x: W * 0.38, y: H * 0.78 },
       ];
       for (const p of pins) {
-        /* teardrop */
-        ctx.save();
-        ctx.translate(p.x, p.y);
         ctx.beginPath();
-        ctx.arc(0, -12, 9, 0, Math.PI * 2);
-        ctx.fillStyle = '#1a1a2e';
+        ctx.arc(p.x, p.y - 8, 5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(60,60,80,0.22)';
         ctx.fill();
         ctx.beginPath();
-        ctx.moveTo(-5, -6);
-        ctx.lineTo(5, -6);
-        ctx.lineTo(0, 4);
+        ctx.moveTo(p.x - 3, p.y - 4);
+        ctx.lineTo(p.x + 3, p.y - 4);
+        ctx.lineTo(p.x, p.y);
         ctx.closePath();
-        ctx.fillStyle = '#1a1a2e';
+        ctx.fillStyle = 'rgba(60,60,80,0.22)';
         ctx.fill();
-        /* fork-knife icon hint */
-        ctx.fillStyle = '#FFD600';
-        ctx.fillRect(-1.5, -18, 1, 8);
-        ctx.fillRect(1.5, -18, 1, 8);
-        ctx.restore();
       }
 
-      /* ── soft edge vignette so map fades into white ── */
-      const vW = ctx.createLinearGradient(0, 0, W, 0);
-      vW.addColorStop(0,   'rgba(255,255,255,0.55)');
-      vW.addColorStop(0.1, 'rgba(255,255,255,0)');
-      vW.addColorStop(0.9, 'rgba(255,255,255,0)');
-      vW.addColorStop(1,   'rgba(255,255,255,0.55)');
-      ctx.fillStyle = vW;
+      /* Edge fade — ensure text readability */
+      const fadeX = ctx.createLinearGradient(0, 0, W, 0);
+      fadeX.addColorStop(0,    'rgba(255,255,255,0.6)');
+      fadeX.addColorStop(0.12, 'rgba(255,255,255,0)');
+      fadeX.addColorStop(0.88, 'rgba(255,255,255,0)');
+      fadeX.addColorStop(1,    'rgba(255,255,255,0.6)');
+      ctx.fillStyle = fadeX;
       ctx.fillRect(0, 0, W, H);
 
-      const vH = ctx.createLinearGradient(0, 0, 0, H);
-      vH.addColorStop(0,   'rgba(255,255,255,0.4)');
-      vH.addColorStop(0.15, 'rgba(255,255,255,0)');
-      vH.addColorStop(0.75, 'rgba(255,255,255,0)');
-      vH.addColorStop(1,   'rgba(255,255,255,0.85)');
-      ctx.fillStyle = vH;
+      const fadeY = ctx.createLinearGradient(0, 0, 0, H);
+      fadeY.addColorStop(0,    'rgba(255,255,255,0.35)');
+      fadeY.addColorStop(0.2,  'rgba(255,255,255,0)');
+      fadeY.addColorStop(0.7,  'rgba(255,255,255,0)');
+      fadeY.addColorStop(1,    'rgba(255,255,255,0.9)');
+      ctx.fillStyle = fadeY;
       ctx.fillRect(0, 0, W, H);
 
       frameRef.current = requestAnimationFrame(draw);
     }
 
-    /* ── event listeners ── */
     function onMouseMove(e: MouseEvent) {
       const rect = canvas.getBoundingClientRect();
-      mouseRef.current = {
-        x: (e.clientX - rect.left  - W / 2) / (W / 2),
-        y: (e.clientY - rect.top   - H / 2) / (H / 2),
-      };
+      const nx   = (e.clientX - rect.left - W / 2) / (W / 2);
+      const ny   = (e.clientY - rect.top  - H / 2) / (H / 2);
+      targetRef.current = { x: nx * MOUSE_SHIFT, y: ny * MOUSE_SHIFT };
     }
     function onMouseLeave() {
-      mouseRef.current = { x: 0, y: 0 };
+      targetRef.current = { x: 0, y: 0 };
     }
     function onScroll() {
-      scrollRef.current = window.scrollY;
-    }
-    function onDeviceOrientation(e: DeviceOrientationEvent) {
-      /* gamma = left-right tilt (–90..90), beta = front-back (–180..180) */
-      const gamma = e.gamma ?? 0;
-      const beta  = e.beta  ?? 0;
-      tiltRef.current = {
-        x: Math.max(-1, Math.min(1, gamma / 30)),
-        y: Math.max(-1, Math.min(1, (beta - 45) / 30)),
+      targetRef.current = {
+        ...targetRef.current,
+        y: -window.scrollY * SCROLL_SHIFT,
       };
     }
 
@@ -343,9 +227,7 @@ export function CourierMapBackground() {
     canvas.addEventListener('mousemove',  onMouseMove);
     canvas.addEventListener('mouseleave', onMouseLeave);
     window.addEventListener('scroll',     onScroll, { passive: true });
-    window.addEventListener('deviceorientation', onDeviceOrientation as EventListener, { passive: true });
-
-    const ro = new ResizeObserver(() => resize());
+    const ro = new ResizeObserver(resize);
     ro.observe(canvas);
 
     return () => {
@@ -353,7 +235,6 @@ export function CourierMapBackground() {
       canvas.removeEventListener('mousemove',  onMouseMove);
       canvas.removeEventListener('mouseleave', onMouseLeave);
       window.removeEventListener('scroll',     onScroll);
-      window.removeEventListener('deviceorientation', onDeviceOrientation as EventListener);
       ro.disconnect();
     };
   }, []);
@@ -361,13 +242,14 @@ export function CourierMapBackground() {
   return (
     <div
       ref={wrapperRef}
-      /* slightly oversized so parallax shift doesn't expose edges */
       className="absolute"
-      style={{ inset: '-3%', width: '106%', height: '106%', willChange: 'transform' }}
+      style={{ inset: '-4%', width: '108%', height: '108%' }}
     >
       <canvas
         ref={canvasRef}
         className="h-full w-full"
+        /* overall opacity keeps it ghost-like */
+        style={{ opacity: 0.55 }}
       />
     </div>
   );
