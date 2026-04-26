@@ -17,6 +17,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
 import { fadeInUp, staggerChildren, viewportConfig } from '@/lib/motion';
+import { CourierMapBackground } from '@/components/ui/courier-map-background';
 
 interface Feature {
   icon: React.ElementType;
@@ -171,8 +172,19 @@ export default function FeaturesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-white py-20 sm:py-28">
-        <Container>
+      <section className="relative overflow-hidden py-20 sm:py-28" style={{ background: '#f5f3ec' }}>
+        {/* Animated courier map in the background */}
+        <CourierMapBackground />
+
+        {/* Subtle centre glow so text stays readable */}
+        <div
+          className="pointer-events-none absolute inset-0 z-10"
+          style={{
+            background: 'radial-gradient(ellipse 60% 70% at 50% 50%, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.3) 60%, transparent 100%)',
+          }}
+        />
+
+        <Container className="relative z-20">
           <motion.div
             variants={staggerChildren}
             initial="hidden"
@@ -236,10 +248,10 @@ export default function FeaturesPage() {
                       <motion.div
                         key={i}
                         variants={fadeInUp}
-                        className="rounded-2xl border border-[#E5E5E5] bg-white p-6 hover:border-[#FFD600]/50 transition-colors"
+                        className="feature-card rounded-2xl border border-[#E5E5E5] bg-white p-6 hover:border-[#FFD600]/50 transition-colors"
                       >
-                        <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#F5F5F5]">
-                          <Icon className="h-5 w-5 text-[#0A0A0A]" />
+                        <div className="feature-icon-wrap mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#F5F5F5]">
+                          <Icon className="feature-icon h-5 w-5 text-[#0A0A0A]" />
                         </div>
                         <h3 className="mb-2 font-semibold text-[#0A0A0A]">{feature.title}</h3>
                         <p className="text-sm text-[#525252] leading-relaxed">{feature.description}</p>
