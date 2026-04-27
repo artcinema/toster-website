@@ -198,7 +198,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-14 sm:py-18">
         <Container>
           <motion.div
             variants={staggerChildren}
@@ -206,35 +206,39 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
           >
-            <motion.div variants={fadeInUp} className="mb-12 text-center">
+            <motion.div variants={fadeInUp} className="mb-8 text-center">
               <h2 className="text-3xl font-semibold text-[#0A0A0A] sm:text-4xl">The team</h2>
               <p className="mt-3 text-[#525252]">Small. Focused. Running a real delivery operation.</p>
             </motion.div>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+            <div className="mx-auto max-w-2xl flex flex-col gap-4">
               {team.map((member, i) => (
                 <motion.div
                   key={i}
                   variants={fadeInUp}
-                  className="rounded-2xl border border-[#E5E5E5] p-6"
+                  className="flex items-start gap-5 rounded-2xl border border-[#E5E5E5] p-5"
                 >
-                  {/* Avatar */}
+                  {/* Photo */}
                   {'photo' in member && member.photo ? (
                     <Image
                       src={member.photo}
                       alt={member.name}
-                      width={56}
-                      height={56}
-                      className="mb-4 rounded-2xl object-cover object-top"
+                      width={96}
+                      height={112}
+                      className="flex-shrink-0 rounded-xl object-cover object-top"
+                      style={{ width: 96, height: 112 }}
                     />
                   ) : (
-                    <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFD600] text-sm font-bold text-[#0A0A0A]">
+                    <div className="flex-shrink-0 flex h-28 w-24 items-center justify-center rounded-xl bg-[#FFD600] text-sm font-bold text-[#0A0A0A]">
                       {member.initials}
                     </div>
                   )}
-                  <p className="font-semibold text-[#0A0A0A]">{member.name}</p>
-                  <p className="text-sm text-[#525252]">{member.role}</p>
-                  <p className="mt-3 text-sm text-[#525252] leading-relaxed">{member.note}</p>
+                  {/* Text */}
+                  <div className="min-w-0 pt-1">
+                    <p className="text-lg font-semibold text-[#0A0A0A]">{member.name}</p>
+                    <p className="mt-0.5 text-sm text-[#525252]">{member.role}</p>
+                    <p className="mt-2 text-sm text-[#525252] leading-relaxed">{member.note}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
