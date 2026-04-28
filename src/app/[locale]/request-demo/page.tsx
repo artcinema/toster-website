@@ -129,7 +129,7 @@ export default function RequestDemoPage() {
     }
 
     try {
-      const res = await fetch('https://api.toster.co/api/public/request-demo', {
+      const res = await fetch('/api/request-demo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values),

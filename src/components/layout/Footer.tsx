@@ -16,6 +16,7 @@ export function Footer() {
     { label: 'Blog',            href: '/blog' },
     { label: 'About',           href: '/about' },
     { label: 'Security',        href: '/security' },
+    { label: 'API',             href: '/api' },
     { label: 'Privacy',         href: '/privacy-policy' },
     { label: 'Terms',           href: '/terms' },
   ];
