@@ -4,14 +4,20 @@ import * as React from 'react';
 import { motion } from 'framer-motion';
 import {
   Key, Lock, Zap, ShoppingCart, Users, Package, ChefHat,
-  Truck, BarChart2, Star, Tag, Bell, Code2, Copy, Check,
+  Truck, BarChart2, Star, Bell, Code2, Copy, Check,
   ArrowRight, Shield, Globe, AlertCircle,
 } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
-import { fadeInUp, staggerChildren } from '@/lib/motion';
+
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.45 },
+};
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -225,7 +231,7 @@ export default function ApiPage() {
       {/* Hero */}
       <section className="border-b border-[#E5E5E5] bg-[#FAFAFA] py-16">
         <Container>
-          <motion.div {...fadeInUp} className="max-w-2xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="max-w-2xl">
             <Badge className="mb-4 gap-1.5 bg-[#FFF9C4] text-[#92400E] border-0">
               <Code2 className="h-3 w-3" />
               Public API · v1
@@ -291,7 +297,7 @@ export default function ApiPage() {
           <main className="min-w-0 flex-1 space-y-16">
 
             {/* Overview */}
-            <motion.section id="overview" {...fadeInUp}>
+            <motion.section id="overview" {...fadeUp}>
               <h2 className="text-2xl font-bold text-[#0A0A0A]">Overview</h2>
               <p className="mt-3 text-[#525252]">
                 All API endpoints are REST and return JSON. Authentication uses a Bearer
@@ -315,7 +321,7 @@ export default function ApiPage() {
             </motion.section>
 
             {/* Authentication */}
-            <motion.section id="authentication" {...fadeInUp}>
+            <motion.section id="authentication" {...fadeUp}>
               <h2 className="text-2xl font-bold text-[#0A0A0A]">Authentication</h2>
               <p className="mt-3 text-[#525252]">
                 Generate an API key in <strong>Settings → API Keys</strong> inside your Toster dashboard.
@@ -344,7 +350,7 @@ const { items, total } = await res.json();`} />
             </motion.section>
 
             {/* Scopes */}
-            <motion.section id="scopes" {...fadeInUp}>
+            <motion.section id="scopes" {...fadeUp}>
               <h2 className="text-2xl font-bold text-[#0A0A0A]">Scopes</h2>
               <p className="mt-3 text-[#525252]">
                 Each key is issued with a set of scopes. Calling an endpoint without the required scope
@@ -373,7 +379,7 @@ const { items, total } = await res.json();`} />
             </motion.section>
 
             {/* Pagination & Errors */}
-            <motion.section id="errors" {...fadeInUp}>
+            <motion.section id="errors" {...fadeUp}>
               <h2 className="text-2xl font-bold text-[#0A0A0A]">Pagination & Errors</h2>
               <p className="mt-3 text-[#525252]">
                 List endpoints support <code className="font-mono text-sm bg-[#F5F5F5] px-1 rounded">?page=1&limit=20</code> (max 100).
@@ -429,7 +435,7 @@ const { items, total } = await res.json();`} />
             {SECTIONS.filter((s) => s.id !== 'webhooks').map((section) => {
               const Icon = section.icon;
               return (
-                <motion.section key={section.id} id={section.id} {...fadeInUp}>
+                <motion.section key={section.id} id={section.id} {...fadeUp}>
                   <div className="flex items-center gap-3">
                     <span
                       className="flex h-9 w-9 items-center justify-center rounded-xl"
@@ -450,7 +456,7 @@ const { items, total } = await res.json();`} />
             })}
 
             {/* Webhooks guide */}
-            <motion.section id="webhooks-guide" {...fadeInUp}>
+            <motion.section id="webhooks-guide" {...fadeUp}>
               <div className="flex items-center gap-3">
                 <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#FCE7F3]">
                   <Bell className="h-4 w-4 text-[#EC4899]" />
@@ -509,7 +515,7 @@ function verifySignature(rawBody, signature, secret) {
             </motion.section>
 
             {/* CTA */}
-            <motion.section {...fadeInUp} className="rounded-2xl bg-[#0A0A0A] p-8 text-center">
+            <motion.section {...fadeUp} className="rounded-2xl bg-[#0A0A0A] p-8 text-center">
               <Key className="mx-auto mb-4 h-8 w-8 text-[#FFD600]" />
               <h3 className="text-xl font-bold text-white">Ready to integrate?</h3>
               <p className="mt-2 text-sm text-[#A3A3A3]">
