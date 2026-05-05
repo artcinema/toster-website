@@ -3,11 +3,14 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { locales, type Locale } from '@/i18n/config';
 import { siteConfig } from '@/config/site';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { JsonLd } from '@/components/JsonLd';
+import { ConsentGa } from '@/components/analytics/ConsentGa';
 import '../globals.css';
 
 const titles: Record<Locale, string> = {
@@ -118,6 +121,9 @@ export async function generateMetadata({
     },
     verification: {
       google: process.env['NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION'] ?? '',
+      other: {
+        'msvalidate.01': process.env['NEXT_PUBLIC_BING_SITE_VERIFICATION'] ?? '',
+      },
     },
   };
 }
@@ -222,6 +228,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           </main>
           <Footer />
         </NextIntlClientProvider>
+        <Analytics />
+        <SpeedInsights />
+        {process.env['NEXT_PUBLIC_GA_MEASUREMENT_ID'] && (
+          <ConsentGa gaId={process.env['NEXT_PUBLIC_GA_MEASUREMENT_ID']} />
+        )}
       </body>
     </html>
   );
