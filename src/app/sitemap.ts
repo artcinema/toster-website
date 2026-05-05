@@ -13,6 +13,7 @@ const routes = [
   { path: '/pricing',   priority: 0.9,  changeFreq: 'monthly' },
   { path: '/integrations', priority: 0.8, changeFreq: 'monthly' },
   { path: '/blog',      priority: 0.8,  changeFreq: 'weekly'  },
+  { path: '/vs/poster-pos', priority: 0.8, changeFreq: 'monthly' },
   { path: '/about',     priority: 0.7,  changeFreq: 'monthly' },
   { path: '/security',  priority: 0.6,  changeFreq: 'yearly'  },
   { path: '/privacy-policy', priority: 0.5, changeFreq: 'yearly' },
