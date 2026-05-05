@@ -3,6 +3,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
 import { Clock, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
@@ -16,6 +17,7 @@ function formatDate(iso: string) {
 }
 
 export default function BlogPage() {
+  const locale = useLocale();
   const [active, setActive] = React.useState('All');
   const filtered = active === 'All' ? posts : posts.filter((p) => p.category === active);
 
@@ -105,7 +107,7 @@ export default function BlogPage() {
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-[#A3A3A3]">{formatDate(post.date)}</span>
                   <Link
-                    href={`/blog/${post.slug}`}
+                    href={`/${locale}/blog/${post.slug}`}
                     className="flex items-center gap-1 text-xs font-semibold text-[#0A0A0A] hover:gap-2 transition-all"
                   >
                     Read <ArrowRight className="h-3 w-3" />
@@ -126,7 +128,7 @@ export default function BlogPage() {
               Everything in these articles is built into the platform. Book a demo and we&apos;ll walk through the exact workflows.
             </p>
             <Link
-              href="/request-demo"
+              href={`/${locale}/request-demo`}
               className="inline-flex items-center gap-2 rounded-full bg-[#FFD600] px-6 py-3 text-sm font-semibold text-[#0A0A0A] hover:bg-[#FFE566] transition-colors"
             >
               Book a demo <ArrowRight className="h-4 w-4" />
