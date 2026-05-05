@@ -207,9 +207,10 @@ export default function PricingPage() {
               <span className="text-[#FFD600]">not a flat fee</span>
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-lg text-[#525252] leading-relaxed">
-              Toster pricing scales with your business. Depending on your CRM configuration
-              and the scope of services, the fee ranges from{' '}
-              <strong className="text-[#0A0A0A]">3% to 9% of monthly turnover</strong> — covering
+              Start with a{' '}
+              <strong className="text-[#0A0A0A]">fixed €250/month</strong> plan — website, apps,
+              and CRM. Scale to revenue-based pricing as you grow:{' '}
+              <strong className="text-[#0A0A0A]">3% to 9% of monthly turnover</strong>, covering
               the full platform and all marketing campaigns managed on your behalf.
             </motion.p>
           </motion.div>
@@ -224,33 +225,47 @@ export default function PricingPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            className="mx-auto max-w-4xl"
+            className="mx-auto max-w-5xl"
           >
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 {
+                  range: '€250',
+                  rangeUnit: 'per month, fixed',
+                  label: 'Start',
+                  desc: 'SEO-optimized website in your language, iOS & Android apps, and a smart AI-powered CRM — ready in one day.',
+                  highlight: false,
+                  tag: null,
+                },
+                {
                   range: '3%',
+                  rangeUnit: 'of monthly turnover',
                   label: 'Starter',
                   desc: 'Single location. Core CRM only — orders, kitchen, couriers.',
                   highlight: false,
+                  tag: null,
                 },
                 {
                   range: '5–7%',
+                  rangeUnit: 'of monthly turnover',
                   label: 'Growth',
                   desc: 'Multi-location chain with managed marketing campaigns, AI automation, and loyalty.',
                   highlight: true,
+                  tag: 'Most popular',
                 },
                 {
                   range: 'up to 9%',
+                  rangeUnit: 'of monthly turnover',
                   label: 'Enterprise',
                   desc: 'Full white-glove setup for large chains: custom integrations, fiscalization, dedicated support.',
                   highlight: false,
+                  tag: null,
                 },
               ].map((tier) => (
                 <motion.div
                   key={tier.label}
                   variants={fadeInUp}
-                  className={`rounded-2xl border p-7 ${
+                  className={`flex flex-col rounded-2xl border p-6 ${
                     tier.highlight
                       ? 'border-[#FFD600] bg-[#FFFBE6] ring-2 ring-[#FFD600]/40'
                       : 'border-[#E5E5E5] bg-white'
@@ -258,7 +273,7 @@ export default function PricingPage() {
                 >
                   <p className="text-3xl font-bold text-[#0A0A0A]">{tier.range}</p>
                   <p className="mt-0.5 text-xs font-semibold uppercase tracking-widest text-[#A3A3A3]">
-                    of monthly turnover
+                    {tier.rangeUnit}
                   </p>
                   <p
                     className={`mt-3 text-sm font-semibold ${
@@ -267,10 +282,10 @@ export default function PricingPage() {
                   >
                     {tier.label}
                   </p>
-                  <p className="mt-2 text-sm leading-relaxed text-[#525252]">{tier.desc}</p>
-                  {tier.highlight && (
-                    <span className="mt-4 inline-block rounded-full bg-[#FFD600] px-3 py-0.5 text-xs font-semibold text-[#0A0A0A]">
-                      Most popular
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-[#525252]">{tier.desc}</p>
+                  {tier.tag && (
+                    <span className="mt-4 inline-block self-start rounded-full bg-[#FFD600] px-3 py-0.5 text-xs font-semibold text-[#0A0A0A]">
+                      {tier.tag}
                     </span>
                   )}
                 </motion.div>
