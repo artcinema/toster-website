@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { posts } from '@/data/posts';
+import { integrations } from '@/data/integrations';
 
 const BASE = 'https://toster.co';
 const locales = ['en', 'uk', 'ru', 'pl', 'cs', 'de', 'es'];
@@ -45,6 +46,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: route.changeFreq as MetadataRoute.Sitemap[number]['changeFrequency'],
       priority: route.priority,
     });
+  }
+
+  // Integration pages
+  for (const integration of integrations) {
+    for (const locale of locales) {
+      entries.push({
+        url: `${BASE}/${locale}/integrations/${integration.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+        alternates: {
+          languages: Object.fromEntries(
+            locales.map((l) => [l, `${BASE}/${l}/integrations/${integration.slug}`])
+          ),
+        },
+      });
+    }
   }
 
   // Blog posts
