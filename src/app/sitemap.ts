@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { posts } from '@/data/posts';
 
 const BASE = 'https://toster.co';
-const locales = ['en', 'uk', 'ru', 'pl', 'de'];
+const locales = ['en', 'uk', 'ru', 'pl', 'cs', 'de', 'es'];
 
 const routes = [
   { path: '',           priority: 1.0,  changeFreq: 'weekly'  },

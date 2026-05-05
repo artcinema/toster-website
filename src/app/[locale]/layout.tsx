@@ -55,13 +55,13 @@ export const metadata: Metadata = {
     title: 'Toster — Food Delivery Chain Management Platform',
     description: 'CRM + customer website + iOS/Android apps + managed marketing for food delivery chains. Revenue-based pricing from 3% of turnover.',
     url: siteConfig.url,
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Toster — Food Delivery CRM' }],
+    images: [{ url: '/api/og', width: 1200, height: 630, alt: 'Toster — Food Delivery CRM' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Toster — Food Delivery Chain Management Platform',
     description: 'CRM + website + apps + marketing for food delivery chains.',
-    images: ['/og-image.png'],
+    images: ['/api/og'],
   },
   alternates: {
     canonical: siteConfig.url,
@@ -70,7 +70,10 @@ export const metadata: Metadata = {
       'uk': `${siteConfig.url}/uk`,
       'ru': `${siteConfig.url}/ru`,
       'pl': `${siteConfig.url}/pl`,
+      'cs': `${siteConfig.url}/cs`,
       'de': `${siteConfig.url}/de`,
+      'es': `${siteConfig.url}/es`,
+      'x-default': `${siteConfig.url}/en`,
     },
   },
   robots: {
@@ -134,11 +137,6 @@ const softwareSchema = {
     'RFM segmentation and LTV forecasting',
     'Integrations: Bolt Food, Glovo, Wolt, Uber Eats, LiqPay, Stripe',
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '12',
-  },
 };
 
 const websiteSchema = {
@@ -174,6 +172,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       suppressHydrationWarning
     >
       <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <JsonLd data={organizationSchema} />
         <JsonLd data={softwareSchema} />
         <JsonLd data={websiteSchema} />
