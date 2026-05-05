@@ -16,9 +16,12 @@ const routes = [
   { path: '/blog',      priority: 0.8,  changeFreq: 'weekly'  },
   { path: '/vs/poster-pos', priority: 0.8, changeFreq: 'monthly' },
   { path: '/about',     priority: 0.7,  changeFreq: 'monthly' },
-  { path: '/security',  priority: 0.6,  changeFreq: 'yearly'  },
-  { path: '/privacy-policy', priority: 0.5, changeFreq: 'yearly' },
-  { path: '/terms',     priority: 0.5,  changeFreq: 'yearly'  },
+  { path: '/security',         priority: 0.6,  changeFreq: 'yearly'  },
+  { path: '/legal/privacy',   priority: 0.3,  changeFreq: 'yearly'  },
+  { path: '/legal/terms',     priority: 0.3,  changeFreq: 'yearly'  },
+  { path: '/legal/dpa',       priority: 0.3,  changeFreq: 'yearly'  },
+  { path: '/legal/cookies',   priority: 0.3,  changeFreq: 'yearly'  },
+  { path: '/legal/imprint',   priority: 0.3,  changeFreq: 'yearly'  },
   { path: '/request-demo', priority: 0.8, changeFreq: 'monthly' },
 ] as const;
 
