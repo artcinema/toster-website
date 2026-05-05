@@ -19,7 +19,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { fadeInUp, staggerChildren } from '@/lib/motion';
 
-const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
+const GEO_URL = '/maps/countries-110m.json';
 
 // ISO 3166-1 numeric — UA=804, PL=616, CZ=203, DE=276
 const HIGHLIGHTED = new Set([804, 616, 203, 276, 724, 784]); // UA, PL, CZ, DE, ES, UAE
