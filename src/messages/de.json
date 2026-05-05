@@ -243,6 +243,55 @@
       "secondary": "Demo anfragen"
     }
   },
+  "ForChains": {
+    "badge": "Für Ketten",
+    "heroTitle": "Skalieren Sie von 3 auf 300 Standorte ohne mehr Manager einzustellen",
+    "heroDesc": "Toster ist für mehrstufige Lieferketten gebaut. Mehrere Länder. Mehrere Währungen. Eine Plattform.",
+    "btnDemo": "Ketten-Demo buchen",
+    "btnFeatures": "Alle Funktionen",
+    "mapActive": "Aktiver Standort",
+    "mapExpanding": "In Expansion",
+    "mapHint": "Scrollen zum Zoomen · Ziehen zum Verschieben",
+    "problemEyebrow": "Das Problem",
+    "problemTitle": "Eine Kette zu führen ist schwer. Muss es aber nicht sein.",
+    "pain": [
+      {"title": "Datensilos zwischen Standorten", "body": "Jeder Standort hat seine eigene Tabelle. Kein einheitlicher Überblick über Umsatz, Lager oder Kunden."},
+      {"title": "Inkonsistente Abläufe in verschiedenen Ländern", "body": "Verschiedene Teams, Workflows, Tools. Einen zweiten Standort zu skalieren bedeutet, von vorne anzufangen."},
+      {"title": "Marketing lässt sich nicht skalieren", "body": "Manuelle Aktionen für jede Kundenliste. Kein RFM, keine Attribution, keine KI."}
+    ],
+    "solutions": [
+      {"title": "Einheitliche Daten über alle Standorte", "body": "Ein Dashboard — alle Bestellungen, Küchenleistung, Kuriereffizienz und GuV über alle Abteilungen. Echtzeit."},
+      {"title": "Ein Playbook, angepasst pro Land", "body": "Gleiche Abläufe überall. Lokale Währungen, Fiskalisierung und Zahlungs-gateways werden automatisch konfiguriert."},
+      {"title": "KI-Marketingagent wächst mit Ihnen", "body": "Autonome Kampagnen pro Segment pro Standort. Reaktivierung, Churn-Prävention — vollautomatisch."}
+    ],
+    "caseBadge": "Fallstudie",
+    "caseTitle": "Netzwerk 966 — läuft auf Toster",
+    "caseDesc": "Ein echtes Liefernetzwerk in 4 Ländern, das diese Plattform seit dem ersten Tag nutzt.",
+    "stats": [
+      {"value": "4", "label": "Länder", "sub": "UA · PL · CZ · DE"},
+      {"value": "25+", "label": "Aktive Standorte", "sub": "und wachsend"},
+      {"value": "500+", "label": "Bestellungen / Tag", "sub": "Hochsaison"},
+      {"value": "70%", "label": "Automatisiert", "sub": "kein manuelles Routing"}
+    ],
+    "quote": "Wir haben 4 Länder aus einem Telegram-Thread heraus geführt. Jetzt sieht jeder Manager nur seine Stadt, ich sehe alles — und der KI-Agent kümmert sich um Reaktivierungen, während ich schlafe.",
+    "caseAuthor": "Netzwerk 966 — Gründer",
+    "caseCountries": "Ukraine · Polen · Tschechien · Deutschland",
+    "multicountryTitle": "Mehrländer-Betrieb direkt einsatzbereit",
+    "multicountryDesc": "Alle Compliance- und Betriebsanforderungen werden je Jurisdiktion gehandhabt.",
+    "mcFeatures": [
+      {"title": "Währung pro Standort", "body": "UAH, EUR, PLN, CZK — jeder Standort in seiner eigenen Währung mit Live-Wechselkursen."},
+      {"title": "Fiskalisierung pro Land", "body": "Checkbox (UA), KSeF (PL), EET (CZ), Fiskaly (DE) — Belege werden automatisch generiert."},
+      {"title": "Sprache pro Kunde", "body": "Kundenoberflächen in 7 Sprachen. Personaloberfläche in deren Sprache."},
+      {"title": "Steuerkalender pro Jurisdiktion", "body": "Fristenverfolgung pro Land. Keine Steuerfrist versäumen."},
+      {"title": "Lokale Zahlungs-Gateways", "body": "LiqPay für UA, Stripe + Viva Wallet für EU, lokale Kassenabstimmung überall."},
+      {"title": "Standortübergreifende KI-Analytik", "body": "Täglicher KI-Bericht für den Inhaber mit standortübergreifenden Benchmarks, Anomalien und Aktionen."}
+    ],
+    "operatingIn": "Wir sind tätig in:",
+    "ctaTitle": "Sehen Sie, wie Toster Ihre Kette skaliert",
+    "ctaDesc": "30-minütige Demo mit Ihren Standorten, Währungen und Abläufen. Keine generischen Folien — wir zeigen Ihnen genau, wie es für Ihre Kette aussieht.",
+    "ctaBtnDemo": "Ketten-Demo anfragen",
+    "ctaBtnIntegrations": "Integrationen"
+  },
   "FoodDelivery": {
     "meta": {
       "title": "CRM für Lieferdienste — Bestellungen, Küche & Kuriere | Toster",

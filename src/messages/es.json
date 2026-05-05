@@ -243,6 +243,55 @@
       "secondary": "Solicitar demo"
     }
   },
+  "ForChains": {
+    "badge": "Para cadenas",
+    "heroTitle": "Escala de 3 a 300 locales sin contratar más gerentes",
+    "heroDesc": "Toster está diseñado para cadenas de delivery. Múltiples países. Múltiples monedas. Una plataforma.",
+    "btnDemo": "Demo para cadena",
+    "btnFeatures": "Ver todas las funciones",
+    "mapActive": "Local activo",
+    "mapExpanding": "En expansión",
+    "mapHint": "Desplaza para zoom · arrastra para mover",
+    "problemEyebrow": "El problema",
+    "problemTitle": "Gestionar una cadena es difícil. No tiene que serlo.",
+    "pain": [
+      {"title": "Datos aislados entre locales", "body": "Cada local tiene su propia hoja de cálculo. Sin vista unificada de ingresos, inventario o clientes."},
+      {"title": "Operaciones inconsistentes entre países", "body": "Distintos equipos, flujos y herramientas. Abrir un segundo local es como empezar desde cero."},
+      {"title": "El marketing no escala", "body": "Envíos manuales a cada base de clientes. Sin RFM, sin atribución, sin IA."}
+    ],
+    "solutions": [
+      {"title": "Datos unificados en todos los locales", "body": "Un dashboard — pedidos, cocina, repartidores y P&L en todas las divisiones. En tiempo real."},
+      {"title": "Un sistema, adaptado por país", "body": "Mismos flujos en todos lados. Monedas, fiscalización y pasarelas configuradas automáticamente."},
+      {"title": "Agente de marketing IA crece contigo", "body": "Campañas autónomas por segmento. Reactivación y prevención de churn — completamente automático."}
+    ],
+    "caseBadge": "Caso de éxito",
+    "caseTitle": "Red 966 — funciona con Toster",
+    "caseDesc": "Una red real de delivery operando en 4 países con esta plataforma desde el primer día.",
+    "stats": [
+      {"value": "4", "label": "Países", "sub": "UA · PL · CZ · DE"},
+      {"value": "25+", "label": "Locales activos", "sub": "y creciendo"},
+      {"value": "500+", "label": "Pedidos / día", "sub": "temporada alta"},
+      {"value": "70%", "label": "Automatizado", "sub": "sin enrutamiento manual"}
+    ],
+    "quote": "Gestionábamos 4 países desde un hilo de Telegram. Ahora cada gerente ve solo su ciudad, yo lo veo todo — y el agente IA gestiona las reactivaciones mientras duermo.",
+    "caseAuthor": "Red 966 — Fundador",
+    "caseCountries": "Ucrania · Polonia · República Checa · Alemania",
+    "multicountryTitle": "Operación multipaís, lista para usar",
+    "multicountryDesc": "Todos los requisitos de cumplimiento y operaciones gestionados por jurisdicción.",
+    "mcFeatures": [
+      {"title": "Moneda por local", "body": "UAH, EUR, PLN, CZK — cada local en su propia moneda con tipos de cambio en vivo."},
+      {"title": "Fiscalización por país", "body": "Checkbox (UA), KSeF (PL), EET (CZ), Fiskaly (DE) — tickets generados automáticamente."},
+      {"title": "Idioma por cliente", "body": "Interfaces de cliente en 7 idiomas. Interfaz del personal en su idioma."},
+      {"title": "Calendario fiscal por jurisdicción", "body": "Seguimiento de plazos por país. Sin perder ninguna fecha de presentación."},
+      {"title": "Pasarelas de pago locales", "body": "LiqPay para UA, Stripe + Viva Wallet para EU, conciliación de efectivo local en todas partes."},
+      {"title": "Analítica IA entre locales", "body": "Informe diario de IA para el propietario con benchmarks, anomalías y acciones."}
+    ],
+    "operatingIn": "Operamos en:",
+    "ctaTitle": "Ve cómo Toster escala tu cadena",
+    "ctaDesc": "Demo de 30 minutos con tus locales, monedas y flujos de trabajo. Sin presentaciones genéricas — te mostramos exactamente cómo se ve para tu cadena.",
+    "ctaBtnDemo": "Solicitar demo para cadena",
+    "ctaBtnIntegrations": "Ver integraciones"
+  },
   "FoodDelivery": {
     "meta": {
       "title": "CRM para Delivery de Comida — Pedidos, Cocina y Repartidores | Toster",

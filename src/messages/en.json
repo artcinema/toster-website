@@ -243,6 +243,55 @@
       "secondary": "Request Demo"
     }
   },
+  "ForChains": {
+    "badge": "For chains",
+    "heroTitle": "Scale from 3 to 300 locations without hiring more managers",
+    "heroDesc": "Toster is built for multi-location chains. Multi-country. Multi-currency. One platform.",
+    "btnDemo": "Book a chain demo",
+    "btnFeatures": "See all features",
+    "mapActive": "Active location",
+    "mapExpanding": "Expanding",
+    "mapHint": "Scroll to zoom · drag to pan",
+    "problemEyebrow": "The problem",
+    "problemTitle": "Running a chain is hard. It doesn't have to be.",
+    "pain": [
+      {"title": "Data silos between locations", "body": "Every location runs its own spreadsheet. No unified view of revenue, inventory, or customers across the network."},
+      {"title": "Inconsistent ops across countries", "body": "Different staff, different workflows, different tools. Scaling a second location means starting from scratch."},
+      {"title": "Marketing doesn't scale", "body": "Manually sending promos to each location's customer list. No RFM. No attribution. No AI. Just copy-paste."}
+    ],
+    "solutions": [
+      {"title": "Unified data across all locations", "body": "One dashboard — all orders, kitchen throughput, courier efficiency, and P&L across every division. Real-time."},
+      {"title": "One playbook, adapted per country", "body": "Same workflows everywhere. Local currencies, fiscalization, and payment gateways configured per country automatically."},
+      {"title": "AI marketing agent scales with you", "body": "Autonomous campaigns per segment per location. Reactivation, churn prevention, and ROAS optimization — all hands-free."}
+    ],
+    "caseBadge": "Case study",
+    "caseTitle": "966 Network — built on Toster",
+    "caseDesc": "A real food delivery chain operating across 4 countries, running on this platform since day one.",
+    "stats": [
+      {"value": "4", "label": "Countries", "sub": "UA · PL · CZ · DE"},
+      {"value": "25+", "label": "Active locations", "sub": "and growing"},
+      {"value": "500+", "label": "Orders / day", "sub": "peak season"},
+      {"value": "70%", "label": "Automated", "sub": "no manual routing"}
+    ],
+    "quote": "We were running 4 countries from one Telegram thread. Now every manager sees only their city, I see everything — and the AI agent handles reactivations while I sleep.",
+    "caseAuthor": "966 Network — Founder",
+    "caseCountries": "Ukraine · Poland · Czech Republic · Germany",
+    "multicountryTitle": "Multi-country, out of the box",
+    "multicountryDesc": "Every compliance and operational requirement handled per jurisdiction.",
+    "mcFeatures": [
+      {"title": "Currency per location", "body": "UAH, EUR, PLN, CZK — each location in its own currency with live FX rates."},
+      {"title": "Fiscalization per country", "body": "Checkbox (UA), KSeF (PL), EET (CZ), Fiskaly (DE) — receipts auto-generated."},
+      {"title": "Language per customer", "body": "Customer-facing interfaces in 7 languages. Staff interface in their language."},
+      {"title": "Tax calendar per jurisdiction", "body": "Deadline tracking per country. Never miss a filing date in any market."},
+      {"title": "Local payment gateways", "body": "LiqPay for UA, Stripe + Viva Wallet for EU, local cash reconciliation everywhere."},
+      {"title": "Cross-location AI analytics", "body": "AI daily report per owner with cross-location benchmarks, anomalies, and actions."}
+    ],
+    "operatingIn": "Operating in:",
+    "ctaTitle": "See how Toster scales your chain",
+    "ctaDesc": "30-minute demo with your locations, your currencies, and your workflows. No generic slides — we show you exactly what it looks like for your chain.",
+    "ctaBtnDemo": "Request a chain demo",
+    "ctaBtnIntegrations": "View integrations"
+  },
   "FoodDelivery": {
     "meta": {
       "title": "Food Delivery CRM — Orders, Kitchen & Couriers | Toster",

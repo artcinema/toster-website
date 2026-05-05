@@ -243,6 +243,55 @@
       "secondary": "Požádat o demo"
     }
   },
+  "ForChains": {
+    "badge": "Pro sítě",
+    "heroTitle": "Škálujte od 3 do 300 provozoven bez přijímání nových manažerů",
+    "heroDesc": "Toster je vytvořen pro sítě rozvozu jídla. Různé země. Různé měny. Jedna platforma.",
+    "btnDemo": "Demo pro síť",
+    "btnFeatures": "Všechny funkce",
+    "mapActive": "Aktivní provozovna",
+    "mapExpanding": "Rozšiřuje se",
+    "mapHint": "Kolečkem přiblížit · táhnout pro posun",
+    "problemEyebrow": "Problém",
+    "problemTitle": "Řídit síť je těžké. Nemusí to tak být.",
+    "pain": [
+      {"title": "Data izolovaná v jednotlivých provozovnách", "body": "Každá provozovna vede svůj tabulkový sešit. Žádný jednotný přehled tržeb, skladu nebo zákazníků."},
+      {"title": "Nejednotné procesy v různých zemích", "body": "Různí lidé, různé nástroje. Otevření druhé provozovny — jako začínat od nuly."},
+      {"title": "Marketing se neschopný škálovat", "body": "Ruční rozesílání promo každé zákaznické základně. Bez RFM, atribuce, AI."}
+    ],
+    "solutions": [
+      {"title": "Jednotná data ve všech provozovnách", "body": "Jeden dashboard — objednávky, kuchyně, kurýři a P&L ve všech pobočkách. V reálném čase."},
+      {"title": "Jeden standard, přizpůsobený zemi", "body": "Stejné procesy všude. Měny, fiskalizace a platební brány nakonfigurované automaticky."},
+      {"title": "Marketingový AI agent roste s vámi", "body": "Autonomní kampaně pro každý segment. Reaktivace a prevence odchodů — bez obsluhy."}
+    ],
+    "caseBadge": "Případová studie",
+    "caseTitle": "Síť 966 — provozuje Toster",
+    "caseDesc": "Skutečná síť rozvozu jídla ve 4 zemích, provozující tuto platformu od prvního dne.",
+    "stats": [
+      {"value": "4", "label": "Země", "sub": "UA · PL · CZ · DE"},
+      {"value": "25+", "label": "Aktivních provozoven", "sub": "a stále roste"},
+      {"value": "500+", "label": "Objednávek / den", "sub": "v sezónním vrcholu"},
+      {"value": "70%", "label": "Automatizováno", "sub": "bez ručního routování"}
+    ],
+    "quote": "Řídili jsme 4 země z jednoho Telegram vlákna. Teď každý manažer vidí jen své město, já vidím vše — a AI agent se stará o reaktivaci, zatímco spím.",
+    "caseAuthor": "Síť 966 — Zakladatel",
+    "caseCountries": "Ukrajina · Polsko · Česká republika · Německo",
+    "multicountryTitle": "Vícezemní provoz přímo z krabice",
+    "multicountryDesc": "Veškeré compliance a provozní požadavky řešeny pro každou jurisdikci.",
+    "mcFeatures": [
+      {"title": "Měna pro každou provozovnu", "body": "UAH, EUR, PLN, CZK — každá provozovna ve vlastní měně s aktuálními kurzy."},
+      {"title": "Fiskalizace dle země", "body": "Checkbox (UA), KSeF (PL), EET (CZ), Fiskaly (DE) — účtenky generovány automaticky."},
+      {"title": "Jazyk pro každého zákazníka", "body": "Zákaznická rozhraní v 7 jazycích. Rozhraní personálu — v jejich jazyce."},
+      {"title": "Daňový kalendář dle jurisdikce", "body": "Sledování termínů v každé zemi. Žádný promeškuaný termín."},
+      {"title": "Místní platební brány", "body": "LiqPay pro UA, Stripe + Viva Wallet pro EU, místní hotovostní vyúčtování všude."},
+      {"title": "Meziprovozní AI analytika", "body": "Denní AI zpráva pro majitele s benchmarky, anomáliemi a doporučeními."}
+    ],
+    "operatingIn": "Působíme v:",
+    "ctaTitle": "Podívejte se, jak Toster škáluje vaši síť",
+    "ctaDesc": "30minutové demo s vašimi provozovnami, měnami a procesy. Žádné obecné prezentace — ukážeme vám přesně, jak to vypadá pro vaši síť.",
+    "ctaBtnDemo": "Chci demo pro síť",
+    "ctaBtnIntegrations": "Integrace"
+  },
   "FoodDelivery": {
     "meta": {
       "title": "CRM pro rozvoz jídla — Objednávky, Kuchyně a Kurýři | Toster",

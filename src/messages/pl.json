@@ -243,6 +243,55 @@
       "secondary": "Zamów demo"
     }
   },
+  "ForChains": {
+    "badge": "Dla sieci",
+    "heroTitle": "Skaluj od 3 do 300 lokalizacji bez zatrudniania kolejnych menedżerów",
+    "heroDesc": "Toster stworzony dla sieci dostaw jedzenia. Wiele krajów. Wiele walut. Jedna platforma.",
+    "btnDemo": "Zamów demo dla sieci",
+    "btnFeatures": "Wszystkie funkcje",
+    "mapActive": "Aktywna lokalizacja",
+    "mapExpanding": "W rozbudowie",
+    "mapHint": "Przewiń aby przybliżyć · przeciągnij aby przesunąć",
+    "problemEyebrow": "Problem",
+    "problemTitle": "Zarządzanie siecią jest trudne. Nie musi takie być.",
+    "pain": [
+      {"title": "Dane w silosach między lokalizacjami", "body": "Każda lokalizacja prowadzi własny arkusz. Brak jednolitego widoku przychodów, magazynu i klientów."},
+      {"title": "Niespójne procesy między krajami", "body": "Różne zespoły, narzędzia. Otwarcie drugiej lokalizacji — jak zaczynać od zera."},
+      {"title": "Marketing nie skaluje się", "body": "Ręczne wysyłki do każdej bazy. Bez RFM, atrybucji, AI."}
+    ],
+    "solutions": [
+      {"title": "Zjednolicone dane we wszystkich lokalizacjach", "body": "Jeden dashboard — zamówienia, kuchnia, kurierzy i P&L we wszystkich oddziałach. W czasie rzeczywistym."},
+      {"title": "Jeden schemat działania, dopasowany do kraju", "body": "Te same procesy wszędzie. Waluty, fiskalizacja i bramki płatnicze konfigurowane automatycznie."},
+      {"title": "Agent marketingowy AI rośnie razem z Tobą", "body": "Autonomiczne kampanie dla każdego segmentu. Reaktywacja i zapobieganie odejściom — bez obsługi."}
+    ],
+    "caseBadge": "Case study",
+    "caseTitle": "Sieć 966 — działa na Toster",
+    "caseDesc": "Realna sieć dostawcza działająca w 4 krajach na tej platformie od pierwszego dnia.",
+    "stats": [
+      {"value": "4", "label": "Kraje", "sub": "UA · PL · CZ · DE"},
+      {"value": "25+", "label": "Aktywnych lokalizacji", "sub": "i rośniemy"},
+      {"value": "500+", "label": "Zamówień / dzień", "sub": "szczyt sezonu"},
+      {"value": "70%", "label": "Zautomatyzowane", "sub": "bez ręcznego routingu"}
+    ],
+    "quote": "Zarządzaliśmy 4 krajami z jednego wątku Telegram. Teraz każdy menedżer widzi tylko swoje miasto, ja widzę wszystko — a agent AI zajmuje się reaktywacją, gdy śpię.",
+    "caseAuthor": "Sieć 966 — Założyciel",
+    "caseCountries": "Ukraina · Polska · Czechy · Niemcy",
+    "multicountryTitle": "Wielokrajowe działanie od razu",
+    "multicountryDesc": "Wszystkie wymogi compliance i operacyjne obsługiwane dla każdej jurysdykcji.",
+    "mcFeatures": [
+      {"title": "Waluta dla każdej lokalizacji", "body": "UAH, EUR, PLN, CZK — każda lokalizacja w swojej walucie z aktualnymi kursami."},
+      {"title": "Fiskalizacja wg kraju", "body": "Checkbox (UA), KSeF (PL), EET (CZ), Fiskaly (DE) — paragony generowane automatycznie."},
+      {"title": "Język dla każdego klienta", "body": "Interfejsy klienta w 7 językach. Interfejs personelu — w ich języku."},
+      {"title": "Kalendarz podatkowy wg jurysdykcji", "body": "Śledzenie terminów w każdym kraju. Żadnego przeoczonego terminu."},
+      {"title": "Lokalne bramki płatnicze", "body": "LiqPay dla UA, Stripe + Viva Wallet dla EU, lokalne rozliczenia gotówki wszędzie."},
+      {"title": "Analityka AI między lokalizacjami", "body": "Codzienny raport AI dla właściciela z benchmarkami, anomaliami i rekomendacjami."}
+    ],
+    "operatingIn": "Działamy w:",
+    "ctaTitle": "Zobacz, jak Toster skaluje Twoją sieć",
+    "ctaDesc": "30-minutowe demo z Twoimi lokalizacjami, walutami i procesami. Bez slajdów — pokazujemy jak to wygląda dla Twojej sieci.",
+    "ctaBtnDemo": "Zamów demo dla sieci",
+    "ctaBtnIntegrations": "Integracje"
+  },
   "FoodDelivery": {
     "meta": {
       "title": "CRM dla dostaw jedzenia — Zamówienia, Kuchnia i Kurierzy | Toster",
