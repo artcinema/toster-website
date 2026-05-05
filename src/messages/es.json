@@ -1,43 +1,43 @@
 {
   "Common": {
-    "tryDemo": "[DRAFT ES] Try Demo",
-    "requestDemo": "[DRAFT ES] Request Demo",
-    "learnMore": "[DRAFT ES] Learn more",
-    "getStarted": "[DRAFT ES] Get started",
-    "seeInAction": "[DRAFT ES] See in action",
-    "comingSoon": "[DRAFT ES] Coming soon",
+    "tryDemo": "Probar demo",
+    "requestDemo": "Solicitar demo",
+    "learnMore": "Saber más",
+    "getStarted": "Empezar",
+    "seeInAction": "Ver en acción",
+    "comingSoon": "Próximamente",
     "signIn": "Iniciar sesión"
   },
   "Nav": {
-    "features": "[DRAFT ES] Features",
-    "ai": "AI",
-    "integrations": "[DRAFT ES] Integrations",
-    "forChains": "[DRAFT ES] For Chains",
-    "pricing": "[DRAFT ES] Pricing",
-    "about": "[DRAFT ES] About"
+    "features": "Funciones",
+    "ai": "IA",
+    "integrations": "Integraciones",
+    "forChains": "Para cadenas",
+    "pricing": "Precios",
+    "about": "Sobre nosotros"
   },
   "Footer": {
-    "tagline": "[DRAFT ES] The command center for food delivery chains.",
-    "madeWith": "[DRAFT ES] Made with care",
-    "copyright": "© 2026 Toster. All rights reserved.",
+    "tagline": "El centro de control para cadenas de entrega de comida.",
+    "madeWith": "Hecho con cuidado",
+    "copyright": "© 2026 Toster. Todos los derechos reservados.",
     "columns": {
-      "product": "[DRAFT ES] Product",
-      "company": "[DRAFT ES] Company",
-      "legal": "[DRAFT ES] Legal",
-      "contact": "[DRAFT ES] Contact"
+      "product": "Producto",
+      "company": "Empresa",
+      "legal": "Legal",
+      "contact": "Contacto"
     },
     "nav": {
-      "features": "[DRAFT ES] Features",
-      "ai": "AI",
-      "integrations": "[DRAFT ES] Integrations",
-      "forChains": "[DRAFT ES] For Chains",
-      "forSingleLocation": "[DRAFT ES] Single Location",
-      "pricing": "[DRAFT ES] Pricing",
-      "about": "[DRAFT ES] About",
-      "blog": "[DRAFT ES] Blog",
-      "security": "[DRAFT ES] Security",
-      "privacy": "[DRAFT ES] Privacy Policy",
-      "terms": "[DRAFT ES] Terms of Service"
+      "features": "Funciones",
+      "ai": "IA",
+      "integrations": "Integraciones",
+      "forChains": "Para cadenas",
+      "forSingleLocation": "Una ubicación",
+      "pricing": "Precios",
+      "about": "Sobre nosotros",
+      "blog": "Blog",
+      "security": "Seguridad",
+      "privacy": "Política de privacidad",
+      "terms": "Términos de servicio"
     },
     "contact": {
       "email": "hello@toster.co",
@@ -45,65 +45,202 @@
     }
   },
   "LanguageSwitcher": {
-    "label": "[DRAFT ES] Language"
+    "label": "Idioma"
   },
   "Home": {
     "hero": {
-      "eyebrow": "[DRAFT ES] The all-in-one food delivery platform",
-      "title": "[DRAFT ES] Run your delivery network on autopilot",
-      "subtitle": "[DRAFT ES] Toster is the command center for food delivery chains.",
+      "eyebrow": "La plataforma todo en uno para delivery de comida",
+      "title": "Gestiona tu red de entregas en piloto automático",
+      "subtitle": "Toster es el centro de control para cadenas de restaurantes con delivery. Pedidos, cocina, repartidores, marketing e IA — en una sola plataforma.",
       "cta": {
-        "primary": "[DRAFT ES] Try Demo",
-        "secondary": "[DRAFT ES] Request Demo"
+        "primary": "Probar demo",
+        "secondary": "Solicitar demo"
       },
-      "trust": "[DRAFT ES] Powers 966 Network · 4 countries · 20k+ orders/day"
+      "trust": "Impulsa la red 966 · 4 países · 20k+ pedidos/día"
     },
     "socialProof": {
       "title": "Integraciones directas con los principales agregadores"
     },
     "problem": {
-      "title": "[DRAFT ES] The problem",
-      "items": []
+      "title": "El problema",
+      "items": [
+        "5+ herramientas que no se comunican entre sí",
+        "Caos de pedidos gestionado en grupos de Telegram",
+        "Cocina ralentizada por falta de coordinación",
+        "Repartidores rastreados en papel o sin rastreo",
+        "Marketing en Excel — si es que se hace"
+      ]
     },
     "solution": {
-      "title": "[DRAFT ES] With Toster",
-      "items": []
+      "title": "Con Toster",
+      "items": [
+        "Una plataforma para toda la operación",
+        "Cada pedido rastreado desde el pedido hasta la puerta",
+        "La cocina recibe tareas automáticamente, una por una",
+        "Mapa en vivo de repartidores con optimización de rutas",
+        "Agente de marketing IA que lanza campañas solo"
+      ]
     },
     "features": {
-      "title": "[DRAFT ES] What makes Toster different",
-      "items": []
+      "title": "Lo que hace diferente a Toster",
+      "items": [
+        {
+          "title": "13 bots de Telegram, cero capacitación",
+          "description": "Cada rol — cocinero, repartidor, gerente, dueño — tiene su propio bot. Sin apps que instalar, sin capacitación. Si usan Telegram, están listos."
+        },
+        {
+          "title": "IA que realmente entrega resultados",
+          "description": "Agentes impulsados por Claude gestionan marketing, pronóstico de demanda, evaluación de influencers y control de calidad de fotos. No son chatbots — IA que hace trabajo real."
+        },
+        {
+          "title": "Creado para cadenas multinacionales",
+          "description": "Multi-moneda, multi-idioma, multi-fiscalización. Checkbox en Ucrania, KSEF en Polonia, EET en Chequia — todo manejado de forma nativa."
+        }
+      ]
     },
     "howItWorks": {
-      "title": "[DRAFT ES] Up and running in one day",
-      "steps": []
+      "title": "En funcionamiento en un día",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Conecta tus ubicaciones",
+          "description": "Añade tus sucursales, configura zonas de entrega, importa tu menú. Toma un día."
+        },
+        {
+          "number": "02",
+          "title": "Tu equipo entra en Telegram",
+          "description": "Cocineros, repartidores, gerentes — cada uno obtiene su bot. Sin apps, sin contraseñas, sin sesiones de incorporación."
+        },
+        {
+          "number": "03",
+          "title": "Los pedidos fluyen, la IA hace el resto",
+          "description": "Tareas de cocina asignadas automáticamente. Repartidores enviados automáticamente. Campañas de marketing activadas automáticamente."
+        }
+      ]
     },
     "ai": {
-      "title": "[DRAFT ES] Meet your AI co-pilot",
-      "subtitle": "[DRAFT ES] Claude-powered intelligence",
-      "items": []
+      "title": "Conoce a tu co-piloto IA",
+      "subtitle": "Inteligencia impulsada por Claude en todo el ciclo de entregas",
+      "items": [
+        {
+          "title": "Operador de voz",
+          "description": "Operador telefónico IA 24/7 impulsado por ElevenLabs. Toma pedidos en ucraniano, ruso y polaco."
+        },
+        {
+          "title": "Agente de marketing",
+          "description": "Campañas de reactivación autónomas, recuperación de carritos abandonados, promociones activadas por el clima."
+        },
+        {
+          "title": "Collab IA",
+          "description": "Evalúa acuerdos con influencers en 30 segundos. Vale la pena o está sobrepreciado — veredicto claro."
+        },
+        {
+          "title": "Cerebro digital",
+          "description": "Predice la demanda, recomienda cantidad de cocineros y repartidores por turno, ajusta por clima y festivos."
+        }
+      ]
     },
     "comparison": {
-      "title": "[DRAFT ES] How Toster compares",
-      "subtitle": "",
-      "features": [],
-      "toster": [],
-      "iiko": [],
-      "posterPos": [],
-      "excel": []
+      "title": "Cómo se compara Toster",
+      "subtitle": "Descubre por qué las cadenas están dejando las herramientas heredadas",
+      "features": [
+        "Plataforma todo en uno",
+        "Telegram-first (13 bots)",
+        "Operador de voz IA",
+        "Fiscalización multinacional",
+        "Sincronización nativa con agregadores",
+        "Agente de marketing IA",
+        "Display de cocina en tiempo real",
+        "Optimización de rutas",
+        "Precio inicial"
+      ],
+      "toster": [
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "Contáctanos"
+      ],
+      "iiko": [
+        "⚠️",
+        "❌",
+        "❌",
+        "⚠️",
+        "⚠️",
+        "❌",
+        "✅",
+        "⚠️",
+        "€€€"
+      ],
+      "posterPos": [
+        "⚠️",
+        "❌",
+        "❌",
+        "⚠️",
+        "⚠️",
+        "❌",
+        "✅",
+        "❌",
+        "€€"
+      ],
+      "excel": [
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "Gratis (te cuesta tiempo)"
+      ]
     },
     "testimonials": {
-      "title": "[DRAFT ES] Join early customers",
-      "subtitle": ""
+      "title": "Únete a los primeros clientes que dan forma al futuro de Toster",
+      "subtitle": "Sé parte de construir algo grande."
     },
     "faq": {
-      "title": "[DRAFT ES] FAQ",
-      "items": []
+      "title": "Preguntas frecuentes",
+      "items": [
+        {
+          "question": "¿Cuánto tarda el onboarding?",
+          "answer": "La mayoría de las ubicaciones están completamente operativas en un día hábil. Te ayudamos a importar tu menú, configurar zonas de entrega y conectar tu equipo con sus bots de Telegram."
+        },
+        {
+          "question": "¿Puedo mantener mi POS actual?",
+          "answer": "Toster tiene su propio módulo POS, pero también tenemos una API abierta para integraciones personalizadas. Háblanos de tu configuración actual."
+        },
+        {
+          "question": "¿Cómo maneja Toster múltiples países?",
+          "answer": "De forma nativa. Cada sucursal puede tener su propia moneda, idioma, reglas fiscales y pasarela de pago. La fiscalización se gestiona automáticamente por jurisdicción."
+        },
+        {
+          "question": "¿Están seguros mis datos?",
+          "answer": "Sí. Los datos están aislados por organización a nivel de base de datos. Usamos autenticación JWT, webhooks firmados con HMAC, registros de auditoría en cada cambio y limitación de tasa. Cumple RGPD con endpoints de exportación y eliminación de datos."
+        },
+        {
+          "question": "¿Admiten agregadores?",
+          "answer": "Admitimos nativamente 11 plataformas de agregadores: Bolt, Glovo, Wolt, DoorDash, UberEats, GrubHub, JustEat, Pyszne.pl, DameJidlo y más. Los pedidos llegan unificados, los estados se sincronizan automáticamente."
+        },
+        {
+          "question": "¿Y si solo tengo una ubicación?",
+          "answer": "Toster funciona perfectamente para ubicaciones individuales. Obtienes la plataforma completa y puedes agregar más ubicaciones cuando estés listo, sin migración."
+        },
+        {
+          "question": "¿Cuánto cuesta?",
+          "answer": "Los precios se basan en tu número de ubicaciones y volumen de pedidos. Solicita una demo y prepararemos una propuesta que se adapte a tu escala."
+        }
+      ]
     },
     "cta": {
-      "title": "[DRAFT ES] Ready to see Toster in action?",
-      "subtitle": "[DRAFT ES] Join the delivery chains that run on Toster.",
-      "primary": "[DRAFT ES] Try Demo",
-      "secondary": "[DRAFT ES] Request Demo"
+      "title": "¿Listo para ver Toster en acción?",
+      "subtitle": "Únete a las cadenas de delivery que funcionan con Toster.",
+      "primary": "Probar demo",
+      "secondary": "Solicitar demo"
     }
   }
 }

@@ -1,43 +1,43 @@
 {
   "Common": {
-    "tryDemo": "[DRAFT CS] Try Demo",
-    "requestDemo": "[DRAFT CS] Request Demo",
-    "learnMore": "[DRAFT CS] Learn more",
-    "getStarted": "[DRAFT CS] Get started",
-    "seeInAction": "[DRAFT CS] See in action",
-    "comingSoon": "[DRAFT CS] Coming soon",
-    "signIn": "Přihlásit"
+    "tryDemo": "Vyzkoušet demo",
+    "requestDemo": "Požádat o demo",
+    "learnMore": "Zjistit více",
+    "getStarted": "Začít",
+    "seeInAction": "Vidět v akci",
+    "comingSoon": "Již brzy",
+    "signIn": "Přihlásit se"
   },
   "Nav": {
-    "features": "[DRAFT CS] Features",
+    "features": "Funkce",
     "ai": "AI",
-    "integrations": "[DRAFT CS] Integrations",
-    "forChains": "[DRAFT CS] For Chains",
-    "pricing": "[DRAFT CS] Pricing",
-    "about": "[DRAFT CS] About"
+    "integrations": "Integrace",
+    "forChains": "Pro řetězce",
+    "pricing": "Ceny",
+    "about": "O nás"
   },
   "Footer": {
-    "tagline": "[DRAFT CS] The command center for food delivery chains.",
-    "madeWith": "[DRAFT CS] Made with care",
-    "copyright": "© 2026 Toster. All rights reserved.",
+    "tagline": "Řídicí středisko pro sítě dovozu jídla.",
+    "madeWith": "Vytvořeno s péčí",
+    "copyright": "© 2026 Toster. Všechna práva vyhrazena.",
     "columns": {
-      "product": "[DRAFT CS] Product",
-      "company": "[DRAFT CS] Company",
-      "legal": "[DRAFT CS] Legal",
-      "contact": "[DRAFT CS] Contact"
+      "product": "Produkt",
+      "company": "Společnost",
+      "legal": "Právní",
+      "contact": "Kontakt"
     },
     "nav": {
-      "features": "[DRAFT CS] Features",
+      "features": "Funkce",
       "ai": "AI",
-      "integrations": "[DRAFT CS] Integrations",
-      "forChains": "[DRAFT CS] For Chains",
-      "forSingleLocation": "[DRAFT CS] Single Location",
-      "pricing": "[DRAFT CS] Pricing",
-      "about": "[DRAFT CS] About",
-      "blog": "[DRAFT CS] Blog",
-      "security": "[DRAFT CS] Security",
-      "privacy": "[DRAFT CS] Privacy Policy",
-      "terms": "[DRAFT CS] Terms of Service"
+      "integrations": "Integrace",
+      "forChains": "Pro řetězce",
+      "forSingleLocation": "Jedna pobočka",
+      "pricing": "Ceny",
+      "about": "O nás",
+      "blog": "Blog",
+      "security": "Bezpečnost",
+      "privacy": "Zásady ochrany soukromí",
+      "terms": "Podmínky použití"
     },
     "contact": {
       "email": "hello@toster.co",
@@ -45,65 +45,202 @@
     }
   },
   "LanguageSwitcher": {
-    "label": "[DRAFT CS] Language"
+    "label": "Jazyk"
   },
   "Home": {
     "hero": {
-      "eyebrow": "[DRAFT CS] The all-in-one food delivery platform",
-      "title": "[DRAFT CS] Run your delivery network on autopilot",
-      "subtitle": "[DRAFT CS] Toster is the command center for food delivery chains.",
+      "eyebrow": "Kompletní platforma pro dovozy jídla",
+      "title": "Řiďte svou doručovací síť na autopilotu",
+      "subtitle": "Toster je řídicí středisko pro sítě restaurací s dovozem. Objednávky, kuchyně, kurýři, marketing a AI — na jedné platformě.",
       "cta": {
-        "primary": "[DRAFT CS] Try Demo",
-        "secondary": "[DRAFT CS] Request Demo"
+        "primary": "Vyzkoušet demo",
+        "secondary": "Požádat o demo"
       },
-      "trust": "[DRAFT CS] Powers 966 Network · 4 countries · 20k+ orders/day"
+      "trust": "Pohání síť 966 · 4 země · 20k+ objednávek/den"
     },
     "socialProof": {
       "title": "Přímé integrace s předními agregátory"
     },
     "problem": {
-      "title": "[DRAFT CS] The problem",
-      "items": []
+      "title": "Problém",
+      "items": [
+        "5+ nástrojů, které spolu nekomunikují",
+        "Chaos s objednávkami řešený v Telegram skupinách",
+        "Kuchyně zpomalená chybějící koordinací",
+        "Kurýři sledovaní na papíře nebo vůbec",
+        "Marketing v Excelu — pokud vůbec"
+      ]
     },
     "solution": {
-      "title": "[DRAFT CS] With Toster",
-      "items": []
+      "title": "S Tosterem",
+      "items": [
+        "Jedna platforma pro celý provoz",
+        "Každá objednávka sledována od podání po dveře",
+        "Kuchyně dostává úkoly automaticky, jeden po druhém",
+        "Živá mapa kurýrů s optimalizací trasy",
+        "AI marketingový agent, který vede kampaně sám"
+      ]
     },
     "features": {
-      "title": "[DRAFT CS] What makes Toster different",
-      "items": []
+      "title": "Co dělá Toster jiným",
+      "items": [
+        {
+          "title": "13 Telegram botů, nulové školení",
+          "description": "Každá role — kuchař, kurýr, manažer, majitel — má svého bota. Žádné aplikace k instalaci, žádné školení. Pokud používají Telegram, jsou připraveni."
+        },
+        {
+          "title": "AI, které skutečně přináší výsledky",
+          "description": "Agenti postavení na Claude řídí marketing, prognózy poptávky, prověřování influencerů a kontrolu kvality fotek. Ne chatboti — AI, které dělá skutečnou práci."
+        },
+        {
+          "title": "Vytvořený pro sítě ve více zemích",
+          "description": "Více měn, více jazyků, více fiskalizací. Checkbox na Ukrajině, KSEF v Polsku, EET v Česku — vše nativně."
+        }
+      ]
     },
     "howItWorks": {
-      "title": "[DRAFT CS] Up and running in one day",
-      "steps": []
+      "title": "V provozu za jeden den",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Připojte svá místa",
+          "description": "Přidejte pobočky, nastavte doručovací zóny, importujte menu. Zabere jeden den."
+        },
+        {
+          "number": "02",
+          "title": "Váš tým se přihlásí přes Telegram",
+          "description": "Kuchaři, kurýři, manažeři — každý dostane svého bota. Žádné aplikace, žádná hesla, žádná školení."
+        },
+        {
+          "number": "03",
+          "title": "Objednávky proudí, AI dělá zbytek",
+          "description": "Kuchyňské úkoly přiřazovány automaticky. Kurýři vysíláni automaticky. Marketingové kampaně spouštěny automaticky."
+        }
+      ]
     },
     "ai": {
-      "title": "[DRAFT CS] Meet your AI co-pilot",
-      "subtitle": "[DRAFT CS] Claude-powered intelligence",
-      "items": []
+      "title": "Poznejte svého AI ko-pilota",
+      "subtitle": "Inteligence poháněná Claudem v celém cyklu doručování",
+      "items": [
+        {
+          "title": "Hlasový operátor",
+          "description": "Nepřetržitý AI telefonní operátor poháněný ElevenLabs. Přijímá objednávky v ukrajinštině, ruštině a polštině."
+        },
+        {
+          "title": "Marketingový agent",
+          "description": "Autonomní reaktivační kampaně, obnova opuštěných košíků, počasím aktivované akce."
+        },
+        {
+          "title": "Collab AI",
+          "description": "Vyhodnotí nabídky influencerů za 30 sekund. Stojí to za to nebo předražené — jasný verdikt."
+        },
+        {
+          "title": "Digitální mozek",
+          "description": "Předpovídá poptávku, doporučuje počty kuchařů a kurýrů na směnu, přizpůsobuje se počasí a svátkům."
+        }
+      ]
     },
     "comparison": {
-      "title": "[DRAFT CS] How Toster compares",
-      "subtitle": "",
-      "features": [],
-      "toster": [],
-      "iiko": [],
-      "posterPos": [],
-      "excel": []
+      "title": "Jak Toster obstojí v porovnání",
+      "subtitle": "Podívejte se, proč sítě přecházejí od starých nástrojů",
+      "features": [
+        "Platforma vše v jednom",
+        "Telegram-first (13 botů)",
+        "AI hlasový operátor",
+        "Fiskalizace ve více zemích",
+        "Nativní synchronizace s agregátory",
+        "AI marketingový agent",
+        "Kuchyňský displej v reálném čase",
+        "Optimalizace trasy",
+        "Počáteční cena"
+      ],
+      "toster": [
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "✅",
+        "Kontaktujte nás"
+      ],
+      "iiko": [
+        "⚠️",
+        "❌",
+        "❌",
+        "⚠️",
+        "⚠️",
+        "❌",
+        "✅",
+        "⚠️",
+        "€€€"
+      ],
+      "posterPos": [
+        "⚠️",
+        "❌",
+        "❌",
+        "⚠️",
+        "⚠️",
+        "❌",
+        "✅",
+        "❌",
+        "€€"
+      ],
+      "excel": [
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "❌",
+        "Zdarma (stojí vás čas)"
+      ]
     },
     "testimonials": {
-      "title": "[DRAFT CS] Join early customers",
-      "subtitle": ""
+      "title": "Přidejte se k prvním zákazníkům formujícím budoucnost Tosteru",
+      "subtitle": "Buďte součástí budování něčeho skvělého."
     },
     "faq": {
-      "title": "[DRAFT CS] FAQ",
-      "items": []
+      "title": "Nejčastěji kladené otázky",
+      "items": [
+        {
+          "question": "Jak dlouho trvá nasazení?",
+          "answer": "Většina lokací je plně funkčních do jednoho pracovního dne. Pomůžeme vám importovat menu, nastavit doručovací zóny a připojit váš tým k jejich Telegram botům."
+        },
+        {
+          "question": "Mohu si ponechat svůj stávající POS?",
+          "answer": "Toster má vlastní modul POS, ale máme také otevřené API pro vlastní integrace. Poraďte se s námi o svém stávajícím systému."
+        },
+        {
+          "question": "Jak Toster zvládá více zemí?",
+          "answer": "Nativně. Každá pobočka může mít vlastní měnu, jazyk, daňová pravidla a platební bránu. Fiskalizace je řešena automaticky pro každou jurisdikci."
+        },
+        {
+          "question": "Jsou moje data v bezpečí?",
+          "answer": "Ano. Data jsou izolována per organizace na úrovni databáze. Používáme JWT autentizaci, HMAC-podepsané webhooky, auditní logy každé změny a omezení počtu požadavků. Soulad s GDPR s endpointy pro export a mazání dat."
+        },
+        {
+          "question": "Podporujete agregátory?",
+          "answer": "Nativně podporujeme 11 agregátorových platforem: Bolt, Glovo, Wolt, DoorDash, UberEats, GrubHub, JustEat, Pyszne.pl, DameJidlo a další. Objednávky přicházejí unifikované, statusy se synchronizují automaticky."
+        },
+        {
+          "question": "Co když mám jen jednu pobočku?",
+          "answer": "Toster funguje skvěle pro jednotlivé pobočky. Dostanete celou platformu a můžete přidávat další pobočky kdykoli budete připraveni — bez migrace."
+        },
+        {
+          "question": "Kolik to stojí?",
+          "answer": "Ceny vycházejí z počtu poboček a objemu objednávek. Požádejte o demo a připravíme nabídku přizpůsobenou vaší velikosti."
+        }
+      ]
     },
     "cta": {
-      "title": "[DRAFT CS] Ready to see Toster in action?",
-      "subtitle": "[DRAFT CS] Join the delivery chains that run on Toster.",
-      "primary": "[DRAFT CS] Try Demo",
-      "secondary": "[DRAFT CS] Request Demo"
+      "title": "Připraveni vidět Toster v akci?",
+      "subtitle": "Přidejte se k doručovacím sítím, které fungují na Tosteru.",
+      "primary": "Vyzkoušet demo",
+      "secondary": "Požádat o demo"
     }
   }
 }
