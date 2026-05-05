@@ -242,5 +242,158 @@
       "primary": "Probar demo",
       "secondary": "Solicitar demo"
     }
+  },
+  "FoodDelivery": {
+    "meta": {
+      "title": "CRM para Delivery de Comida — Pedidos, Cocina y Repartidores | Toster",
+      "description": "CRM completo para cadenas de delivery de comida. Cola unificada de pedidos, pantalla de cocina, seguimiento GPS de repartidores, automatización con IA y marketing — desde el 3% del ingreso."
+    },
+    "hero": {
+      "badge": "CRM para delivery de comida",
+      "h1": "El CRM creado para cadenas de delivery, no para restaurantes individuales",
+      "sub": "Una plataforma gestiona todos los canales: teléfono, web, Telegram, POS y 11 agregadores. Rastrea a cada repartidor. Muestra cada pedido en cocina. Automatiza a los clientes recurrentes.",
+      "cta1": "Solicitar demo",
+      "cta2": "Ver en acción"
+    },
+    "pain": {
+      "h2": "Los problemas de las cadenas de delivery que resolvemos",
+      "items": [
+        {
+          "title": "Caos de pedidos de 5+ canales",
+          "body": "Tu equipo hace malabarismos con llamadas telefónicas, mensajes de Telegram, tablets de agregadores y pedidos del sitio web al mismo tiempo. Los errores ocurren. Los pedidos se pierden. Los clientes dejan una estrella."
+        },
+        {
+          "title": "Los repartidores no saben adónde ir",
+          "body": "Sin optimización de rutas, los repartidores eligen su propio camino. Los retrasos se acumulan. Te enteras por la reseña negativa — 45 minutos demasiado tarde."
+        },
+        {
+          "title": "La cocina no ve el panorama completo",
+          "body": "Los tickets en papel no pueden manejar cambios en tiempo real. Los pedidos urgentes se pierden entre el montón. El mejor cocinero no sabe que el rollo de sushi de un pedido ya lleva 10 minutos de retraso."
+        }
+      ]
+    },
+    "features": {
+      "h2": "Lo que Toster hace por tu cadena de delivery",
+      "items": [
+        {
+          "title": "Cola de pedidos unificada",
+          "body": "Todos los canales aterrizan en un tablero Kanban. Pedidos telefónicos, bot de Telegram, web, terminal POS, Bolt Food, Glovo, Wolt, Uber Eats — una cola, un equipo, un flujo. Cambia a vista de tabla en turnos de alta demanda. Filtra por estado, método de pago o sucursal con un clic."
+        },
+        {
+          "title": "Pantalla de cocina",
+          "body": "KDS en tiempo real para tu equipo de cocina. Los pedidos aparecen en pantalla en el momento en que se confirman. Los cocineros ven sus ítems asignados, configuran temporizadores y marcan platos listos — el sistema mueve el pedido a empaque automáticamente. Sin tickets de papel, sin pedidos perdidos, sin gritos en la cocina."
+        },
+        {
+          "title": "Seguimiento de repartidores en vivo",
+          "body": "Cada repartidor comparte GPS a través del bot Toster. El mapa se actualiza cada 30 segundos. Los despachadores ven todos los repartidores activos, sus pedidos actuales y tiempos estimados de entrega. Detecta retrasos antes de que los clientes lo noten. Asigna automáticamente al repartidor disponible más cercano."
+        },
+        {
+          "title": "Pronóstico de demanda con IA",
+          "body": "La IA basada en Claude analiza tu historial de pedidos, condiciones climáticas y patrones por día de semana para pronosticar la demanda hora a hora. Tu cocina prepara la cantidad correcta de ingredientes — reduciendo el desperdicio de alimentos hasta un 25% y eliminando desabastecimientos en horas pico."
+        },
+        {
+          "title": "Programa de fidelización",
+          "body": "1% de cashback en cada pedido, aplicado automáticamente. Los clientes pueden canjear hasta el 30% del subtotal con bonos acumulados. Sin tarjetas de fidelización, sin seguimiento manual — el sistema lo gestiona todo. La tasa de pedidos repetidos aumenta un promedio del 18% en los primeros 90 días."
+        },
+        {
+          "title": "Campañas de marketing gestionadas",
+          "body": "Campañas de email, SMS, push y Viber gestionadas por el equipo de Toster a través de SendPulse. Segmentamos a tus clientes por puntuación RFM, enviamos flujos de reactivación a clientes en riesgo de abandonar y lanzamos promociones estacionales en el momento adecuado. Tú obtienes los resultados — nosotros nos encargamos de la ejecución."
+        }
+      ]
+    },
+    "usecases": {
+      "h2": "Funciona para cadenas de cualquier tamaño",
+      "items": [
+        {
+          "size": "1 local",
+          "title": "El comienzo correcto",
+          "body": "Comienza con el plan €250/mes. Tu sitio web con tu marca, apps iOS y Android y el CRM completo están en vivo en un día hábil. Acepta pedidos a través de tus propios canales y 3+ agregadores desde el primer día."
+        },
+        {
+          "size": "3–10 locales",
+          "title": "Escalar sin caos",
+          "body": "Añade nuevas sucursales en minutos. Cada local tiene su propia pantalla de cocina, zona de repartidores y cola de pedidos. Los pedidos se dirigen automáticamente a la sucursal disponible más cercana según capacidad y GPS."
+        },
+        {
+          "size": "10+ locales",
+          "title": "Operaciones multinacionales",
+          "body": "Toster opera en Ucrania, Polonia, República Checa y Alemania desde una sola cuenta. Cada país recibe la integración fiscal correcta, pasarela de pago local (LiqPay o Stripe) e interfaz completamente localizada para los clientes."
+        }
+      ]
+    },
+    "integrations": {
+      "h2": "Se integra con las herramientas que ya utilizas",
+      "items": ["Bolt Food", "Glovo", "Wolt", "Uber Eats", "LiqPay", "Stripe", "SendPulse", "Telegram"]
+    },
+    "faq": {
+      "h2": "Preguntas frecuentes",
+      "items": [
+        {
+          "q": "¿Qué es un CRM para delivery de comida?",
+          "a": "Un CRM para delivery de comida es una plataforma que gestiona toda la operación de entrega: pedidos entrantes de todos los canales, producción en cocina, despacho de repartidores, datos de clientes, fidelización y marketing. A diferencia de un POS básico, está diseñado para cadenas que procesan cientos de pedidos al día en múltiples ubicaciones."
+        },
+        {
+          "q": "¿En qué se diferencia Toster de Poster o Toast POS?",
+          "a": "Poster y Toast son sistemas POS adaptados para delivery como función secundaria. Toster fue construido desde cero para delivery: el modelo de datos, las apps móviles, la pantalla de cocina y el seguimiento de repartidores — todo diseñado para cadenas de delivery. También obtienes marketing gestionado y automatización con IA que Poster y Toast sencillamente no ofrecen."
+        },
+        {
+          "q": "¿Con qué agregadores se integra Toster?",
+          "a": "Toster se integra actualmente con Bolt Food, Glovo, Wolt y Uber Eats. Los pedidos de todos los agregadores aparecen en la misma cola Kanban junto a los pedidos de tus propios canales. Sin tablets separadas ni entrada manual."
+        },
+        {
+          "q": "¿Cómo funciona el operador de voz con IA?",
+          "a": "Las llamadas entrantes son atendidas por un agente de voz con IA basado en ElevenLabs. Toma el pedido, confirma la dirección de entrega y crea el pedido en Toster automáticamente. Los operadores humanos solo reciben notificaciones cuando la IA no puede gestionar la solicitud — normalmente menos del 5% de las llamadas."
+        },
+        {
+          "q": "¿Qué métodos de pago se admiten?",
+          "a": "Para Ucrania: LiqPay (tarjeta, Apple Pay, Google Pay, transferencia bancaria). Para mercados de la UE: Stripe (tarjeta, Apple Pay, Google Pay). El pago en efectivo contra entrega se admite en todos lados. Los métodos de pago son configurables por local."
+        },
+        {
+          "q": "¿Puedo rastrear a los repartidores en tiempo real?",
+          "a": "Sí. Cada repartidor comparte GPS a través del bot Telegram de Toster. El mapa en el sistema de gestión muestra todos los repartidores activos, sus pedidos actuales, tiempos estimados de entrega e historial de ruta. También puedes configurar zonas de entrega y reglas de asignación automática de repartidores."
+        },
+        {
+          "q": "¿Toster soporta varios países?",
+          "a": "Sí. Toster opera actualmente en Ucrania, Polonia, República Checa y Alemania. Cada país tiene la integración fiscal correcta, pasarelas de pago locales e interfaz completamente localizada para los clientes. Añadir un nuevo país tarda 1–3 días hábiles."
+        },
+        {
+          "q": "¿Cuánto tiempo tardamos en entrar en funcionamiento?",
+          "a": "El plan Start (€250/mes, 1 local) se puede configurar en 1 día hábil. El plan Revenue completo para cadenas de múltiples ubicaciones generalmente toma de 3 a 7 días, incluida la importación del menú, la formación del personal y la configuración del bot de repartidores."
+        },
+        {
+          "q": "¿Hay un período de prueba gratuito?",
+          "a": "No ofrecemos acceso de prueba autoservicio — en cambio, realizamos una demo guiada en vivo con tu menú real, seguida de un período piloto de pago. Esto garantiza que veas Toster funcionando con tu flujo de pedidos real, no en un entorno de prueba genérico."
+        },
+        {
+          "q": "¿Qué significa exactamente 'marketing gestionado'?",
+          "a": "Significa que el equipo de Toster gestiona tus campañas por ti — diseña, segmenta y envía campañas de email, SMS, Viber y push usando tus datos de clientes. Tú apruebas el contenido; nosotros nos encargamos de la ejecución y los informes. No necesitas un especialista en marketing de tu lado."
+        }
+      ]
+    },
+    "related": {
+      "h2": "Otras soluciones en Toster",
+      "items": [
+        {
+          "title": "Terminal POS",
+          "href": "/pricing",
+          "desc": "Acepta pedidos en mostrador junto a pedidos de delivery en una sola cola."
+        },
+        {
+          "title": "Automatización con IA",
+          "href": "/ai",
+          "desc": "Operador de voz con IA, pronóstico de demanda y campañas de reactivación."
+        },
+        {
+          "title": "Para cadenas",
+          "href": "/for-chains",
+          "desc": "Operaciones internacionales, cumplimiento fiscal y análisis de cadena."
+        }
+      ]
+    },
+    "cta": {
+      "h2": "¿Listo para gestionar toda tu cadena en una plataforma?",
+      "body": "Reserva una demo de 30 minutos y ve Toster funcionando con tu menú y flujo de pedidos real.",
+      "cta": "Solicitar demo"
+    }
   }
 }

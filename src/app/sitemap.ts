@@ -6,9 +6,10 @@ const locales = ['en', 'uk', 'ru', 'pl', 'cs', 'de', 'es'];
 
 const routes = [
   { path: '',           priority: 1.0,  changeFreq: 'weekly'  },
-  { path: '/features',  priority: 0.9,  changeFreq: 'weekly'  },
-  { path: '/ai',        priority: 0.9,  changeFreq: 'weekly'  },
-  { path: '/for-chains',priority: 0.9,  changeFreq: 'weekly'  },
+  { path: '/features',       priority: 0.9,  changeFreq: 'weekly'  },
+  { path: '/food-delivery',  priority: 0.9,  changeFreq: 'weekly'  },
+  { path: '/ai',             priority: 0.9,  changeFreq: 'weekly'  },
+  { path: '/for-chains',     priority: 0.9,  changeFreq: 'weekly'  },
   { path: '/pricing',   priority: 0.9,  changeFreq: 'monthly' },
   { path: '/integrations', priority: 0.8, changeFreq: 'monthly' },
   { path: '/blog',      priority: 0.8,  changeFreq: 'weekly'  },

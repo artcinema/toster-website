@@ -242,5 +242,158 @@
       "primary": "Try Demo",
       "secondary": "Request Demo"
     }
+  },
+  "FoodDelivery": {
+    "meta": {
+      "title": "Food Delivery CRM — Orders, Kitchen & Couriers | Toster",
+      "description": "All-in-one CRM for food delivery chains. Unified order queue, kitchen display, GPS courier tracking, AI automation, and managed marketing — from 3% of monthly turnover."
+    },
+    "hero": {
+      "badge": "Food Delivery CRM",
+      "h1": "The CRM built for food delivery chains, not single restaurants",
+      "sub": "One platform handles every channel: phone, web, Telegram, POS, and 11 aggregators. Track every courier. Display every order in the kitchen. Automate repeat customers.",
+      "cta1": "Request a demo",
+      "cta2": "See it in action"
+    },
+    "pain": {
+      "h2": "The problems we solve for food delivery chains",
+      "items": [
+        {
+          "title": "Order chaos across 5+ channels",
+          "body": "Your team juggles phone calls, Telegram messages, aggregator tablets, and website orders simultaneously. Mistakes happen. Orders get lost. Customers leave one-star reviews."
+        },
+        {
+          "title": "Couriers don't know where to go next",
+          "body": "Without route optimization, couriers choose their own path. Late deliveries pile up. You find out when the 1-star review hits your listing — 45 minutes too late."
+        },
+        {
+          "title": "Kitchen doesn't see the full picture",
+          "body": "Printed ticket systems can't handle real-time changes. Rush orders get lost in the pile. Your best cook doesn't know the sushi roll is already 10 minutes behind."
+        }
+      ]
+    },
+    "features": {
+      "h2": "What Toster does for your delivery chain",
+      "items": [
+        {
+          "title": "Unified order queue",
+          "body": "Every channel lands in one Kanban board. Phone orders, Telegram bot orders, your website, POS terminal, Bolt Food, Glovo, Wolt, Uber Eats — one queue, one team, one flow. Switch to table view for high-volume shifts. Filter by status, payment method, or division in one click."
+        },
+        {
+          "title": "Kitchen Display System",
+          "body": "Real-time KDS for your kitchen team. Orders appear on screen the moment they're confirmed. Cooks see their assigned rolls, set individual timers, and mark items ready — the system moves the order to packing automatically. No printed tickets, no lost orders, no shouting across the kitchen."
+        },
+        {
+          "title": "Live courier tracking",
+          "body": "Every courier shares GPS via the Toster courier bot. The live map updates every 30 seconds. Dispatchers see all active couriers, their assigned orders, current ETAs, and route efficiency. Detect delays before customers notice. Assign the nearest available courier automatically."
+        },
+        {
+          "title": "AI demand forecasting",
+          "body": "Claude-powered AI analyzes your order history, weather patterns, and day-of-week trends to forecast demand by hour. Your kitchen preps the right amount of ingredients — reducing food waste by up to 25% and eliminating peak-time stock-outs that cost you orders."
+        },
+        {
+          "title": "Customer loyalty program",
+          "body": "1% cashback on every order, applied automatically. Customers can redeem up to 30% of their subtotal with accumulated bonuses. No loyalty cards, no manual tracking — the system handles it. Average repeat order rate increases 18% within 90 days of enabling the loyalty program."
+        },
+        {
+          "title": "Managed marketing campaigns",
+          "body": "Email, SMS, push, and Viber campaigns managed by the Toster team via SendPulse. We segment your customers by RFM score, send reactivation flows to churning customers, and push seasonal promotions at the right moment. You get the results — we handle the execution."
+        }
+      ]
+    },
+    "usecases": {
+      "h2": "Works for chains of any size",
+      "items": [
+        {
+          "size": "1 location",
+          "title": "Getting started right",
+          "body": "Start with the €250/month plan. Your branded website, iOS & Android apps, and full CRM go live in one business day. Accept orders through your own channels and 3+ aggregators from day one. No IT department needed."
+        },
+        {
+          "size": "3–10 locations",
+          "title": "Scaling without chaos",
+          "body": "Add new divisions in minutes. Each location gets its own kitchen display, courier zone, and order queue. Orders route automatically to the nearest available division based on real-time capacity and GPS proximity."
+        },
+        {
+          "size": "10+ locations",
+          "title": "Multinational operations",
+          "body": "Toster runs across Ukraine, Poland, Czech Republic, and Germany from a single management account. Each country gets the correct fiscal integration, local payment gateway (LiqPay or Stripe), and a fully localized customer-facing interface."
+        }
+      ]
+    },
+    "integrations": {
+      "h2": "Integrates with the tools you already use",
+      "items": ["Bolt Food", "Glovo", "Wolt", "Uber Eats", "LiqPay", "Stripe", "SendPulse", "Telegram"]
+    },
+    "faq": {
+      "h2": "Frequently asked questions",
+      "items": [
+        {
+          "q": "What is a food delivery CRM?",
+          "a": "A food delivery CRM is a platform that manages your entire delivery operation: incoming orders from all channels, kitchen production, courier dispatch, customer data, loyalty, and marketing. Unlike a basic POS, it's designed for chains that process hundreds of orders per day across multiple locations."
+        },
+        {
+          "q": "How is Toster different from Poster or iiko?",
+          "a": "Poster and iiko are POS-first systems adapted for delivery as an afterthought. Toster was built delivery-first: the data model, the mobile apps, the kitchen display, and courier tracking were all designed around delivery chains. You also get managed marketing and AI automation that Poster and iiko simply don't offer."
+        },
+        {
+          "q": "Which aggregators does Toster integrate with?",
+          "a": "Toster currently integrates with Bolt Food, Glovo, Wolt, and Uber Eats. Orders from all aggregators appear in the same Kanban queue alongside your own-channel orders. No separate tablets or manual entry."
+        },
+        {
+          "q": "How does the AI voice operator work?",
+          "a": "Incoming calls are handled by an ElevenLabs-powered AI voice agent. It takes the order, confirms the delivery address, and creates the order in Toster automatically. Human operators receive notifications only if the AI cannot handle the request — typically less than 5% of calls."
+        },
+        {
+          "q": "What payment methods are supported?",
+          "a": "For Ukraine: LiqPay (card, Apple Pay, Google Pay, bank transfer). For EU markets: Stripe (card, Apple Pay, Google Pay). Cash on delivery is supported everywhere. Payment methods are configurable per location."
+        },
+        {
+          "q": "Can I track couriers in real time?",
+          "a": "Yes. Every courier shares GPS via the Toster courier Telegram bot. The management map shows all active couriers, their current orders, estimated delivery times, and route history. You can also set delivery zones and automatic courier assignment rules."
+        },
+        {
+          "q": "Does Toster support multiple countries?",
+          "a": "Yes. Toster currently operates in Ukraine, Poland, Czech Republic, and Germany. Each country has the correct fiscal compliance integration, local payment gateways, and a fully localized customer interface. Adding a new country takes 1–3 business days."
+        },
+        {
+          "q": "How quickly can we go live?",
+          "a": "The Start plan (€250/month, 1 location) can be set up in 1 business day. The full Revenue plan for multi-location chains typically takes 3–7 days, including menu import, staff training, and courier bot setup."
+        },
+        {
+          "q": "Is there a free trial?",
+          "a": "We don't offer a self-serve trial — instead, we run a guided live demo with your actual menu, followed by a paid pilot period. This ensures you see Toster with your real order flow, not a generic sandbox that doesn't reflect your operation."
+        },
+        {
+          "q": "What does 'managed marketing' mean exactly?",
+          "a": "It means Toster's team runs your campaigns for you — we design, segment, and send email, SMS, Viber, and push notification campaigns using your customer data. You approve the content; we handle the execution and reporting. No marketing hire needed on your end."
+        }
+      ]
+    },
+    "related": {
+      "h2": "Other solutions in Toster",
+      "items": [
+        {
+          "title": "POS Terminal",
+          "href": "/pricing",
+          "desc": "Accept in-person counter orders alongside delivery orders in one queue."
+        },
+        {
+          "title": "AI Automation",
+          "href": "/ai",
+          "desc": "AI voice operator, demand forecasting, and customer reactivation flows."
+        },
+        {
+          "title": "For Chains",
+          "href": "/for-chains",
+          "desc": "Multi-country operations, fiscal compliance, and chain-level analytics."
+        }
+      ]
+    },
+    "cta": {
+      "h2": "Ready to run your delivery chain on one platform?",
+      "body": "Book a 30-minute demo and see Toster working with your actual menu and order flow.",
+      "cta": "Request a demo"
+    }
   }
 }

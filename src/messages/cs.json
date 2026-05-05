@@ -242,5 +242,158 @@
       "primary": "Vyzkoušet demo",
       "secondary": "Požádat o demo"
     }
+  },
+  "FoodDelivery": {
+    "meta": {
+      "title": "CRM pro rozvoz jídla — Objednávky, Kuchyně a Kurýři | Toster",
+      "description": "Komplexní CRM pro sítě rozvozu jídla. Jednotná fronta objednávek, kuchyňský displej, GPS sledování kurýrů, AI automatizace a marketing — od 3 % obratu."
+    },
+    "hero": {
+      "badge": "CRM pro rozvoz jídla",
+      "h1": "CRM vytvořený pro sítě rozvozu jídla, ne pro jednotlivé restaurace",
+      "sub": "Jedna platforma zvládá každý kanál: telefon, web, Telegram, POS a 11 agregátorů. Sledujte každého kurýra. Zobrazujte každou objednávku v kuchyni. Automatizujte opakující se zákazníky.",
+      "cta1": "Požádat o demo",
+      "cta2": "Podívejte se na produkt"
+    },
+    "pain": {
+      "h2": "Problémy doručovacích sítí, které řešíme",
+      "items": [
+        {
+          "title": "Chaos objednávek z 5+ kanálů",
+          "body": "Váš tým současně žongluje telefonáty, Telegram zprávami, tablety agregátorů a objednávkami z webu. Chyby se stávají. Objednávky se ztrácejí. Zákazníci dávají jednu hvězdičku."
+        },
+        {
+          "title": "Kurýři nevědí, kam jet dál",
+          "body": "Bez optimalizace tras si kurýři vybírají cestu sami. Zpoždění se hromadí. Dozvíte se o tom z negativní recenze — o 45 minut pozdě."
+        },
+        {
+          "title": "Kuchyně nevidí celkový obraz",
+          "body": "Papírové lístky nezvládají změny v reálném čase. Urgentní objednávky se ztrácejí v hromadě. Nejlepší kuchař neví, že suši rolek pro objednávku už zpozdil o 10 minut."
+        }
+      ]
+    },
+    "features": {
+      "h2": "Co Toster dělá pro vaši doručovací síť",
+      "items": [
+        {
+          "title": "Jednotná fronta objednávek",
+          "body": "Každý kanál přistane v jedné Kanban tabuli. Telefonní objednávky, Telegram bot, web, POS terminál, Bolt Food, Glovo, Wolt, Uber Eats — jedna fronta, jeden tým, jeden tok. Přepněte na tabulkové zobrazení při náročných směnách. Filtrujte podle stavu, způsobu platby nebo pobočky jedním kliknutím."
+        },
+        {
+          "title": "Kuchyňský displej",
+          "body": "KDS v reálném čase pro váš kuchyňský tým. Objednávky se objeví na obrazovce okamžitě po potvrzení. Kuchaři vidí přiřazené položky, nastavují časovače a označují hotová jídla — systém automaticky přesune objednávku do balení. Žádné papírové lístky, žádné ztracené objednávky, žádné křičení přes celou kuchyni."
+        },
+        {
+          "title": "Živé sledování kurýrů",
+          "body": "Každý kurýr sdílí GPS přes bota Toster. Mapa se aktualizuje každých 30 sekund. Dispečeři vidí všechny aktivní kurýry, jejich aktuální objednávky a odhadované časy doručení. Zjistěte zpoždění dříve, než si toho zákazníci všimnou. Automaticky přiřaďte nejbližšího volného kurýra."
+        },
+        {
+          "title": "AI předpovídání poptávky",
+          "body": "AI na bázi Claude analyzuje historii objednávek, počasí a vzory dnů v týdnu pro předpovídání poptávky po hodinách. Vaše kuchyně připraví správné množství ingrediencí — snížení plýtvání potravinami až o 25 % a eliminace výpadků zásob ve špičkách."
+        },
+        {
+          "title": "Věrnostní program",
+          "body": "1 % cashback na každou objednávku, automaticky připisován. Zákazníci mohou uplatnit až 30 % hodnoty objednávky nasbíranými bonusy. Žádné věrnostní karty, žádné ruční sledování — systém vše zvládne sám. Míra opakovaných objednávek roste průměrně o 18 % během 90 dnů."
+        },
+        {
+          "title": "Řízené marketingové kampaně",
+          "body": "E-mailové, SMS, push a Viber kampaně řízené týmem Toster přes SendPulse. Segmentujeme vaše zákazníky podle RFM skóre, posíláme reaktivační sekvence odcházejícím zákazníkům a spouštíme sezónní akce ve správný okamžik. Vy dostáváte výsledky — my se staráme o realizaci."
+        }
+      ]
+    },
+    "usecases": {
+      "h2": "Funguje pro sítě libovolné velikosti",
+      "items": [
+        {
+          "size": "1 pobočka",
+          "title": "Správný začátek",
+          "body": "Začněte s plánem €250/měsíc. Vaše brandovaná webová stránka, aplikace pro iOS a Android a plný CRM jsou spuštěny za jeden pracovní den. Přijímejte objednávky přes vlastní kanály a 3+ agregátory od prvního dne."
+        },
+        {
+          "size": "3–10 poboček",
+          "title": "Škálování bez chaosu",
+          "body": "Přidávejte nové pobočky za minuty. Každá pobočka má vlastní kuchyňský displej, kurýrní zónu a frontu objednávek. Objednávky jsou automaticky směrovány na nejbližší dostupnou pobočku na základě kapacity a GPS."
+        },
+        {
+          "size": "10+ poboček",
+          "title": "Mezinárodní operace",
+          "body": "Toster funguje na Ukrajině, v Polsku, Česku a Německu z jednoho účtu. Každá země má správnou fiskální integraci, místní platební bránu (LiqPay nebo Stripe) a plně lokalizované rozhraní pro zákazníky."
+        }
+      ]
+    },
+    "integrations": {
+      "h2": "Integruje se s nástroji, které už používáte",
+      "items": ["Bolt Food", "Glovo", "Wolt", "Uber Eats", "LiqPay", "Stripe", "SendPulse", "Telegram"]
+    },
+    "faq": {
+      "h2": "Nejčastější otázky",
+      "items": [
+        {
+          "q": "Co je CRM pro rozvoz jídla?",
+          "a": "CRM pro rozvoz jídla je platforma, která spravuje celou doručovací operaci: příchozí objednávky ze všech kanálů, kuchyňskou výrobu, dispečink kurýrů, zákaznická data, věrnost a marketing. Na rozdíl od základního POS je navržena pro sítě zpracovávající stovky objednávek denně na více pobočkách."
+        },
+        {
+          "q": "Čím se Toster liší od Storyous nebo iiko?",
+          "a": "Storyous a iiko jsou POS systémy adaptované na rozvoz jako dodatečná funkce. Toster byl postaven od základu pro rozvoz: datový model, mobilní aplikace, kuchyňský displej a sledování kurýrů — vše navrženo pro doručovací sítě. Navíc získáte řízený marketing a AI automatizaci, které Storyous a iiko jednoduše nenabízejí."
+        },
+        {
+          "q": "S jakými agregátory se Toster integruje?",
+          "a": "Toster se aktuálně integruje s Bolt Food, Glovo, Wolt a Uber Eats. Objednávky ze všech agregátorů se zobrazují ve stejné Kanban frontě vedle objednávek z vlastních kanálů. Žádné samostatné tablety a ruční zadávání."
+        },
+        {
+          "q": "Jak funguje AI hlasový operátor?",
+          "a": "Příchozí hovory zpracovává AI hlasový agent na bázi ElevenLabs. Přijme objednávku, potvrdí dodací adresu a automaticky vytvoří objednávku v Tosteru. Lidští operátoři dostávají upozornění pouze tehdy, když AI nedokáže vyřídit požadavek — obvykle méně než 5 % hovorů."
+        },
+        {
+          "q": "Jaké způsoby platby jsou podporovány?",
+          "a": "Pro Ukrajinu: LiqPay (karta, Apple Pay, Google Pay, bankovní převod). Pro trhy EU: Stripe (karta, Apple Pay, Google Pay). Platba v hotovosti při doručení je podporována všude. Způsoby platby jsou konfigurovatelné pro každou pobočku zvlášť."
+        },
+        {
+          "q": "Mohu sledovat kurýry v reálném čase?",
+          "a": "Ano. Každý kurýr sdílí GPS přes Telegram bota Toster. Mapa v systému správy zobrazuje všechny aktivní kurýry, jejich aktuální objednávky, odhadované časy doručení a historii trasy. Můžete také nastavit doručovací zóny a pravidla automatického přiřazování kurýrů."
+        },
+        {
+          "q": "Podporuje Toster více zemí?",
+          "a": "Ano. Toster aktuálně funguje na Ukrajině, v Polsku, Česku a Německu. Každá země má správnou fiskální integraci, místní platební brány a plně lokalizované rozhraní pro zákazníky. Přidání nové země trvá 1–3 pracovní dny."
+        },
+        {
+          "q": "Jak rychle můžeme spustit?",
+          "a": "Plán Start (€250/měsíc, 1 pobočka) lze nastavit za 1 pracovní den. Plný plán Revenue pro sítě s více pobočkami obvykle trvá 3–7 dní, včetně importu menu, školení personálu a nastavení bota pro kurýry."
+        },
+        {
+          "q": "Je k dispozici bezplatná zkušební verze?",
+          "a": "Nenabízíme samostatný zkušební přístup — místo toho provádíme řízené živé demo s vaším skutečným menu, po kterém následuje placené pilotní období. Tím zajistíte, že uvidíte Toster fungující s vaším skutečným tokem objednávek, ne v obecném testovacím prostředí."
+        },
+        {
+          "q": "Co přesně znamená 'řízený marketing'?",
+          "a": "Znamená to, že tým Toster vede vaše kampaně za vás — navrhuje, segmentuje a posílá e-mailové, SMS, Viber a push kampaně pomocí vašich zákaznických dat. Vy schvalujete obsah; my se staráme o realizaci a reportování. Na vaší straně není potřeba marketingový specialista."
+        }
+      ]
+    },
+    "related": {
+      "h2": "Další řešení v Tosteru",
+      "items": [
+        {
+          "title": "POS terminál",
+          "href": "/pricing",
+          "desc": "Přijímejte objednávky u pultu vedle doručovacích objednávek v jedné frontě."
+        },
+        {
+          "title": "AI automatizace",
+          "href": "/ai",
+          "desc": "AI hlasový operátor, předpovídání poptávky a reaktivační kampaně zákazníků."
+        },
+        {
+          "title": "Pro sítě",
+          "href": "/for-chains",
+          "desc": "Mezinárodní operace, fiskální soulad a analytika sítě."
+        }
+      ]
+    },
+    "cta": {
+      "h2": "Připraveni spravovat celou síť na jedné platformě?",
+      "body": "Zarezervujte si 30minutové demo a uvidíte Toster v práci s vaším skutečným menu a tokem objednávek.",
+      "cta": "Požádat o demo"
+    }
   }
 }

@@ -242,5 +242,158 @@
       "primary": "Wypróbuj demo",
       "secondary": "Zamów demo"
     }
+  },
+  "FoodDelivery": {
+    "meta": {
+      "title": "CRM dla dostaw jedzenia — Zamówienia, Kuchnia i Kurierzy | Toster",
+      "description": "Kompleksowy CRM dla sieci dostaw jedzenia. Jednolita kolejka zamówień, wyświetlacz kuchenny, śledzenie GPS kurierów, automatyzacja AI i marketing — od 3% obrotu."
+    },
+    "hero": {
+      "badge": "CRM dla dostaw jedzenia",
+      "h1": "CRM stworzony dla sieci dostaw jedzenia, nie dla pojedynczej restauracji",
+      "sub": "Jedna platforma obsługuje każdy kanał: telefon, internet, Telegram, POS i 11 agregatów. Śledź każdego kuriera. Wyświetlaj każde zamówienie w kuchni. Automatyzuj powracających klientów.",
+      "cta1": "Zamów demo",
+      "cta2": "Zobacz w działaniu"
+    },
+    "pain": {
+      "h2": "Problemy sieci dostawczych, które rozwiązujemy",
+      "items": [
+        {
+          "title": "Chaos zamówień z 5+ kanałów",
+          "body": "Twój zespół jednocześnie żongluje telefonami, wiadomościami Telegram, tabletami agregatów i zamówieniami ze strony. Błędy się zdarzają. Zamówienia giną. Klienci wystawiają jedną gwiazdkę."
+        },
+        {
+          "title": "Kurierzy nie wiedzą, dokąd jechać",
+          "body": "Bez optymalizacji tras kurierzy sami wybierają drogę. Opóźnienia się nawarstwiają. Dowiadujesz się o tym z negatywnej opinii — 45 minut za późno."
+        },
+        {
+          "title": "Kuchnia nie widzi pełnego obrazu",
+          "body": "Papierowe bilety nie radzą sobie ze zmianami w czasie rzeczywistym. Pilne zamówienia giną w stosie. Najlepszy kucharz nie wie, że rolka sushi już spóźnia się o 10 minut."
+        }
+      ]
+    },
+    "features": {
+      "h2": "Co Toster robi dla Twojej sieci dostawczej",
+      "items": [
+        {
+          "title": "Ujednolicona kolejka zamówień",
+          "body": "Każdy kanał trafia do jednej tablicy Kanban. Zamówienia telefoniczne, bot Telegram, strona, terminal POS, Bolt Food, Glovo, Wolt, Uber Eats — jedna kolejka, jeden zespół, jeden przepływ. Przełącz się na widok tabelaryczny podczas intensywnych zmian. Filtruj według statusu, metody płatności lub oddziału jednym kliknięciem."
+        },
+        {
+          "title": "Wyświetlacz kuchenny",
+          "body": "KDS w czasie rzeczywistym dla Twojego zespołu kuchennego. Zamówienia pojawiają się na ekranie natychmiast po potwierdzeniu. Kucharze widzą przypisane pozycje, ustawiają timery i oznaczają gotowe dania — system automatycznie przenosi zamówienie do pakowania. Bez papierowych biletów, zgubionych zamówień i krzyków przez cały kuchenny hol."
+        },
+        {
+          "title": "Śledzenie kurierów na żywo",
+          "body": "Każdy kurier udostępnia GPS przez bota Toster. Mapa aktualizuje się co 30 sekund. Dyspozytorzy widzą wszystkich aktywnych kurierów, ich bieżące zamówienia i szacowany czas dostawy. Wykrywaj opóźnienia zanim klienci je zauważą. Automatycznie przypisuj najbliższego wolnego kuriera."
+        },
+        {
+          "title": "Prognozowanie popytu przez AI",
+          "body": "AI oparta na Claude analizuje historię zamówień, warunki pogodowe i wzorce dni tygodnia, aby prognozować popyt godzina po godzinie. Twoja kuchnia przygotowuje odpowiednią ilość składników — zmniejszając marnotrawstwo żywności do 25% i eliminując braki w zapasach w szczytowych godzinach."
+        },
+        {
+          "title": "Program lojalnościowy",
+          "body": "1% cashback od każdego zamówienia, naliczany automatycznie. Klienci mogą zrealizować do 30% wartości zamówienia zgromadzonymi bonusami. Żadnych kart lojalnościowych, żadnego ręcznego śledzenia — system robi wszystko samodzielnie. Wskaźnik powracających zamówień rośnie średnio o 18% w ciągu 90 dni."
+        },
+        {
+          "title": "Zarządzane kampanie marketingowe",
+          "body": "Kampanie e-mail, SMS, push i Viber zarządzane przez zespół Toster za pośrednictwem SendPulse. Segmentujemy Twoich klientów według wyniku RFM, wysyłamy przepływy reaktywacji do odchodzących klientów i uruchamiamy sezonowe promocje we właściwym momencie. Ty dostajesz wyniki — my zajmujemy się realizacją."
+        }
+      ]
+    },
+    "usecases": {
+      "h2": "Działa dla sieci każdej wielkości",
+      "items": [
+        {
+          "size": "1 lokal",
+          "title": "Właściwy start",
+          "body": "Zacznij od planu €250/miesiąc. Twoja strona z brandingiem, aplikacje iOS i Android oraz pełny CRM są uruchomione w jeden dzień roboczy. Przyjmuj zamówienia przez własne kanały i 3+ agregatory od pierwszego dnia."
+        },
+        {
+          "size": "3–10 lokali",
+          "title": "Skalowanie bez chaosu",
+          "body": "Dodawaj nowe oddziały w minuty. Każdy lokal ma własny wyświetlacz kuchenny, strefę kurierów i kolejkę zamówień. Zamówienia są automatycznie kierowane do najbliższego dostępnego oddziału na podstawie obciążenia i GPS."
+        },
+        {
+          "size": "10+ lokali",
+          "title": "Operacje międzynarodowe",
+          "body": "Toster działa na Ukrainie, w Polsce, Czechach i Niemczech z jednego konta. Każdy kraj otrzymuje właściwą integrację fiskalną, lokalną bramkę płatniczą (LiqPay lub Stripe) i w pełni zlokalizowany interfejs dla klientów."
+        }
+      ]
+    },
+    "integrations": {
+      "h2": "Integruje się z narzędziami, których już używasz",
+      "items": ["Bolt Food", "Glovo", "Wolt", "Uber Eats", "LiqPay", "Stripe", "SendPulse", "Telegram"]
+    },
+    "faq": {
+      "h2": "Często zadawane pytania",
+      "items": [
+        {
+          "q": "Czym jest CRM dla dostaw jedzenia?",
+          "a": "CRM dla dostaw jedzenia to platforma zarządzająca całą operacją dostawczą: zamówieniami przychodzącymi ze wszystkich kanałów, produkcją kuchenną, dyspozycją kurierów, danymi klientów, lojalnością i marketingiem. W odróżnieniu od zwykłego POS, jest zaprojektowana dla sieci obsługujących setki zamówień dziennie w wielu lokalizacjach."
+        },
+        {
+          "q": "Czym Toster różni się od Poster lub iiko?",
+          "a": "Poster i iiko to systemy POS zaadaptowane pod dostawę jako dodatek. Toster został zbudowany od podstaw dla dostaw: model danych, aplikacje mobilne, wyświetlacz kuchenny i śledzenie kurierów — wszystko zaprojektowane dla sieci dostawczych. Dodatkowo otrzymujesz zarządzany marketing i automatyzację AI, których Poster i iiko po prostu nie oferują."
+        },
+        {
+          "q": "Z jakimi agregatorami integruje się Toster?",
+          "a": "Toster aktualnie integruje się z Bolt Food, Glovo, Wolt i Uber Eats. Zamówienia ze wszystkich agregatorów pojawiają się w tej samej kolejce Kanban obok zamówień z własnych kanałów. Żadnych oddzielnych tabletów i ręcznego wprowadzania."
+        },
+        {
+          "q": "Jak działa operator głosowy AI?",
+          "a": "Przychodzące połączenia obsługuje agent głosowy AI oparty na ElevenLabs. Przyjmuje zamówienie, potwierdza adres dostawy i automatycznie tworzy zamówienie w Tosterze. Operatorzy ludzcy otrzymują powiadomienia tylko wtedy, gdy AI nie może obsłużyć zapytania — zazwyczaj mniej niż 5% połączeń."
+        },
+        {
+          "q": "Jakie metody płatności są obsługiwane?",
+          "a": "Dla Ukrainy: LiqPay (karta, Apple Pay, Google Pay, przelew bankowy). Dla rynków UE: Stripe (karta, Apple Pay, Google Pay). Płatność gotówką przy dostawie jest obsługiwana wszędzie. Metody płatności są konfigurowalne dla każdego lokalu."
+        },
+        {
+          "q": "Czy mogę śledzić kurierów w czasie rzeczywistym?",
+          "a": "Tak. Każdy kurier udostępnia GPS przez bota Telegram Toster. Mapa w systemie zarządzania pokazuje wszystkich aktywnych kurierów, ich bieżące zamówienia, szacowany czas dostawy i historię trasy. Możesz też ustawić strefy dostawy i automatyczne zasady przypisywania kurierów."
+        },
+        {
+          "q": "Czy Toster obsługuje wiele krajów?",
+          "a": "Tak. Toster działa obecnie na Ukrainie, w Polsce, Czechach i Niemczech. Każdy kraj ma właściwą integrację fiskalną, lokalne bramki płatnicze i w pełni zlokalizowany interfejs dla klientów. Dodanie nowego kraju zajmuje 1–3 dni robocze."
+        },
+        {
+          "q": "Jak szybko możemy zacząć?",
+          "a": "Plan Start (€250/miesiąc, 1 lokal) można skonfigurować w 1 dzień roboczy. Pełny plan Revenue dla sieci wielolokalizacyjnych zazwyczaj zajmuje 3–7 dni, w tym import menu, szkolenie personelu i konfigurację bota kurierskiego."
+        },
+        {
+          "q": "Czy jest bezpłatny okres próbny?",
+          "a": "Nie oferujemy samodzielnego dostępu próbnego — zamiast tego przeprowadzamy przewodnikowe demo na żywo z Twoim prawdziwym menu, po którym następuje płatny okres pilotażowy. Dzięki temu zobaczysz Toster działający z Twoim rzeczywistym przepływem zamówień, a nie w ogólnym środowisku testowym."
+        },
+        {
+          "q": "Co dokładnie oznacza 'zarządzany marketing'?",
+          "a": "Oznacza to, że zespół Toster prowadzi Twoje kampanie za Ciebie — projektuje, segmentuje i wysyła kampanie e-mail, SMS, Viber i push przy użyciu Twoich danych klientów. Ty zatwierdzasz treści; my zajmujemy się realizacją i raportowaniem. Po Twojej stronie nie jest potrzebny specjalista ds. marketingu."
+        }
+      ]
+    },
+    "related": {
+      "h2": "Inne rozwiązania w Tosterze",
+      "items": [
+        {
+          "title": "Terminal POS",
+          "href": "/pricing",
+          "desc": "Przyjmuj zamówienia przy ladzie obok zamówień dostawczych w jednej kolejce."
+        },
+        {
+          "title": "Automatyzacja AI",
+          "href": "/ai",
+          "desc": "Operator głosowy AI, prognozowanie popytu i kampanie reaktywacji klientów."
+        },
+        {
+          "title": "Dla sieci",
+          "href": "/for-chains",
+          "desc": "Operacje międzynarodowe, zgodność fiskalna i analityka sieci."
+        }
+      ]
+    },
+    "cta": {
+      "h2": "Gotowy zarządzać całą siecią na jednej platformie?",
+      "body": "Zarezerwuj 30-minutowe demo i zobacz Toster w działaniu z Twoim prawdziwym menu i przepływem zamówień.",
+      "cta": "Zamów demo"
+    }
   }
 }

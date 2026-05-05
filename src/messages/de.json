@@ -242,5 +242,158 @@
       "primary": "Demo ausprobieren",
       "secondary": "Demo anfragen"
     }
+  },
+  "FoodDelivery": {
+    "meta": {
+      "title": "CRM für Lieferdienste — Bestellungen, Küche & Kuriere | Toster",
+      "description": "Umfassendes CRM für Lieferdienst-Ketten. Einheitliche Bestellwarteschlange, Küchendisplay, GPS-Kurierverfolgung, KI-Automatisierung und Marketing — ab 3 % des Monatsumsatzes."
+    },
+    "hero": {
+      "badge": "CRM für Lieferdienste",
+      "h1": "Das CRM für Lieferdienst-Ketten, nicht für einzelne Restaurants",
+      "sub": "Eine Plattform verwaltet jeden Kanal: Telefon, Web, Telegram, POS und 11 Aggregatoren. Verfolgen Sie jeden Kurier. Zeigen Sie jede Bestellung in der Küche an. Automatisieren Sie Stammkunden.",
+      "cta1": "Demo anfragen",
+      "cta2": "In Aktion sehen"
+    },
+    "pain": {
+      "h2": "Probleme von Lieferketten, die wir lösen",
+      "items": [
+        {
+          "title": "Bestellchaos aus 5+ Kanälen",
+          "body": "Ihr Team jongliert gleichzeitig mit Telefonanrufen, Telegram-Nachrichten, Aggregator-Tablets und Website-Bestellungen. Fehler passieren. Bestellungen gehen verloren. Kunden hinterlassen Ein-Stern-Bewertungen."
+        },
+        {
+          "title": "Kuriere wissen nicht, wohin als nächstes",
+          "body": "Ohne Routenoptimierung wählen Kuriere ihren eigenen Weg. Verspätungen häufen sich. Sie erfahren davon aus der Negativbewertung — 45 Minuten zu spät."
+        },
+        {
+          "title": "Die Küche sieht nicht das Gesamtbild",
+          "body": "Papierbons können keine Änderungen in Echtzeit verarbeiten. Dringende Bestellungen gehen im Stapel unter. Der beste Koch weiß nicht, dass das Sushi-Roll für eine Bestellung schon 10 Minuten verzögert ist."
+        }
+      ]
+    },
+    "features": {
+      "h2": "Was Toster für Ihre Lieferkette tut",
+      "items": [
+        {
+          "title": "Einheitliche Bestellwarteschlange",
+          "body": "Jeder Kanal landet in einem Kanban-Board. Telefonbestellungen, Telegram-Bot, Website, POS-Terminal, Bolt Food, Glovo, Wolt, Uber Eats — eine Warteschlange, ein Team, ein Ablauf. Wechseln Sie bei Hochbetrieb zur Tabellenansicht. Filtern Sie mit einem Klick nach Status, Zahlungsmethode oder Filiale."
+        },
+        {
+          "title": "Küchendisplay-System",
+          "body": "Echtzeit-KDS für Ihr Küchenteam. Bestellungen erscheinen sofort nach Bestätigung auf dem Bildschirm. Köche sehen ihre zugewiesenen Positionen, setzen Timer und markieren fertige Gerichte — das System verschiebt die Bestellung automatisch zur Verpackung. Keine Papierbons, keine verlorenen Bestellungen, kein Rufen durch die Küche."
+        },
+        {
+          "title": "Live-Kurierverfolgung",
+          "body": "Jeder Kurier teilt GPS über den Toster-Bot. Die Karte aktualisiert sich alle 30 Sekunden. Disponenten sehen alle aktiven Kuriere, ihre aktuellen Bestellungen und geschätzte Lieferzeiten. Erkennen Sie Verzögerungen, bevor Kunden sie bemerken. Weisen Sie automatisch den nächstverfügbaren Kurier zu."
+        },
+        {
+          "title": "KI-Nachfrageprognose",
+          "body": "KI auf Basis von Claude analysiert Ihre Bestellhistorie, Wetterbedingungen und Wochentagsmuster, um die stündliche Nachfrage vorherzusagen. Ihre Küche bereitet die richtige Menge Zutaten vor — reduziert Lebensmittelverschwendung um bis zu 25 % und eliminiert Lagerengpässe in Spitzenzeiten."
+        },
+        {
+          "title": "Kundenbindungsprogramm",
+          "body": "1 % Cashback auf jede Bestellung, automatisch gutgeschrieben. Kunden können bis zu 30 % des Bestellwerts mit gesammelten Boni einlösen. Keine Treuekarten, kein manuelles Tracking — das System erledigt alles selbst. Die Wiederbestellungsrate steigt durchschnittlich um 18 % innerhalb von 90 Tagen."
+        },
+        {
+          "title": "Verwaltete Marketingkampagnen",
+          "body": "E-Mail-, SMS-, Push- und Viber-Kampagnen, die vom Toster-Team über SendPulse verwaltet werden. Wir segmentieren Ihre Kunden nach RFM-Score, senden Reaktivierungssequenzen an abwandernde Kunden und starten saisonale Aktionen zum richtigen Zeitpunkt. Sie erhalten die Ergebnisse — wir kümmern uns um die Umsetzung."
+        }
+      ]
+    },
+    "usecases": {
+      "h2": "Funktioniert für Ketten jeder Größe",
+      "items": [
+        {
+          "size": "1 Standort",
+          "title": "Der richtige Start",
+          "body": "Starten Sie mit dem €250/Monat-Plan. Ihre gebrandete Website, iOS- und Android-Apps und das vollständige CRM sind an einem Arbeitstag live. Nehmen Sie vom ersten Tag an Bestellungen über eigene Kanäle und 3+ Aggregatoren entgegen."
+        },
+        {
+          "size": "3–10 Standorte",
+          "title": "Skalierung ohne Chaos",
+          "body": "Fügen Sie neue Filialen in Minuten hinzu. Jeder Standort hat sein eigenes Küchendisplay, Kurierbezirk und Bestellwarteschlange. Bestellungen werden automatisch zur nächsten verfügbaren Filiale weitergeleitet — basierend auf Kapazität und GPS."
+        },
+        {
+          "size": "10+ Standorte",
+          "title": "Internationaler Betrieb",
+          "body": "Toster läuft in der Ukraine, Polen, Tschechien und Deutschland von einem einzigen Konto aus. Jedes Land erhält die korrekte Fiskalintegration, lokales Zahlungsgateway (LiqPay oder Stripe) und eine vollständig lokalisierte Kundenoberfläche."
+        }
+      ]
+    },
+    "integrations": {
+      "h2": "Integriert mit den Tools, die Sie bereits nutzen",
+      "items": ["Bolt Food", "Glovo", "Wolt", "Uber Eats", "LiqPay", "Stripe", "SendPulse", "Telegram"]
+    },
+    "faq": {
+      "h2": "Häufig gestellte Fragen",
+      "items": [
+        {
+          "q": "Was ist ein CRM für Lieferdienste?",
+          "a": "Ein CRM für Lieferdienste ist eine Plattform, die den gesamten Lieferbetrieb verwaltet: eingehende Bestellungen aus allen Kanälen, Küchenproduktion, Kurierdienstplanung, Kundendaten, Loyalität und Marketing. Im Gegensatz zu einem einfachen POS ist es für Ketten konzipiert, die täglich Hunderte von Bestellungen an mehreren Standorten bearbeiten."
+        },
+        {
+          "q": "Wie unterscheidet sich Toster von Lightspeed oder Toast?",
+          "a": "Lightspeed und Toast sind POS-Systeme, die als Nachgedanke für Lieferung adaptiert wurden. Toster wurde von Grund auf für Lieferdienste gebaut: das Datenmodell, die mobilen Apps, das Küchendisplay und die Kurierverfolgung — alles für Lieferketten entworfen. Sie erhalten außerdem verwaltetes Marketing und KI-Automatisierung, die Lightspeed und Toast schlicht nicht bieten."
+        },
+        {
+          "q": "Mit welchen Aggregatoren integriert sich Toster?",
+          "a": "Toster integriert sich derzeit mit Bolt Food, Glovo, Wolt und Uber Eats. Bestellungen von allen Aggregatoren erscheinen in derselben Kanban-Warteschlange neben Bestellungen aus eigenen Kanälen. Keine separaten Tablets und keine manuelle Eingabe."
+        },
+        {
+          "q": "Wie funktioniert der KI-Sprachoperator?",
+          "a": "Eingehende Anrufe werden von einem KI-Sprachagenten auf Basis von ElevenLabs bearbeitet. Er nimmt die Bestellung auf, bestätigt die Lieferadresse und erstellt die Bestellung automatisch in Toster. Menschliche Operatoren erhalten nur dann Benachrichtigungen, wenn die KI die Anfrage nicht bearbeiten kann — typischerweise weniger als 5 % der Anrufe."
+        },
+        {
+          "q": "Welche Zahlungsmethoden werden unterstützt?",
+          "a": "Für die Ukraine: LiqPay (Karte, Apple Pay, Google Pay, Banküberweisung). Für EU-Märkte: Stripe (Karte, Apple Pay, Google Pay). Barzahlung bei Lieferung wird überall unterstützt. Zahlungsmethoden sind pro Standort konfigurierbar."
+        },
+        {
+          "q": "Kann ich Kuriere in Echtzeit verfolgen?",
+          "a": "Ja. Jeder Kurier teilt GPS über den Toster Telegram-Bot. Die Karte im Verwaltungssystem zeigt alle aktiven Kuriere, ihre aktuellen Bestellungen, geschätzte Lieferzeiten und Routenhistorie. Sie können auch Lieferzonen und automatische Kurierzuweisungsregeln festlegen."
+        },
+        {
+          "q": "Unterstützt Toster mehrere Länder?",
+          "a": "Ja. Toster ist derzeit in der Ukraine, Polen, Tschechien und Deutschland aktiv. Jedes Land hat die korrekte Fiskalintegration, lokale Zahlungsgateways und eine vollständig lokalisierte Kundenoberfläche. Das Hinzufügen eines neuen Landes dauert 1–3 Arbeitstage."
+        },
+        {
+          "q": "Wie schnell können wir live gehen?",
+          "a": "Der Start-Plan (€250/Monat, 1 Standort) kann an 1 Arbeitstag eingerichtet werden. Der vollständige Revenue-Plan für Mehrstandardketten dauert typischerweise 3–7 Tage, einschließlich Menüimport, Mitarbeiterschulung und Kurier-Bot-Einrichtung."
+        },
+        {
+          "q": "Gibt es eine kostenlose Testphase?",
+          "a": "Wir bieten keinen Self-Service-Testzugang an — stattdessen führen wir eine geführte Live-Demo mit Ihrem echten Menü durch, gefolgt von einer bezahlten Pilotphase. So sehen Sie Toster mit Ihrem tatsächlichen Bestellablauf, nicht in einer generischen Testumgebung."
+        },
+        {
+          "q": "Was bedeutet genau 'verwaltetes Marketing'?",
+          "a": "Es bedeutet, dass das Toster-Team Ihre Kampagnen für Sie durchführt — E-Mail-, SMS-, Viber- und Push-Kampagnen mit Ihren Kundendaten entwirft, segmentiert und versendet. Sie genehmigen den Inhalt; wir kümmern uns um Durchführung und Berichterstattung. Auf Ihrer Seite wird kein Marketing-Spezialist benötigt."
+        }
+      ]
+    },
+    "related": {
+      "h2": "Weitere Lösungen in Toster",
+      "items": [
+        {
+          "title": "POS-Terminal",
+          "href": "/pricing",
+          "desc": "Nehmen Sie Ladenbestellungen neben Lieferbestellungen in einer Warteschlange entgegen."
+        },
+        {
+          "title": "KI-Automatisierung",
+          "href": "/ai",
+          "desc": "KI-Sprachoperator, Nachfrageprognose und Kundenreaktivierungskampagnen."
+        },
+        {
+          "title": "Für Ketten",
+          "href": "/for-chains",
+          "desc": "Internationaler Betrieb, Fiskal-Compliance und kettenweite Analytik."
+        }
+      ]
+    },
+    "cta": {
+      "h2": "Bereit, Ihre gesamte Kette auf einer Plattform zu verwalten?",
+      "body": "Buchen Sie eine 30-minütige Demo und sehen Sie Toster mit Ihrem echten Menü und Bestellablauf in Aktion.",
+      "cta": "Demo anfragen"
+    }
   }
 }
