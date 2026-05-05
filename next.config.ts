@@ -27,8 +27,16 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  compress: true,
+  experimental: {
+    // Tree-shake icon libraries and other large packages to reduce First Load JS
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-tabs'],
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
+    deviceSizes: [390, 768, 1024, 1280, 1536],
+    imageSizes: [16, 32, 64, 128, 256],
+    minimumCacheTTL: 2592000, // 30 days
     remotePatterns: [
       { protocol: 'https', hostname: 'logo.clearbit.com' },
       { protocol: 'https', hostname: 'cdn.brandfetch.io' },
@@ -39,6 +47,14 @@ const nextConfig: NextConfig = {
       {
         source: '/(.*)',
         headers: securityHeaders,
+      },
+      {
+        source: '/_next/static/(.*)',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/fonts/(.*)',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
     ];
   },
