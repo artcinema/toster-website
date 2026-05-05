@@ -10,6 +10,26 @@ import { Footer } from '@/components/layout/Footer';
 import { JsonLd } from '@/components/JsonLd';
 import '../globals.css';
 
+const titles: Record<Locale, string> = {
+  en: 'Toster — Food Delivery Chain Management Platform',
+  uk: 'Toster — CRM для мережі доставки їжі',
+  ru: 'Toster — CRM для сети доставки еды',
+  pl: 'Toster — CRM dla sieci dostaw jedzenia',
+  cs: 'Toster — CRM pro síť doručování jídla',
+  de: 'Toster — CRM für Lebensmittel-Lieferketten',
+  es: 'Toster — CRM para cadenas de delivery',
+};
+
+const descriptions: Record<Locale, string> = {
+  en: 'All-in-one CRM for food delivery chains. Orders, kitchen display, courier tracking, AI automation, and managed marketing — from 3% of monthly turnover.',
+  uk: 'CRM-платформа для мережі доставки їжі. Замовлення, кухонний дисплей, трекінг кур\'єрів, AI-автоматизація та маркетинг — від 3% обороту.',
+  ru: 'CRM-платформа для сети доставки еды. Заказы, кухонный дисплей, трекинг курьеров, AI-автоматизация и маркетинг — от 3% оборота.',
+  pl: 'CRM dla sieci dostaw jedzenia. Zamówienia, wyświetlacz kuchenny, śledzenie kurierów, automatyzacja AI i marketing — od 3% miesięcznego obrotu.',
+  cs: 'CRM pro sítě rozvozu jídla. Objednávky, kuchyňský displej, sledování kurýrů, AI automatizace a marketing — od 3 % měsíčního obratu.',
+  de: 'CRM für Lieferdienst-Ketten. Bestellungen, Küchendisplay, Kuriertracking, KI-Automatisierung und Marketing — ab 3 % des monatlichen Umsatzes.',
+  es: 'CRM para cadenas de delivery. Pedidos, pantalla de cocina, seguimiento de repartidores, automatización con IA y marketing gestionado — desde el 3% del ingreso.',
+};
+
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin', 'latin-ext'],
@@ -26,65 +46,81 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: {
-    default: 'Toster — Food Delivery Chain Management Platform',
-    template: '%s | Toster',
-  },
-  description: 'All-in-one CRM platform for food delivery chains. Orders, kitchen display, courier tracking, AI automation, and managed marketing — in one package. Trusted by 25+ locations across 4 countries.',
-  metadataBase: new URL(siteConfig.url),
-  keywords: [
-    'food delivery CRM',
-    'food delivery management software',
-    'restaurant chain management platform',
-    'multi-location food delivery software',
-    'kitchen display system',
-    'courier management system',
-    'food delivery order management',
-    'delivery chain CRM',
-    'ghost kitchen software',
-    'food delivery automation',
-  ],
-  authors: [{ name: 'Toster', url: siteConfig.url }],
-  creator: 'Toster / ADS L.L.C-FZ',
-  publisher: 'Toster',
-  category: 'Software',
-  openGraph: {
-    type: 'website',
-    siteName: 'Toster',
-    title: 'Toster — Food Delivery Chain Management Platform',
-    description: 'CRM + customer website + iOS/Android apps + managed marketing for food delivery chains. Revenue-based pricing from 3% of turnover.',
-    url: siteConfig.url,
-    images: [{ url: '/api/og', width: 1200, height: 630, alt: 'Toster — Food Delivery CRM' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Toster — Food Delivery Chain Management Platform',
-    description: 'CRM + website + apps + marketing for food delivery chains.',
-    images: ['/api/og'],
-  },
-  alternates: {
-    canonical: siteConfig.url,
-    languages: {
-      'en': `${siteConfig.url}/en`,
-      'uk': `${siteConfig.url}/uk`,
-      'ru': `${siteConfig.url}/ru`,
-      'pl': `${siteConfig.url}/pl`,
-      'cs': `${siteConfig.url}/cs`,
-      'de': `${siteConfig.url}/de`,
-      'es': `${siteConfig.url}/es`,
-      'x-default': `${siteConfig.url}/en`,
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const loc = (locales.includes(locale as Locale) ? locale : 'en') as Locale;
+  const url = `${siteConfig.url}/${loc}`;
+
+  return {
+    title: {
+      default: titles[loc],
+      template: '%s | Toster',
     },
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 },
-  },
-  verification: {
-    google: process.env['NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION'] ?? '',
-  },
-};
+    description: descriptions[loc],
+    metadataBase: new URL(siteConfig.url),
+    keywords: [
+      'food delivery CRM',
+      'food delivery management software',
+      'restaurant chain management platform',
+      'multi-location food delivery software',
+      'kitchen display system',
+      'courier management system',
+      'food delivery order management',
+      'delivery chain CRM',
+      'ghost kitchen software',
+      'food delivery automation',
+    ],
+    authors: [{ name: 'Toster', url: siteConfig.url }],
+    creator: 'Toster / ADS L.L.C-FZ',
+    publisher: 'Toster',
+    category: 'Software',
+    openGraph: {
+      type: 'website',
+      siteName: 'Toster',
+      title: titles[loc],
+      description: descriptions[loc],
+      url,
+      images: [{ url: '/api/og', width: 1200, height: 630, alt: 'Toster — Food Delivery CRM' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: titles[loc],
+      description: descriptions[loc],
+      images: ['/api/og'],
+    },
+    alternates: {
+      canonical: url,
+      languages: {
+        en: `${siteConfig.url}/en`,
+        uk: `${siteConfig.url}/uk`,
+        ru: `${siteConfig.url}/ru`,
+        pl: `${siteConfig.url}/pl`,
+        cs: `${siteConfig.url}/cs`,
+        de: `${siteConfig.url}/de`,
+        es: `${siteConfig.url}/es`,
+        'x-default': `${siteConfig.url}/en`,
+      },
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-snippet': -1,
+        'max-image-preview': 'large',
+        'max-video-preview': -1,
+      },
+    },
+    verification: {
+      google: process.env['NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION'] ?? '',
+    },
+  };
+}
 
 const organizationSchema = {
   '@context': 'https://schema.org',

@@ -38,22 +38,11 @@ export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
   const pathname = usePathname();
 
   const handleLocaleChange = (newLocale: Locale) => {
-    // Persist locale choice — middleware reads this cookie before Accept-Language,
-    // so navigating to '/' won't redirect back to the browser's language.
-    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
-
-    // Strip current locale prefix from pathname
+    // All locales use explicit prefix (localePrefix: 'always'), so just swap the prefix.
     const segments = pathname.split('/');
     const hasLocalePrefix = locales.includes(segments[1] as Locale);
-    const pathWithoutLocale = hasLocalePrefix
-      ? '/' + segments.slice(2).join('/')
-      : pathname;
-
-    // Build new URL — English has no prefix (localePrefix: 'as-needed')
-    const newPath = newLocale === 'en'
-      ? pathWithoutLocale || '/'
-      : `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
-
+    const rest = hasLocalePrefix ? segments.slice(2).join('/') : segments.slice(1).join('/');
+    const newPath = `/${newLocale}${rest ? `/${rest}` : ''}`;
     window.location.href = newPath;
   };
 
