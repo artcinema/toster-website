@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 import { Container } from '@/components/ui/container';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { siteConfig } from '@/config/site';
 
-export function Footer() {
+export async function Footer() {
   const t = useTranslations();
+  const locale = await getLocale();
 
   const links = [
     { label: 'Features',        href: '/features' },
@@ -19,6 +21,11 @@ export function Footer() {
     { label: 'API',             href: '/api' },
     { label: 'Privacy',         href: '/privacy-policy' },
     { label: 'Terms',           href: '/terms' },
+    { label: 'Subprocessors',   href: `/${locale}/legal/subprocessors` },
+    { label: 'DPA',             href: `/${locale}/legal/dpa` },
+    { label: 'Cookie Policy',   href: `/${locale}/legal/cookies` },
+    { label: 'Imprint',         href: `/${locale}/legal/imprint` },
+    { label: 'AUP',             href: `/${locale}/legal/aup` },
   ];
 
   return (

@@ -11,6 +11,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { JsonLd } from '@/components/JsonLd';
 import { ConsentGa } from '@/components/analytics/ConsentGa';
+import { CookieBanner } from '@/components/CookieBanner';
 import '../globals.css';
 
 const titles: Record<Locale, string> = {
@@ -227,6 +228,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             {children}
           </main>
           <Footer />
+          <CookieBanner />
         </NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />
