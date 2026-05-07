@@ -37,7 +37,7 @@ const descriptions: Record<Locale, string> = {
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin', 'latin-ext', 'cyrillic'],
-  display: 'swap',
+  display: 'optional',
 });
 
 

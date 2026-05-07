@@ -1,7 +1,3 @@
-'use client';
-
-import * as React from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import {
   ArrowRight, Kanban, Bot, Star, Megaphone,
@@ -10,8 +6,6 @@ import {
 import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { siteConfig } from '@/config/site';
-import { fadeInUp, staggerChildren } from '@/lib/motion';
 
 const entryFeatures = [
   { icon: Kanban, title: 'Kanban order board', description: 'Drag-and-drop orders through every status. Filter by channel, courier, payment type.' },
@@ -35,57 +29,45 @@ export default function ForSingleLocationPage() {
       {/* Hero */}
       <section className="bg-white py-20 sm:py-28">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            animate="visible"
-            className="mx-auto max-w-3xl text-center"
-          >
-            <motion.div variants={fadeInUp}>
+          <div className="mx-auto max-w-3xl text-center">
+            <div>
               <Badge variant="yellow" className="mb-4">For single locations</Badge>
-            </motion.div>
-            <motion.h1
-              variants={fadeInUp}
+            </div>
+            <h1
               className="mb-4 text-4xl font-semibold tracking-tight text-[#0A0A0A] sm:text-5xl"
               style={{ lineHeight: 1.08 }}
             >
               Starting small? Toster grows with you.
-            </motion.h1>
-            <motion.p variants={fadeInUp} className="mb-8 text-lg text-[#525252] leading-relaxed">
+            </h1>
+            <p className="mb-8 text-lg text-[#525252] leading-relaxed">
               Run your single location like a chain. Upgrade when you add more.
-            </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-3">
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
               <Button variant="primary" size="lg" asChild>
                 <Link href="/request-demo">Talk to us <ArrowRight className="ml-1 h-4 w-4" /></Link>
               </Button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </Container>
       </section>
 
       {/* Entry-level features */}
       <section className="bg-white pb-20 sm:pb-24">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <motion.div variants={fadeInUp} className="mb-10 text-center">
+          <div>
+            <div className="mb-10 text-center">
               <p className="text-sm font-semibold uppercase tracking-widest text-[#A3A3A3]">What you get on day one</p>
               <h2 className="mt-2 text-3xl font-semibold text-[#0A0A0A] sm:text-4xl">
                 Everything a growing location needs
               </h2>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {entryFeatures.map((f, i) => {
                 const Icon = f.icon;
                 return (
-                  <motion.div
+                  <div
                     key={i}
-                    variants={fadeInUp}
                     className="rounded-2xl border border-[#E5E5E5] p-6 hover:border-[#FFD600]/50 transition-colors"
                   >
                     <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#FFD600]/10">
@@ -93,24 +75,19 @@ export default function ForSingleLocationPage() {
                     </div>
                     <h3 className="mb-2 font-semibold text-[#0A0A0A]">{f.title}</h3>
                     <p className="text-sm text-[#525252] leading-relaxed">{f.description}</p>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
-          </motion.div>
+          </div>
         </Container>
       </section>
 
       {/* Scale preview */}
       <section className="bg-[#0A0A0A] py-20 sm:py-24">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <motion.div variants={fadeInUp} className="mb-10 text-center">
+          <div>
+            <div className="mb-10 text-center">
               <Badge variant="yellow" className="mb-4">When you&apos;re ready to scale...</Badge>
               <h2 className="mt-2 text-3xl font-semibold text-white sm:text-4xl">
                 Multi-location is one step away
@@ -118,15 +95,14 @@ export default function ForSingleLocationPage() {
               <p className="mt-3 text-white/60">
                 No migration. No new system. Just unlock what&apos;s already there.
               </p>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {scaleFeatures.map((f, i) => {
                 const Icon = f.icon;
                 return (
-                  <motion.div
+                  <div
                     key={i}
-                    variants={fadeInUp}
                     className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-5"
                   >
                     <div className="mt-0.5 shrink-0">
@@ -136,32 +112,26 @@ export default function ForSingleLocationPage() {
                       <p className="font-semibold text-white">{f.title}</p>
                       <p className="mt-1 text-sm text-white/60 leading-relaxed">{f.description}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
 
-            <motion.div variants={fadeInUp} className="mt-8 text-center">
+            <div className="mt-8 text-center">
               <Button variant="primary" size="lg" asChild>
                 <Link href="/for-chains">
                   See chain features <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
               </Button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </Container>
       </section>
 
       {/* Pricing comparison placeholder */}
       <section className="bg-[#F5F5F5] py-20 sm:py-24">
         <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mx-auto max-w-3xl"
-          >
+          <div className="mx-auto max-w-3xl">
             <div className="mb-10 text-center">
               <h2 className="text-3xl font-semibold text-[#0A0A0A] sm:text-4xl">Simple pricing</h2>
               <p className="mt-3 text-[#525252]">Flat monthly fee. No per-order fees. No surprises.</p>
@@ -208,20 +178,14 @@ export default function ForSingleLocationPage() {
                 </Button>
               </div>
             </div>
-          </motion.div>
+          </div>
         </Container>
       </section>
 
       {/* CTA */}
       <section className="bg-white py-20">
         <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mx-auto max-w-2xl text-center"
-          >
+          <div className="mx-auto max-w-2xl text-center">
             <h2 className="mb-4 text-3xl font-semibold text-[#0A0A0A] sm:text-4xl">
               See it live in 5 minutes
             </h2>
@@ -231,7 +195,7 @@ export default function ForSingleLocationPage() {
             <Button variant="primary" size="xl" asChild>
               <Link href="/request-demo">Request demo <ArrowRight className="ml-1 h-4 w-4" /></Link>
             </Button>
-          </motion.div>
+          </div>
         </Container>
       </section>
     </>

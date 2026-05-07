@@ -1,11 +1,20 @@
+import dynamic from 'next/dynamic';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { Check, X, AlertTriangle, ArrowRight, Bot, Brain, Mic, Users, Rocket, Target, BadgePercent } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Container } from '@/components/ui/container';
-import { KanbanMockup } from '@/components/home/KanbanMockup';
-import { FaqAccordion } from '@/components/home/FaqAccordion';
+
+// Lazy-load heavy client components — they're below the fold on first paint
+const KanbanMockup = dynamic(
+  () => import('@/components/home/KanbanMockup').then((m) => m.KanbanMockup),
+  { ssr: false, loading: () => <div className="h-[420px] rounded-2xl bg-[#F5F5F5] animate-pulse" /> },
+);
+const FaqAccordion = dynamic(
+  () => import('@/components/home/FaqAccordion').then((m) => m.FaqAccordion),
+  { ssr: false },
+);
 
 // ─── Comparison Table ─────────────────────────────────────────────────────────
 
