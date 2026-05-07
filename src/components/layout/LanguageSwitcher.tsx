@@ -43,7 +43,7 @@ export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
     const hasLocalePrefix = locales.includes(segments[1] as Locale);
     const rest = hasLocalePrefix ? segments.slice(2).join('/') : segments.slice(1).join('/');
     const newPath = `/${newLocale}${rest ? `/${rest}` : ''}`;
-    window.location.href = newPath;
+    window.location.assign(newPath);
   };
 
   return (

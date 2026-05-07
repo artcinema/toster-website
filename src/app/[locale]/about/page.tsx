@@ -125,7 +125,7 @@ export default function AboutPage() {
             <motion.div variants={fadeInUp} className="prose prose-lg text-[#525252] max-w-none">
               <p>
                 Toster has its roots in Ukraine, where the team began building CRM software
-                for food delivery operators back in 2014 — long before "dark kitchen" became
+                for food delivery operators back in 2014 — long before {'"'}dark kitchen{'"'} became
                 a buzzword. Orders, couriers, kitchens, and customer data: all in one place,
                 from day one.
               </p>
