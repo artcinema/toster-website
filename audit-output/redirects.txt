@@ -1,0 +1,4 @@
+=== Redirect chains ===
+https://toster.co → 200 https://toster.co/en
+http://toster.co → 200 https://toster.co/en
+https://www.toster.co → 200 https://toster.co/en

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { buildAlternates } from '@/lib/seo';
+import { buildAlternates, buildBreadcrumbSchema } from '@/lib/seo';
 
 const titles: Record<string, string> = {
   en: 'Blog — Food Delivery Operations & Growth',
@@ -45,6 +45,17 @@ export async function generateMetadata({
   };
 }
 
-export default function BlogLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+export default async function BlogLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildBreadcrumbSchema(locale, [{ name: 'Blog', path: '/blog' }])),
+        }}
+      />
+      {children}
+    </>
+  );
 }

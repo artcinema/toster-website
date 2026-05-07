@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { buildAlternates } from '@/lib/seo';
+import { buildAlternates, buildBreadcrumbSchema } from '@/lib/seo';
 
 const titles: Record<string, string> = {
   en: 'For Food Delivery Chains — Scale from 3 to 300 Locations',
@@ -37,6 +37,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function ForChainsLayout({ children }: { children: React.ReactNode }) {
-  return children;
+export default async function ForChainsLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildBreadcrumbSchema(locale, [{ name: 'For Chains', path: '/for-chains' }])),
+        }}
+      />
+      {children}
+    </>
+  );
 }

@@ -1,0 +1,27 @@
+HTTP/2 200 
+date: Thu, 07 May 2026 07:33:53 GMT
+content-type: text/html; charset=utf-8
+age: 0
+cache-control: private, no-cache, no-store, max-age=0, must-revalidate
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://logo.clearbit.com https://cdn.brandfetch.io https://www.googletagmanager.com; connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com https://www.google-analytics.com; frame-ancestors 'none'
+link: <https://toster.co/en>; rel="alternate"; hreflang="en", <https://toster.co/ru>; rel="alternate"; hreflang="ru", <https://toster.co/uk>; rel="alternate"; hreflang="uk", <https://toster.co/pl>; rel="alternate"; hreflang="pl", <https://toster.co/cs>; rel="alternate"; hreflang="cs", <https://toster.co/de>; rel="alternate"; hreflang="de", <https://toster.co/es>; rel="alternate"; hreflang="es", <https://toster.co/>; rel="alternate"; hreflang="x-default"
+link: </_next/static/media/7178b3e590c64307-s.p.11.cyxs5p-0z~.woff2>; rel=preload; as="font"; crossorigin=""; type="font/woff2", </_next/static/media/797e433ab948586e-s.p.0.q-h669a_dqa.woff2>; rel=preload; as="font"; crossorigin=""; type="font/woff2", </_next/static/media/caa3a2e1cccd8315-s.p.16t1db8_9y2o~.woff2>; rel=preload; as="font"; crossorigin=""; type="font/woff2"
+permissions-policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+referrer-policy: strict-origin-when-cross-origin
+server: cloudflare
+set-cookie: NEXT_LOCALE=en; Path=/; SameSite=lax
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-matched-path: /[locale]
+x-powered-by: Next.js
+x-vercel-cache: MISS
+x-vercel-enable-rewrite-caching: 1
+x-vercel-id: fra1::iad1::ncwfb-1778139233591-c042b3738c9b
+cf-cache-status: DYNAMIC
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=mhUH%2BoScrFH5iacPnTXukdU9aqfF1UmVSwEUpUgkZED9pJQDvgpm1isFGFosBF%2FKr5swi%2FN6fZsHa%2BGfVvBpSRE7exfP3BH%2BD7Rp49MlKxJqTFP%2Bq3F1v%2BDM1XM%3D"}]}
+cf-ray: 9f7e8a01ca5b58f6-TXL
+alt-svc: h3=":443"; ma=86400
+
