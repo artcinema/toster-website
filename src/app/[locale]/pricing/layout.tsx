@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
-
-const BASE = 'https://toster.co';
+import { buildAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const url = `${BASE}/${locale}/pricing`;
   return {
     title: 'Pricing — Start at €250/mo or 3–9% of Turnover',
     description: 'Toster pricing scales with your revenue: fixed €250/month Start plan, or 3–9% of turnover for Starter/Growth/Enterprise. Includes CRM, website, iOS & Android apps, and managed marketing.',
@@ -12,9 +10,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: 'Toster Pricing — From €250/mo or Revenue-Based',
       description: 'Fixed €250/month entry plan + revenue-based tiers. CRM + website + mobile apps + managed marketing.',
-      url,
+      url: `https://toster.co/${locale}/pricing`,
     },
-    alternates: { canonical: url },
+    alternates: buildAlternates(locale, '/pricing'),
   };
 }
 

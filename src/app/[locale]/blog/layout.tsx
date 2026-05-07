@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
-import { siteConfig } from '@/config/site';
-
-const BASE = siteConfig.url;
+import { buildAlternates } from '@/lib/seo';
 
 export async function generateMetadata({
   params,
@@ -9,12 +7,12 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const url = `${BASE}/${locale}/blog`;
+  const url = `https://toster.co/${locale}/blog`;
   return {
     title: 'Blog — Food Delivery Operations & Growth',
     description: 'Insights on food delivery CRM, kitchen management, courier routing, AI automation, and scaling multi-location delivery chains. Practical guides from operators who run 25+ locations.',
     alternates: {
-      canonical: url,
+      ...buildAlternates(locale, '/blog'),
       types: {
         'application/rss+xml': `${url}/rss.xml`,
       },

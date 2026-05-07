@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
-
-const BASE = 'https://toster.co';
+import { buildAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const url = `${BASE}/${locale}/integrations`;
   return {
     title: 'Integrations — Bolt Food, Glovo, Wolt, Stripe & 40+ More',
     description: 'Toster integrates with all major food delivery aggregators (Bolt Food, Glovo, Wolt, Uber Eats), payment providers (LiqPay, Stripe), fiscal systems (Checkbox, KSeF, EET, Fiskaly), marketing tools, and more.',
@@ -12,9 +10,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: 'Toster Integrations — 40+ Connections Built In',
       description: 'Bolt Food, Glovo, Wolt, Uber Eats, LiqPay, Stripe, Telegram, Viber, Google Ads, and more.',
-      url,
+      url: `https://toster.co/${locale}/integrations`,
     },
-    alternates: { canonical: url },
+    alternates: buildAlternates(locale, '/integrations'),
   };
 }
 
