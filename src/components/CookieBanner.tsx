@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 
@@ -17,14 +17,11 @@ function setCookie(name: string, value: string, days: number) {
 
 export function CookieBanner() {
   const locale = useLocale();
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = getCookie('cookie_consent');
-    if (!consent) {
-      setVisible(true);
-    }
-  }, []);
+  // Lazily initialise so the banner only shows on the client when consent is missing
+  const [visible, setVisible] = useState(() => {
+    if (typeof document === 'undefined') return false;
+    return getCookie('cookie_consent') === undefined;
+  });
 
   function acceptAll() {
     setCookie('cookie_consent', 'all', 365);

@@ -44,14 +44,14 @@ export function Footer() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm text-[#A3A3A3] transition-colors hover:text-[#0A0A0A]"
+                className="text-sm text-[#737373] transition-colors hover:text-[#0A0A0A]"
               >
                 {l.label}
               </Link>
             ))}
             <a
               href={`mailto:hello@toster.co`}
-              className="text-sm text-[#A3A3A3] transition-colors hover:text-[#0A0A0A]"
+              className="text-sm text-[#737373] transition-colors hover:text-[#0A0A0A]"
             >
               hello@toster.co
             </a>
@@ -77,7 +77,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-[#E5E5E5] py-3">
-          <p className="text-center text-xs text-[#A3A3A3]">
+          <p className="text-center text-xs text-[#737373]">
             {t('Footer.copyright')}
             <span className="mx-2 opacity-40">·</span>
             ADS L.L.C-FZ, Meydan Grandstand, 6th Floor, Meydan Road, Nad Al Sheba, Dubai, UAE

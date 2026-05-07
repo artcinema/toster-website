@@ -1,13 +1,8 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Mic, Bot, Brain, Camera, FileText, Shield, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { siteConfig } from '@/config/site';
-import { fadeInUp, staggerChildren, viewportConfig } from '@/lib/motion';
 import { NeuralBackground } from '@/components/ui/neural-background';
 
 const useCases = [
@@ -27,11 +22,7 @@ const useCases = [
         <div className="flex flex-col gap-1.5">
           {['▓▓▓▓▓░░', '▓▓▓░░░░', '▓▓▓▓▓▓░'].map((bar, i) => (
             <div key={i} className="h-2 w-32 overflow-hidden rounded-full bg-white/10">
-              <motion.div
-                className="h-full rounded-full bg-[#FFD600]"
-                animate={{ width: ['40%', '80%', '60%', '40%'] }}
-                transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-              />
+              <div className="h-full w-1/2 rounded-full bg-[#FFD600]" />
             </div>
           ))}
         </div>
@@ -70,17 +61,9 @@ const useCases = [
               />
               <span className="text-sm text-white/70">{step.label}</span>
               {step.status === 'active' && (
-                <motion.div
-                  className="ml-auto h-1.5 w-12 overflow-hidden rounded-full bg-white/10"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
-                  <motion.div
-                    className="h-full rounded-full bg-[#FFD600]"
-                    animate={{ x: ['-100%', '100%'] }}
-                    transition={{ duration: 1, repeat: Infinity }}
-                  />
-                </motion.div>
+                <div className="ml-auto h-1.5 w-12 overflow-hidden rounded-full bg-white/10">
+                  <div className="h-full w-1/2 rounded-full bg-[#FFD600]" />
+                </div>
               )}
             </div>
           ))}
@@ -101,12 +84,10 @@ const useCases = [
         <div className="mx-auto max-w-xs">
           <div className="mb-2 flex items-end justify-between gap-1 h-20">
             {[40, 60, 35, 80, 95, 70, 55, 90, 75, 45, 30, 20].map((h, i) => (
-              <motion.div
+              <div
                 key={i}
                 className="flex-1 rounded-t bg-[#FFD600]/60"
-                initial={{ height: 0 }}
-                animate={{ height: `${h}%` }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
+                style={{ height: `${h}%` }}
               />
             ))}
           </div>
@@ -180,17 +161,14 @@ const useCases = [
           <div className="rounded-xl border border-white/10 bg-white/5 p-4 text-left">
             <div className="mb-2 text-xs font-medium text-white/50 uppercase tracking-wide">Invoice #2847</div>
             {['Salmon fillet — 12kg', 'Avocado — 40 pcs', 'Nori sheets — 200', 'Rice (sushi) — 25kg'].map((item, i) => (
-              <motion.div
+              <div
                 key={i}
                 className="flex items-center gap-2 py-1"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.3 }}
               >
                 <div className="h-1.5 w-1.5 rounded-full bg-[#FFD600]" />
                 <span className="text-xs text-white/70">{item}</span>
                 <span className="ml-auto text-[10px] text-emerald-400">✓ synced</span>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -212,13 +190,9 @@ const useCases = [
             <div className="mb-3 flex h-28 items-center justify-center rounded-lg bg-white/5">
               <Camera className="h-10 w-10 text-white/20" />
             </div>
-            <motion.div
-              className="rounded-lg bg-emerald-500/20 px-3 py-2 text-sm font-medium text-emerald-400"
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
+            <div className="rounded-lg bg-emerald-500/20 px-3 py-2 text-sm font-medium text-emerald-400">
               ✅ All 6 items detected — ready for dispatch
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
@@ -241,32 +215,26 @@ export default function AiPage() {
       <section className="relative overflow-hidden py-24 sm:py-32">
         <NeuralBackground />
         <Container className="relative z-10">
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            animate="visible"
-            className="mx-auto max-w-3xl text-center"
-          >
-            <motion.div variants={fadeInUp}>
+          <div className="mx-auto max-w-3xl text-center">
+            <div>
               <Badge variant="dark" className="mb-4">AI</Badge>
-            </motion.div>
-            <motion.h1
-              variants={fadeInUp}
+            </div>
+            <h1
               className="mb-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
               style={{ lineHeight: 1.08 }}
             >
               Food delivery, meet Claude.
-            </motion.h1>
-            <motion.p variants={fadeInUp} className="text-lg text-white/60 leading-relaxed">
+            </h1>
+            <p className="text-lg text-white/60 leading-relaxed">
               Toster integrates Claude and ElevenLabs across the entire delivery lifecycle.
               Not chatbots — real AI agents that do work.
-            </motion.p>
-            <motion.div variants={fadeInUp} className="mt-8 flex flex-wrap justify-center gap-3">
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Button variant="primary" size="lg" asChild>
                 <Link href="/request-demo">Request demo</Link>
               </Button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </Container>
       </section>
 
@@ -279,42 +247,27 @@ export default function AiPage() {
           <section key={i} className={`border-t border-white/10 py-24 ${isEven ? '' : 'bg-white/[0.02]'}`}>
             <Container>
               <div className={`grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center ${isEven ? '' : 'lg:flex-row-reverse'}`}>
-                <motion.div
-                  variants={staggerChildren}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={viewportConfig}
-                  className={isEven ? '' : 'lg:order-2'}
-                >
-                  <motion.div variants={fadeInUp} className="mb-4 flex items-center gap-2">
+                <div className={isEven ? '' : 'lg:order-2'}>
+                  <div className="mb-4 flex items-center gap-2">
                     <Badge variant="dark">{uc.tag}</Badge>
-                  </motion.div>
-                  <motion.p variants={fadeInUp} className="mb-2 text-sm italic text-white/40">
+                  </div>
+                  <p className="mb-2 text-sm italic text-white/40">
                     &ldquo;{uc.problem}&rdquo;
-                  </motion.p>
-                  <motion.h2 variants={fadeInUp} className="mb-4 text-3xl font-semibold text-white">
+                  </p>
+                  <h2 className="mb-4 text-3xl font-semibold text-white">
                     {uc.title}
-                  </motion.h2>
-                  <motion.p variants={fadeInUp} className="mb-6 text-white/60 leading-relaxed">
+                  </h2>
+                  <p className="mb-6 text-white/60 leading-relaxed">
                     {uc.description}
-                  </motion.p>
-                  <motion.div
-                    variants={fadeInUp}
-                    className="inline-flex items-center gap-2 rounded-full border border-[#FFD600]/20 bg-[#FFD600]/10 px-4 py-2 text-sm font-medium text-[#FFD600]"
-                  >
+                  </p>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#FFD600]/20 bg-[#FFD600]/10 px-4 py-2 text-sm font-medium text-[#FFD600]">
                     <Icon className="h-4 w-4" /> {uc.metric}
-                  </motion.div>
-                </motion.div>
+                  </div>
+                </div>
 
-                <motion.div
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={viewportConfig}
-                  className={`rounded-2xl border border-white/10 bg-white/5 ${isEven ? '' : 'lg:order-1'}`}
-                >
+                <div className={`rounded-2xl border border-white/10 bg-white/5 ${isEven ? '' : 'lg:order-1'}`}>
                   {uc.visual}
-                </motion.div>
+                </div>
               </div>
             </Container>
           </section>
@@ -324,23 +277,14 @@ export default function AiPage() {
       {/* AI Stack */}
       <section className="border-t border-white/10 py-20">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-          >
-            <motion.h2 variants={fadeInUp} className="mb-10 text-center text-2xl font-semibold text-white">
+          <div>
+            <h2 className="mb-10 text-center text-2xl font-semibold text-white">
               Powered by
-            </motion.h2>
-            <motion.div
-              variants={staggerChildren}
-              className="flex flex-wrap items-center justify-center gap-4"
-            >
+            </h2>
+            <div className="flex flex-wrap items-center justify-center gap-4">
               {aiStack.map((item) => (
-                <motion.div
+                <div
                   key={item.name}
-                  variants={fadeInUp}
                   className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-5 py-3"
                 >
                   <div className="h-2 w-2 rounded-full" style={{ background: item.color }} />
@@ -348,10 +292,10 @@ export default function AiPage() {
                     <div className="text-sm font-semibold text-white">{item.name}</div>
                     <div className="text-xs text-white/40">{item.desc}</div>
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </Container>
       </section>
 
@@ -359,10 +303,10 @@ export default function AiPage() {
       <section className="border-t border-white/10 py-20">
         <Container>
           <div className="mx-auto max-w-2xl">
-            <motion.div variants={staggerChildren} initial="hidden" whileInView="visible" viewport={viewportConfig}>
-              <motion.h2 variants={fadeInUp} className="mb-8 text-2xl font-semibold text-white text-center">
+            <div>
+              <h2 className="mb-8 text-2xl font-semibold text-white text-center">
                 AI you can trust
-              </motion.h2>
+              </h2>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {[
                   { icon: Shield, title: 'Your data stays yours', desc: 'Never used for model training. Isolated per organization.' },
@@ -372,15 +316,15 @@ export default function AiPage() {
                 ].map((item, i) => {
                   const Icon = item.icon;
                   return (
-                    <motion.div key={i} variants={fadeInUp} className="rounded-xl border border-white/10 bg-white/5 p-5">
+                    <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-5">
                       <Icon className="mb-2 h-5 w-5 text-[#FFD600]" />
                       <div className="mb-1 font-medium text-white">{item.title}</div>
                       <div className="text-sm text-white/50">{item.desc}</div>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
-            </motion.div>
+            </div>
           </div>
         </Container>
       </section>

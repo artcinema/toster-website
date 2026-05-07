@@ -43,12 +43,13 @@ export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
     const hasLocalePrefix = locales.includes(segments[1] as Locale);
     const rest = hasLocalePrefix ? segments.slice(2).join('/') : segments.slice(1).join('/');
     const newPath = `/${newLocale}${rest ? `/${rest}` : ''}`;
-    window.location.href = newPath;
+    window.location.assign(newPath);
   };
 
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger
+        aria-label={`Language: ${languageNames[locale]}`}
         className={cn(
           'flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD600]',
           dark

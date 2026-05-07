@@ -1,7 +1,4 @@
-'use client';
-
 import * as React from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, MapPin, UtensilsCrossed, Bot, Globe } from 'lucide-react';
@@ -10,7 +7,6 @@ import { FlagIcon } from '@/components/ui/FlagIcon';
 import { PodcastPlayer } from '@/components/ui/PodcastPlayer';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { fadeInUp, staggerChildren } from '@/lib/motion';
 
 const PODCAST_URL = 'https://github.com/artcinema/toster-website/releases/download/media-v1/The_AI_Brain_Running_Dark_Kitchens.m4a';
 
@@ -69,63 +65,46 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="bg-white py-20 sm:py-28">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            animate="visible"
-            className="mx-auto max-w-3xl text-center"
-          >
-            <motion.div variants={fadeInUp}>
+          <div className="mx-auto max-w-3xl text-center">
+            <div>
               <Badge variant="yellow" className="mb-4">About</Badge>
-            </motion.div>
-            <motion.h1
-              variants={fadeInUp}
+            </div>
+            <h1
               className="mb-5 text-4xl font-semibold tracking-tight text-[#0A0A0A] sm:text-5xl"
               style={{ lineHeight: 1.08 }}
             >
               10 years building CRM for food delivery — in the market that demands it most
-            </motion.h1>
-            <motion.p variants={fadeInUp} className="text-lg text-[#525252] leading-relaxed">
+            </h1>
+            <p className="text-lg text-[#525252] leading-relaxed">
               Toster started in Ukraine in 2014. Not as a SaaS experiment —
               as the operational backbone for delivery businesses that couldn&apos;t afford to fail.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </Container>
       </section>
 
       {/* Podcast player */}
       <section className="bg-white pb-10">
         <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mx-auto max-w-2xl"
-          >
+          <div className="mx-auto max-w-2xl">
             <PodcastPlayer
               src={PODCAST_URL}
               title="The AI Brain Running Dark Kitchens"
               subtitle="Podcast · How Toster automates food delivery operations with AI"
               autoPlay
             />
-          </motion.div>
+          </div>
         </Container>
       </section>
 
       {/* Story */}
       <section className="bg-white pb-20 sm:pb-24">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            className="mx-auto max-w-2xl"
-          >
-            <motion.div variants={fadeInUp} className="prose prose-lg text-[#525252] max-w-none">
+          <div className="mx-auto max-w-2xl">
+            <div className="prose prose-lg text-[#525252] max-w-none">
               <p>
                 Toster has its roots in Ukraine, where the team began building CRM software
-                for food delivery operators back in 2014 — long before "dark kitchen" became
+                for food delivery operators back in 2014 — long before {'"'}dark kitchen{'"'} became
                 a buzzword. Orders, couriers, kitchens, and customer data: all in one place,
                 from day one.
               </p>
@@ -145,10 +124,10 @@ export default function AboutPage() {
                 The platform that has been running Ukrainian delivery operations since 2014
                 is now open to operators worldwide.
               </p>
-            </motion.div>
+            </div>
 
             {/* Milestones */}
-            <motion.div variants={fadeInUp} className="mt-14">
+            <div className="mt-14">
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {milestones.map((m, i) => (
                   <div
@@ -166,56 +145,44 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </Container>
       </section>
 
       {/* Stats */}
       <section className="bg-[#0A0A0A] py-16">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            className="grid grid-cols-2 gap-6 sm:grid-cols-4"
-          >
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
             {[
               { value: '4', label: 'Countries', sub: 'UA · PL · CZ · DE' },
               { value: '25+', label: 'Active locations', sub: 'and growing' },
               { value: '100+', label: 'Data models', sub: 'in the schema' },
               { value: '13', label: 'Telegram bots', sub: 'built and running' },
             ].map((s) => (
-              <motion.div key={s.label} variants={fadeInUp} className="text-center">
+              <div key={s.label} className="text-center">
                 <p className="text-4xl font-semibold text-[#FFD600]">{s.value}</p>
                 <p className="mt-1 text-sm font-medium text-white">{s.label}</p>
                 <p className="text-xs text-white/40">{s.sub}</p>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </Container>
       </section>
 
       {/* Team */}
       <section className="bg-white py-14 sm:py-18">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <motion.div variants={fadeInUp} className="mb-8 text-center">
+          <div>
+            <div className="mb-8 text-center">
               <h2 className="text-3xl font-semibold text-[#0A0A0A] sm:text-4xl">The team</h2>
               <p className="mt-3 text-[#525252]">Small. Focused. Running a real delivery operation.</p>
-            </motion.div>
+            </div>
 
             <div className="mx-auto max-w-2xl flex flex-col gap-4">
               {team.map((member, i) => (
-                <motion.div
+                <div
                   key={i}
-                  variants={fadeInUp}
                   className="flex items-start gap-5 rounded-2xl border border-[#E5E5E5] p-5"
                 >
                   {/* Photo */}
@@ -239,31 +206,25 @@ export default function AboutPage() {
                     <p className="mt-0.5 text-sm text-[#525252]">{member.role}</p>
                     <p className="mt-2 text-sm text-[#525252] leading-relaxed">{member.note}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </Container>
       </section>
 
       {/* Values */}
       <section className="bg-[#F5F5F5] py-20 sm:py-24">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <motion.div variants={fadeInUp} className="mb-12 text-center">
+          <div>
+            <div className="mb-12 text-center">
               <h2 className="text-3xl font-semibold text-[#0A0A0A] sm:text-4xl">What we believe</h2>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
               {values.map((v, i) => (
-                <motion.div
+                <div
                   key={i}
-                  variants={fadeInUp}
                   className="rounded-2xl bg-white border border-[#E5E5E5] p-7"
                 >
                   <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#FFD600]/15">
@@ -271,23 +232,17 @@ export default function AboutPage() {
                   </div>
                   <h3 className="mb-2 font-semibold text-[#0A0A0A]">{v.title}</h3>
                   <p className="text-sm text-[#525252] leading-relaxed">{v.body}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </Container>
       </section>
 
       {/* Location */}
       <section className="border-t border-[#E5E5E5] bg-white py-12">
         <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="flex flex-wrap items-center justify-center gap-6 text-sm text-[#525252]"
-          >
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-[#525252]">
             <span className="flex items-center gap-1.5">
               <MapPin className="h-4 w-4" /> Kyiv · Warsaw · Prague · Berlin
             </span>
@@ -302,7 +257,7 @@ export default function AboutPage() {
             <a href="mailto:hello@toster.co" className="underline underline-offset-2 hover:text-[#0A0A0A]">
               hello@toster.co
             </a>
-          </motion.div>
+          </div>
         </Container>
       </section>
 

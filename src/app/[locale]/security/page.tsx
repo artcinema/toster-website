@@ -1,8 +1,3 @@
-'use client';
-
-import * as React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
 import {
   Shield, Lock, Key, Eye, FileText, AlertTriangle,
   Clock, Database, Globe, ArrowRight, CheckCircle2,
@@ -10,7 +5,6 @@ import {
 import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { fadeInUp, staggerChildren } from '@/lib/motion';
 
 const securityItems = [
   {
@@ -81,29 +75,23 @@ export default function SecurityPage() {
       {/* Hero */}
       <section className="bg-white py-20 sm:py-28">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            animate="visible"
-            className="mx-auto max-w-3xl text-center"
-          >
-            <motion.div variants={fadeInUp}>
+          <div className="mx-auto max-w-3xl text-center">
+            <div>
               <Badge variant="yellow" className="mb-4">Security</Badge>
-            </motion.div>
-            <motion.h1
-              variants={fadeInUp}
+            </div>
+            <h1
               className="mb-4 text-4xl font-semibold tracking-tight text-[#0A0A0A] sm:text-5xl"
               style={{ lineHeight: 1.08 }}
             >
               Security built for serious business
-            </motion.h1>
-            <motion.p variants={fadeInUp} className="mb-10 text-lg text-[#525252] leading-relaxed">
+            </h1>
+            <p className="mb-10 text-lg text-[#525252] leading-relaxed">
               From authentication to audit logs — every layer of Toster is designed
               to protect your customers&apos; data and your business.
-            </motion.p>
+            </p>
 
             {/* Compliance badges */}
-            <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-3">
               {badges.map((b) => (
                 <div
                   key={b.label}
@@ -121,27 +109,20 @@ export default function SecurityPage() {
                   </span>
                 </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </Container>
       </section>
 
       {/* Security items grid */}
       <section className="bg-white pb-24 sm:pb-32">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-          >
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {securityItems.map((item, i) => {
               const Icon = item.icon;
               return (
-                <motion.div
+                <div
                   key={i}
-                  variants={fadeInUp}
                   className="flex flex-col rounded-2xl border border-[#E5E5E5] p-6 hover:border-[#FFD600]/50 transition-colors"
                 >
                   <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#0A0A0A]">
@@ -152,23 +133,17 @@ export default function SecurityPage() {
                   <div className="mt-4 rounded-lg bg-[#F5F5F5] px-3 py-1.5">
                     <p className="font-mono text-xs text-[#525252]">{item.detail}</p>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
-          </motion.div>
+          </div>
         </Container>
       </section>
 
       {/* Responsible disclosure */}
       <section className="border-t border-[#E5E5E5] bg-[#F5F5F5] py-16">
         <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mx-auto max-w-2xl text-center"
-          >
+          <div className="mx-auto max-w-2xl text-center">
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white border border-[#E5E5E5]">
               <Shield className="h-6 w-6 text-[#0A0A0A]" />
             </div>
@@ -186,23 +161,17 @@ export default function SecurityPage() {
                 </a>
               </Button>
             </div>
-          </motion.div>
+          </div>
         </Container>
       </section>
 
       {/* What we check */}
       <section className="bg-white py-20">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            className="mx-auto max-w-2xl"
-          >
-            <motion.h2 variants={fadeInUp} className="mb-8 text-center text-2xl font-semibold text-[#0A0A0A] sm:text-3xl">
+          <div className="mx-auto max-w-2xl">
+            <h2 className="mb-8 text-center text-2xl font-semibold text-[#0A0A0A] sm:text-3xl">
               Our security checklist
-            </motion.h2>
+            </h2>
             <div className="space-y-3">
               {[
                 'Input validation on every API endpoint (Zod)',
@@ -214,17 +183,16 @@ export default function SecurityPage() {
                 'Dependencies audited with npm audit on every deploy',
                 'HTTP security headers (HSTS, CSP, X-Frame-Options)',
               ].map((item, i) => (
-                <motion.div
+                <div
                   key={i}
-                  variants={fadeInUp}
                   className="flex items-start gap-3"
                 >
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />
                   <p className="text-[#525252]">{item}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </Container>
       </section>
     </>

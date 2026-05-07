@@ -1,0 +1,21 @@
+HTTP/2 307 
+date: Thu, 07 May 2026 07:33:53 GMT
+content-type: text/plain
+cache-control: public, max-age=0, must-revalidate
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://logo.clearbit.com https://cdn.brandfetch.io https://www.googletagmanager.com; connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com https://www.google-analytics.com; frame-ancestors 'none'
+location: /en
+permissions-policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+referrer-policy: strict-origin-when-cross-origin
+server: cloudflare
+set-cookie: NEXT_LOCALE=en; Path=/; SameSite=lax
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-vercel-enable-rewrite-caching: 1
+x-vercel-id: fra1::lcjtx-1778139233377-8539e2bd5310
+cf-cache-status: DYNAMIC
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=F7l%2BER9y9mZrjSlXr9Vh0lXcHQOK9aK3w8yVgObE737a5316%2B5TFbZxgFBBEJxCZ9NpXR3ril7ZC8po%2FHrLqGdDn1eVnMSkGVFqf0vX%2Bh%2FgzfSPtTNjbPufKEXI%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+cf-ray: 9f7e8a008e14e567-TXL
+alt-svc: h3=":443"; ma=86400
+

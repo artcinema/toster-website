@@ -31,6 +31,8 @@ export function PodcastPlayer({ src, title, subtitle, autoPlay = false }: Podcas
   const audioRef = React.useRef<HTMLAudioElement>(null);
   const progressRef = React.useRef<HTMLDivElement>(null);
   const rafRef = React.useRef<number>(0);
+  // Hold a stable ref to the latest tick fn to avoid self-referential useCallback
+  const tickRef = React.useRef<() => void>(() => {});
 
   const [playing, setPlaying] = React.useState(false);
   const [muted, setMuted] = React.useState(false);
@@ -39,11 +41,16 @@ export function PodcastPlayer({ src, title, subtitle, autoPlay = false }: Podcas
   const [volume, setVolume] = React.useState(1);
   const [dragging, setDragging] = React.useState(false);
 
-  // RAF tick
-  const tick = React.useCallback(() => {
-    if (audioRef.current && !dragging) setCurrentTime(audioRef.current.currentTime);
-    rafRef.current = requestAnimationFrame(tick);
+  // Sync tickRef with latest dragging value after each render (before paint)
+  React.useLayoutEffect(() => {
+    tickRef.current = () => {
+      if (audioRef.current && !dragging) setCurrentTime(audioRef.current.currentTime);
+      rafRef.current = requestAnimationFrame(tickRef.current);
+    };
   }, [dragging]);
+
+  // Stable entry point for starting the RAF loop; delegates to tickRef to avoid self-reference
+  const tick = React.useCallback(() => tickRef.current(), []);
 
   React.useEffect(() => {
     const audio = audioRef.current;

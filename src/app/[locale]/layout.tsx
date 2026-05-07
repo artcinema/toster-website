@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -36,15 +36,10 @@ const descriptions: Record<Locale, string> = {
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
-  subsets: ['latin', 'latin-ext'],
-  display: 'swap',
+  subsets: ['latin', 'latin-ext', 'cyrillic'],
+  display: 'optional',
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -187,11 +182,6 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'Toster',
   url: 'https://toster.co',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: { '@type': 'EntryPoint', urlTemplate: 'https://toster.co/en/features' },
-    'query-input': 'required name=search_term_string',
-  },
 };
 
 interface LocaleLayoutProps {
@@ -211,7 +201,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <html
       lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} h-full`}
+      className={`${geistSans.variable} h-full`}
       suppressHydrationWarning
     >
       <head>

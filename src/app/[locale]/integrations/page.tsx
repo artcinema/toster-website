@@ -1,7 +1,3 @@
-'use client';
-
-import * as React from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import * as Tabs from '@radix-ui/react-tabs';
@@ -9,8 +5,6 @@ import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { siteConfig } from '@/config/site';
-import { fadeInUp, staggerChildren } from '@/lib/motion';
 
 interface Integration {
   name: string;
@@ -143,25 +137,18 @@ const categories: Category[] = [
 ];
 
 function IntegrationCard({ integration }: { integration: Integration }) {
-  const [logoError, setLogoError] = React.useState(false);
-  const showLogo = integration.logo && !logoError;
-
   return (
-    <motion.div
-      variants={fadeInUp}
-      className="group flex flex-col items-start gap-3 rounded-2xl border border-[#E5E5E5] bg-white p-5 transition-all hover:border-[#FFD600]/60 hover:shadow-sm"
-    >
+    <div className="group flex flex-col items-start gap-3 rounded-2xl border border-[#E5E5E5] bg-white p-5 transition-all hover:border-[#FFD600]/60 hover:shadow-sm">
       {/* Logo */}
       <div className="relative">
-        {showLogo ? (
+        {integration.logo ? (
           <div className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-[#E5E5E5] bg-white overflow-hidden">
             <Image
-              src={integration.logo!}
+              src={integration.logo}
               alt={integration.name}
               width={32}
               height={32}
               className="object-contain"
-              onError={() => setLogoError(true)}
               unoptimized
             />
           </div>
@@ -189,44 +176,33 @@ function IntegrationCard({ integration }: { integration: Integration }) {
         </div>
         <p className="mt-1 text-xs text-[#525252] leading-relaxed">{integration.description}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export default function IntegrationsPage() {
-  const [activeTab, setActiveTab] = React.useState('aggregators');
-
   return (
     <>
       {/* Hero */}
       <section className="bg-white py-20 sm:py-28">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            animate="visible"
-            className="mx-auto max-w-3xl text-center"
-          >
-            <motion.div variants={fadeInUp}>
+          <div className="mx-auto max-w-3xl text-center">
+            <div>
               <Badge variant="yellow" className="mb-4">Integrations</Badge>
-            </motion.div>
-            <motion.h1
-              variants={fadeInUp}
+            </div>
+            <h1
               className="mb-4 text-4xl font-semibold tracking-tight text-[#0A0A0A] sm:text-5xl"
               style={{ lineHeight: 1.08 }}
             >
               Works with everything you already use
-            </motion.h1>
-            <motion.p variants={fadeInUp} className="text-lg text-[#525252] leading-relaxed">
+            </h1>
+            <p className="text-lg text-[#525252] leading-relaxed">
               Native integrations with aggregators, payment gateways, fiscalization, and marketing tools.
               All synced. All real-time.
-            </motion.p>
+            </p>
 
             {/* Quick stats */}
-            <motion.div
-              variants={fadeInUp}
-              className="mt-10 flex flex-wrap justify-center gap-8"
-            >
+            <div className="mt-10 flex flex-wrap justify-center gap-8">
               {[
                 { value: '11', label: 'Aggregators' },
                 { value: '6', label: 'Payment methods' },
@@ -238,14 +214,14 @@ export default function IntegrationsPage() {
                   <p className="text-sm text-[#525252]">{stat.label}</p>
                 </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </Container>
       </section>
 
       {/* Tabbed integrations */}
       <section className="bg-white pb-24 sm:pb-32">
-        <Tabs.Root value={activeTab} onValueChange={setActiveTab}>
+        <Tabs.Root defaultValue="aggregators">
           {/* Tab list */}
           <div className="sticky top-16 z-30 border-b border-[#E5E5E5] bg-white/95 backdrop-blur-md">
             <Container>
@@ -275,19 +251,12 @@ export default function IntegrationsPage() {
           <Container>
             {categories.map((cat) => (
               <Tabs.Content key={cat.id} value={cat.id} className="outline-none">
-                <motion.div
-                  variants={staggerChildren}
-                  initial="hidden"
-                  animate="visible"
-                >
+                <div>
                   {/* Category tagline */}
                   {cat.tagline && (
-                    <motion.p
-                      variants={fadeInUp}
-                      className="mt-10 mb-8 text-center text-[#525252] text-base"
-                    >
+                    <p className="mt-10 mb-8 text-center text-[#525252] text-base">
                       {cat.tagline}
-                    </motion.p>
+                    </p>
                   )}
 
                   {/* Integration grid */}
@@ -296,7 +265,7 @@ export default function IntegrationsPage() {
                       <IntegrationCard key={integration.name} integration={integration} />
                     ))}
                   </div>
-                </motion.div>
+                </div>
               </Tabs.Content>
             ))}
           </Container>
@@ -306,35 +275,20 @@ export default function IntegrationsPage() {
       {/* Missing integration CTA */}
       <section className="border-t border-[#E5E5E5] bg-[#F5F5F5] py-16">
         <Container>
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            className="mx-auto max-w-2xl text-center"
-          >
-            <motion.div variants={fadeInUp}>
+          <div className="mx-auto max-w-2xl text-center">
+            <div>
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white border border-[#E5E5E5] text-2xl">
                 🔌
               </div>
-            </motion.div>
-            <motion.h2
-              variants={fadeInUp}
-              className="mb-3 text-2xl font-semibold text-[#0A0A0A] sm:text-3xl"
-            >
+            </div>
+            <h2 className="mb-3 text-2xl font-semibold text-[#0A0A0A] sm:text-3xl">
               Don&apos;t see yours?
-            </motion.h2>
-            <motion.p
-              variants={fadeInUp}
-              className="mb-8 text-[#525252] leading-relaxed"
-            >
+            </h2>
+            <p className="mb-8 text-[#525252] leading-relaxed">
               We have a public REST API and HMAC-signed webhooks. Connect anything.
               Or request a native integration — we ship them fast.
-            </motion.p>
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-wrap justify-center gap-3"
-            >
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
               <Button variant="primary" size="lg" asChild>
                 <Link href="/request-demo">
                   Request an integration <ArrowRight className="ml-1 h-4 w-4" />
@@ -345,8 +299,8 @@ export default function IntegrationsPage() {
                   API docs <ExternalLink className="ml-1 h-4 w-4" />
                 </a>
               </Button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </Container>
       </section>
 

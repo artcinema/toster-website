@@ -1,22 +1,17 @@
-'use client';
-
 import * as React from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import * as Tabs from '@radix-ui/react-tabs';
 import {
   ShoppingCart, ChefHat, Truck, Users, Megaphone,
-  BarChart3, DollarSign, Package, ArrowRight,
+  BarChart3, DollarSign, Package,
   Kanban, Zap, Globe, Camera, Clock, MapPin,
   Bot, Brain, TrendingUp, Shield, FileText,
   Warehouse, AlertTriangle, Import, Smartphone, Star, Bell, Search, Palette,
 } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { Container } from '@/components/ui/container';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { siteConfig } from '@/config/site';
-import { fadeInUp, staggerChildren, viewportConfig } from '@/lib/motion';
 import { CourierMapBackground } from '@/components/ui/courier-map-background';
 
 interface Feature {
@@ -165,9 +160,8 @@ const tabs: TabConfig[] = [
   },
 ];
 
-export default function FeaturesPage() {
-  const t = useTranslations('Common');
-  const [activeTab, setActiveTab] = React.useState('orders');
+export default async function FeaturesPage() {
+  const t = await getTranslations('Common');
 
   return (
     <>
@@ -185,32 +179,26 @@ export default function FeaturesPage() {
         />
 
         <Container className="relative z-20">
-          <motion.div
-            variants={staggerChildren}
-            initial="hidden"
-            animate="visible"
-            className="mx-auto max-w-3xl text-center"
-          >
-            <motion.div variants={fadeInUp}>
+          <div className="mx-auto max-w-3xl text-center">
+            <div>
               <Badge variant="yellow" className="mb-4">Features</Badge>
-            </motion.div>
-            <motion.h1
-              variants={fadeInUp}
+            </div>
+            <h1
               className="mb-4 text-4xl font-semibold tracking-tight text-[#0A0A0A] sm:text-5xl"
               style={{ lineHeight: 1.08 }}
             >
               Everything you need to run food delivery, nothing you don&apos;t
-            </motion.h1>
-            <motion.p variants={fadeInUp} className="text-lg text-[#525252] leading-relaxed">
+            </h1>
+            <p className="text-lg text-[#525252] leading-relaxed">
               Toster consolidates 5+ tools into one platform. Here&apos;s what you get.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </Container>
       </section>
 
       {/* Tabbed Features */}
       <section className="bg-white pb-24 sm:pb-32">
-        <Tabs.Root value={activeTab} onValueChange={setActiveTab}>
+        <Tabs.Root defaultValue="orders">
           {/* Tab List */}
           <div className="sticky top-16 z-30 border-b border-[#E5E5E5] bg-white/95 backdrop-blur-md">
             <Container>
@@ -236,18 +224,12 @@ export default function FeaturesPage() {
           <Container>
             {tabs.map((tab) => (
               <Tabs.Content key={tab.id} value={tab.id} className="outline-none">
-                <motion.div
-                  variants={staggerChildren}
-                  initial="hidden"
-                  animate="visible"
-                  className="grid grid-cols-1 gap-6 pt-12 sm:grid-cols-2 lg:grid-cols-3"
-                >
+                <div className="grid grid-cols-1 gap-6 pt-12 sm:grid-cols-2 lg:grid-cols-3">
                   {tab.features.map((feature, i) => {
                     const Icon = feature.icon;
                     return (
-                      <motion.div
+                      <div
                         key={i}
-                        variants={fadeInUp}
                         className="feature-card rounded-2xl border border-[#E5E5E5] bg-white p-6 hover:border-[#FFD600]/50 transition-colors"
                       >
                         <div className="feature-icon-wrap mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#F5F5F5]">
@@ -255,10 +237,10 @@ export default function FeaturesPage() {
                         </div>
                         <h3 className="mb-2 font-semibold text-[#0A0A0A]">{feature.title}</h3>
                         <p className="text-sm text-[#525252] leading-relaxed">{feature.description}</p>
-                      </motion.div>
+                      </div>
                     );
                   })}
-                </motion.div>
+                </div>
               </Tabs.Content>
             ))}
           </Container>
