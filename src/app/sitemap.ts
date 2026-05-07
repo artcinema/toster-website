@@ -6,23 +6,25 @@ const BASE = 'https://toster.co';
 const locales = ['en', 'uk', 'ru', 'pl', 'cs', 'de', 'es'];
 
 const routes = [
-  { path: '',           priority: 1.0,  changeFreq: 'weekly'  },
-  { path: '/features',       priority: 0.9,  changeFreq: 'weekly'  },
-  { path: '/food-delivery',  priority: 0.9,  changeFreq: 'weekly'  },
-  { path: '/ai',             priority: 0.9,  changeFreq: 'weekly'  },
-  { path: '/for-chains',     priority: 0.9,  changeFreq: 'weekly'  },
-  { path: '/pricing',   priority: 0.9,  changeFreq: 'monthly' },
-  { path: '/integrations', priority: 0.8, changeFreq: 'monthly' },
-  { path: '/blog',      priority: 0.8,  changeFreq: 'weekly'  },
-  { path: '/vs/poster-pos', priority: 0.8, changeFreq: 'monthly' },
-  { path: '/about',     priority: 0.7,  changeFreq: 'monthly' },
-  { path: '/security',         priority: 0.6,  changeFreq: 'yearly'  },
-  { path: '/legal/privacy',   priority: 0.3,  changeFreq: 'yearly'  },
-  { path: '/legal/terms',     priority: 0.3,  changeFreq: 'yearly'  },
-  { path: '/legal/dpa',       priority: 0.3,  changeFreq: 'yearly'  },
-  { path: '/legal/cookies',   priority: 0.3,  changeFreq: 'yearly'  },
-  { path: '/legal/imprint',   priority: 0.3,  changeFreq: 'yearly'  },
-  { path: '/request-demo', priority: 0.8, changeFreq: 'monthly' },
+  { path: '',                   priority: 1.0, changeFreq: 'weekly'  },
+  { path: '/features',          priority: 0.9, changeFreq: 'weekly'  },
+  { path: '/food-delivery',     priority: 0.9, changeFreq: 'weekly'  },
+  { path: '/ai',                priority: 0.9, changeFreq: 'weekly'  },
+  { path: '/for-chains',        priority: 0.9, changeFreq: 'weekly'  },
+  { path: '/for-single-location', priority: 0.8, changeFreq: 'monthly' },
+  { path: '/pricing',           priority: 0.9, changeFreq: 'monthly' },
+  { path: '/integrations',      priority: 0.8, changeFreq: 'monthly' },
+  { path: '/blog',              priority: 0.8, changeFreq: 'weekly'  },
+  { path: '/vs/poster-pos',     priority: 0.8, changeFreq: 'monthly' },
+  { path: '/about',             priority: 0.7, changeFreq: 'monthly' },
+  { path: '/api',               priority: 0.6, changeFreq: 'monthly' },
+  { path: '/security',          priority: 0.6, changeFreq: 'yearly'  },
+  { path: '/legal/privacy',     priority: 0.3, changeFreq: 'yearly'  },
+  { path: '/legal/terms',       priority: 0.3, changeFreq: 'yearly'  },
+  { path: '/legal/dpa',         priority: 0.3, changeFreq: 'yearly'  },
+  { path: '/legal/cookies',     priority: 0.3, changeFreq: 'yearly'  },
+  { path: '/legal/imprint',     priority: 0.3, changeFreq: 'yearly'  },
+  { path: '/request-demo',      priority: 0.8, changeFreq: 'monthly' },
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -42,13 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       });
     }
-    // Canonical without locale prefix (redirects to /en)
-    entries.push({
-      url: `${BASE}${route.path}`,
-      lastModified: new Date(),
-      changeFrequency: route.changeFreq as MetadataRoute.Sitemap[number]['changeFrequency'],
-      priority: route.priority,
-    });
   }
 
   // Integration pages
@@ -83,12 +78,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       });
     }
-    entries.push({
-      url: `${BASE}/blog/${post.slug}`,
-      lastModified: new Date(post.date),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    });
   }
 
   return entries;
