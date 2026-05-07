@@ -13,7 +13,7 @@ function ComparisonIcon({ value }: { value: string }) {
   if (value === '✅') return <Check className="mx-auto h-5 w-5 text-emerald-500" />;
   if (value === '❌') return <X className="mx-auto h-5 w-5 text-red-400" />;
   if (value === '⚠️') return <AlertTriangle className="mx-auto h-5 w-5 text-amber-400" />;
-  return <span className="text-xs text-[#A3A3A3]">{value}</span>;
+  return <span className="text-xs text-[#737373]">{value}</span>;
 }
 
 // ─── Home Page ────────────────────────────────────────────────────────────────
@@ -71,7 +71,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                   <Link href="/request-demo">{tCommon('requestDemo')}</Link>
                 </Button>
               </div>
-              <p className="mt-6 text-sm text-[#A3A3A3]">
+              <p className="mt-6 text-sm text-[#737373]">
                 {t('hero.trust')}
               </p>
             </div>
@@ -86,7 +86,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {/* ─── SOCIAL PROOF ─────────────────────────────────────────────── */}
       <section className="border-y border-[#E5E5E5] bg-[#F5F5F5] py-10">
         <Container>
-          <p className="mb-6 text-center text-sm font-medium text-[#A3A3A3] uppercase tracking-widest">
+          <p className="mb-6 text-center text-sm font-medium text-[#737373] uppercase tracking-widest">
             {t('socialProof.title')}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-6">
@@ -249,7 +249,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <table className="w-full min-w-[640px] border-collapse">
               <thead>
                 <tr>
-                  <th className="py-4 pr-6 text-left text-sm font-medium text-[#A3A3A3]">Feature</th>
+                  <th className="py-4 pr-6 text-left text-sm font-medium text-[#737373]">Feature</th>
                   <th className="px-4 py-4 text-center">
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FFD600] px-3 py-1 text-sm font-semibold text-[#0A0A0A]">
                       Toster

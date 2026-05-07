@@ -49,6 +49,7 @@ export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger
+        aria-label={`Language: ${languageNames[locale]}`}
         className={cn(
           'flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD600]',
           dark
