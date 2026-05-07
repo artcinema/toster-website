@@ -8,10 +8,13 @@ module.exports = {
         'http://localhost:3000/en/features',
         'http://localhost:3000/en/pricing',
         'http://localhost:3000/en/food-delivery',
+        'http://localhost:3000/en/ai',
+        'http://localhost:3000/en/for-chains',
         'http://localhost:3000/en/blog',
+        'http://localhost:3000/en/integrations',
+        'http://localhost:3000/en/request-demo',
       ],
       settings: {
-        // Simulate Moto G4 on slow 4G for mobile scores
         preset: 'desktop',
         formFactor: 'desktop',
         screenEmulation: {
@@ -31,16 +34,19 @@ module.exports = {
     },
     assert: {
       assertions: {
-        'categories:performance': ['error', { minScore: 0.85 }],
-        'categories:accessibility': ['warn', { minScore: 0.9 }],
-        'categories:best-practices': ['warn', { minScore: 0.9 }],
-        'categories:seo': ['error', { minScore: 0.95 }],
-        'first-contentful-paint': ['warn', { maxNumericValue: 2000 }],
-        'largest-contentful-paint': ['error', { maxNumericValue: 3000 }],
-        'cumulative-layout-shift': ['error', { maxNumericValue: 0.1 }],
-        'total-blocking-time': ['warn', { maxNumericValue: 300 }],
-        'interactive': ['warn', { maxNumericValue: 3800 }],
-        'speed-index': ['warn', { maxNumericValue: 3400 }],
+        // Categories — tightened after Phase 1 SEO fixes
+        'categories:performance':    ['warn',  { minScore: 0.88 }],
+        'categories:accessibility':  ['error', { minScore: 0.95 }],
+        'categories:best-practices': ['error', { minScore: 0.95 }],
+        'categories:seo':            ['error', { minScore: 0.98 }],
+
+        // Core Web Vitals (desktop thresholds)
+        'first-contentful-paint':    ['warn',  { maxNumericValue: 1800 }],
+        'largest-contentful-paint':  ['error', { maxNumericValue: 2500 }],
+        'cumulative-layout-shift':   ['error', { maxNumericValue: 0.1  }],
+        'total-blocking-time':       ['warn',  { maxNumericValue: 300  }],
+        'interactive':               ['warn',  { maxNumericValue: 3500 }],
+        'speed-index':               ['warn',  { maxNumericValue: 3000 }],
       },
     },
     upload: {
