@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { z } from 'zod';
 import { CheckCircle2, Loader2 } from 'lucide-react';
@@ -356,9 +357,9 @@ export default function RequestDemoPage() {
                       <span className="text-sm text-[#525252]">
                         I agree to be contacted by the Toster team about this demo request.
                         Your data is processed in accordance with our{' '}
-                        <a href="/privacy" className="underline underline-offset-2 hover:text-[#0A0A0A]">
+                        <Link href="/privacy" className="underline underline-offset-2 hover:text-[#0A0A0A]">
                           Privacy Policy
-                        </a>
+                        </Link>
                         .
                       </span>
                     </label>

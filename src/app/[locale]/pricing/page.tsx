@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Loader2, Percent, Megaphone, LayoutDashboard, Zap, Globe, Smartphone } from 'lucide-react';
 import { Container } from '@/components/ui/container';
@@ -529,12 +530,12 @@ export default function PricingPage() {
                       <span className="text-sm text-white/50">
                         I agree to be contacted by the Toster team regarding this inquiry.
                         Your data is processed in accordance with our{' '}
-                        <a
+                        <Link
                           href="/privacy-policy"
                           className="underline underline-offset-2 hover:text-white"
                         >
                           Privacy Policy
-                        </a>
+                        </Link>
                         .
                       </span>
                     </label>

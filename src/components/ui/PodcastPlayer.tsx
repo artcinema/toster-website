@@ -39,11 +39,17 @@ export function PodcastPlayer({ src, title, subtitle, autoPlay = false }: Podcas
   const [volume, setVolume] = React.useState(1);
   const [dragging, setDragging] = React.useState(false);
 
-  // RAF tick
-  const tick = React.useCallback(() => {
-    if (audioRef.current && !dragging) setCurrentTime(audioRef.current.currentTime);
-    rafRef.current = requestAnimationFrame(tick);
-  }, [dragging]);
+  // RAF tick — kept in a ref so the recursive `requestAnimationFrame(tick)`
+  // call doesn't self-reference inside a useCallback (which the React
+  // Compiler flags as "variable used before declared"). `tick` itself
+  // is stable (returns the same identity every render) so it's safe
+  // to use as a useEffect dependency.
+  const draggingRef = React.useRef(dragging);
+  draggingRef.current = dragging;
+  const tick = React.useCallback(function tickImpl() {
+    if (audioRef.current && !draggingRef.current) setCurrentTime(audioRef.current.currentTime);
+    rafRef.current = requestAnimationFrame(tickImpl);
+  }, []);
 
   React.useEffect(() => {
     const audio = audioRef.current;

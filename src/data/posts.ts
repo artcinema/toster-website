@@ -890,6 +890,144 @@ export const posts: Post[] = [
 <p>Corporate accounts create the strongest switching costs: an employee with an approved corporate balance, saved delivery profiles for their office, and a record of expense claims can't easily switch — their employer's workflow is embedded in your platform.</p>
     `,
   },
+  {
+    slug: 'server-side-pixel-tracking-meta-capi',
+    title: 'Server-Side Pixel Tracking: How Toster Recovers 20–40% of Lost Attribution',
+    excerpt: 'iOS 14.5 and ad-blockers broke the browser pixel. Toster now ships every conversion twice — once from the browser, once from our server via Meta CAPI — and dedupes them so ad platforms see the full funnel again.',
+    date: '2026-05-11',
+    readingTime: 7,
+    category: 'Marketing',
+    keywords: ['Meta CAPI', 'conversions API', 'server-side tracking', 'food delivery attribution', 'iOS 14.5 pixel'],
+    content: `
+<h2>The Hole iOS 14.5 Punched in Your Funnel</h2>
+<p>Until 2021 the Facebook Pixel was reliable: a snippet of JavaScript on your checkout page fired a Purchase event, Meta saw it, and your ad reports showed an honest cost per acquisition. Then Apple shipped App Tracking Transparency, iOS users opted out by default, and the browser pixel stopped firing for a large chunk of your real customers. The same thing happens with Brave, Safari ITP, uBlock Origin, and corporate ad-blockers — the pixel JS never executes, so the conversion is invisible to Meta.</p>
+<p>The result: Meta's optimisation algorithm trains on a biased sample. It thinks your ads are converting worse than they actually are, bids more conservatively, and your real CPA climbs. For most delivery chains the gap between observed and actual conversions is 20–40%. That's the size of the budget Meta is misallocating because it doesn't know what's really happening.</p>
+
+<h2>The Fix: Send the Event Twice</h2>
+<p>Meta's official answer is the <strong>Conversions API (CAPI)</strong>. Instead of relying only on the browser pixel, you also send the same event from your server, server-to-server, where no ad-blocker can interfere. Toster now does this for every order automatically — no integration work on your side.</p>
+<p>The interesting engineering challenge is deduplication. If both the browser pixel and the server CAPI fire a Purchase event for the same order, Meta would count it twice and your ROAS reports would look amazing for the wrong reason. The trick is to attach the same <code>event_id</code> to both versions of the event. Meta matches them by <code>event_id + event_name</code> within a 7-day window and keeps only one. We use the order ID as the event_id, so dedup is deterministic.</p>
+
+<h2>What Toster Captures (and Why It Matters for Match Quality)</h2>
+<p>Meta scores every server event on "match quality" — how many user identifiers you sent so Meta can match the event back to a Facebook account. More identifiers = better match = better optimisation. Toster captures and forwards every one of these on every order:</p>
+<ul>
+<li><strong>_fbp cookie</strong> — first-party browser ID set by the pixel itself</li>
+<li><strong>_fbc cookie</strong> — fbclid from the ad click, persisted for 90 days</li>
+<li><strong>Hashed customer email and phone</strong> (SHA-256, never raw)</li>
+<li><strong>Client IP and User-Agent</strong> from the original session</li>
+<li><strong>First-touch and last-touch UTMs</strong> stored 30 days in the browser</li>
+</ul>
+<p>Together these typically push match quality from "Fair" (1–2 identifiers) to "Great" (5+). Meta gives a measurable optimisation boost above the "Good" threshold — chains that move from Fair to Great typically see CPA drop another 8–15% even before recovering the iOS 14.5 events.</p>
+
+<h2>First-Touch + Last-Touch Attribution, Not Just Last-Click</h2>
+<p>Every Toster session captures attribution twice: <strong>first-touch</strong> (the very first UTM that brought the visitor, sticky for 30 days) and <strong>last-touch</strong> (the most recent UTM that brought them back). Both are attached to every order. This matters because food delivery is rarely a single-session purchase — a customer sees an Instagram ad on Monday, comes back via Google on Friday, and orders. Last-click attribution credits Google. First-touch credits Instagram. The truth is they both contributed and a real marketer wants to see both.</p>
+<p>The data lives in two columns on each order — <code>attr_first_source</code>, <code>attr_first_campaign</code>, … and <code>attr_last_source</code>, <code>attr_last_campaign</code>, … — plus click IDs (<code>gclid</code>, <code>fbclid</code>, <code>ttclid</code>, <code>msclkid</code>, <code>yclid</code>) for matching against ad platforms' own reports.</p>
+
+<h2>What This Looks Like in Practice</h2>
+<p>The customer scans a QR code from a flyer (<code>utm_source=flyer&utm_campaign=spring</code>). 12 days later they click a Meta retargeting ad (<code>fbclid=…</code>) and order. The order record now contains:</p>
+<ul>
+<li>First touch: flyer / spring</li>
+<li>Last touch: Meta retargeting</li>
+<li>fbclid + _fbp + _fbc all captured</li>
+<li>Server-side Purchase event sent to Meta with event_id = order ID, hashed PII, full UTM payload</li>
+</ul>
+<p>A few seconds later Meta CAPI confirms receipt. The browser pixel, if it fired, used the same event_id — Meta sees both and dedupes. The conversion appears in Ads Manager with full attribution within minutes.</p>
+
+<h2>Beyond Meta: GA4 and TikTok</h2>
+<p>The same eventID mechanism works for Google Analytics 4 (Measurement Protocol) and TikTok Events API. Toster's pixel bridge initialises all three SDKs on the storefront and fires one set of standard events — <code>view_content</code>, <code>add_to_cart</code>, <code>initiate_checkout</code>, <code>purchase</code> — with a shared event ID. Each platform receives the client-side version from the browser and a server-side mirror from our backend, and dedupes against the same ID. You configure one pixel ID per network in Settings, and the same conversion is reported correctly across all three.</p>
+
+<h2>What You Should Do Now</h2>
+<ul>
+<li><strong>Add your Meta Pixel ID</strong> in <em>Settings → Marketing → Pixels</em>. Toster will start firing both client-side and server-side events on the next order.</li>
+<li><strong>Generate a CAPI access token</strong> in Meta Events Manager, paste it next to the Pixel ID. The server-side leg starts within minutes.</li>
+<li><strong>Verify in Events Manager → Test Events</strong>. You should see "Server" events appearing within seconds of a test order, and "Browser" events appearing with the same event ID being deduplicated.</li>
+<li><strong>Wait 7 days</strong>, then compare CPA in Ads Manager before/after. The gap you'll see is the part of your funnel that was invisible until now.</li>
+</ul>
+
+<h2>The Quiet Compliance Win</h2>
+<p>Server-side tracking has a side benefit most operators don't realise: it's much easier to make GDPR-compliant. The pixel JS in the browser captures whatever's there, including PII you may not have wanted to send. Server-side, you decide exactly what to send and you hash everything personal before it leaves your network. Toster never sends raw email or phone to ad platforms — only SHA-256 hashes, which Meta and Google can match against their own hashed records without ever seeing the underlying values.</p>
+<p>If your DPA includes ad platforms, the server-side path is the one your privacy officer will sign off on.</p>
+    `,
+  },
+  {
+    slug: 'seo-product-feeds-food-delivery',
+    title: 'SEO and Product Feeds for Food Delivery: The Setup That Actually Drives Orders',
+    excerpt: 'Most delivery storefronts are invisible to Google and missing from Meta Catalog. Toster fixes both: per-tenant sitemaps, JSON-LD on every product, and auto-generated feeds for Meta, Google, and TikTok.',
+    date: '2026-05-11',
+    readingTime: 6,
+    category: 'Marketing',
+    keywords: ['food delivery SEO', 'product feed Meta', 'Google Shopping food', 'TikTok Catalog', 'schema.org Product', 'JSON-LD restaurant'],
+    content: `
+<h2>Why Most Delivery Storefronts Don't Rank on Google</h2>
+<p>Open the page source of a typical delivery chain's storefront and you'll find three things wrong: a single-page React app that doesn't pre-render product pages, no <code>schema.org/Product</code> markup, and a sitemap that lists the homepage and not much else. The result: Google's crawler sees a near-empty shell and the chain shows up for branded searches only. "Sushi delivery Prague" goes to the aggregators.</p>
+<p>Fixing this isn't glamorous. It's three boring pieces of infrastructure that have to be done correctly: clean URLs, structured data, and product feeds. Toster ships all three out of the box.</p>
+
+<h2>1. Clean Slugged URLs</h2>
+<p>Every product and category in Toster has a stable, human-readable slug. Instead of <code>/products/clx7-9j3-uuid</code> the URL is <code>/products/philadelphia-roll</code>. Slugs are auto-generated from the product name in the tenant's primary language and remain stable across renames. Categories work the same way: <code>/category/rolls</code> not <code>/category/clx8-9j4-uuid</code>.</p>
+<p>Stable slugs matter for SEO because Google indexes the URL itself as a ranking signal. A URL containing the search term outranks one that doesn't, all else being equal. They also matter for shareability — a customer who shares a link in a chat sees "Philadelphia Roll" in the URL preview, not a UUID.</p>
+
+<h2>2. JSON-LD on Every Product Page</h2>
+<p>Structured data is how you tell Google "this page is a product, here's the price, the rating, the availability." Toster injects a <code>schema.org/Product</code> + <code>Offer</code> JSON-LD block on every product page:</p>
+<pre><code>{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Philadelphia Roll",
+  "image": "https://cdn.toster.co/p/philadelphia-roll.jpg",
+  "description": "8 pieces. Salmon, cream cheese, cucumber, nori, rice.",
+  "offers": {
+    "@type": "Offer",
+    "price": "299",
+    "priceCurrency": "CZK",
+    "availability": "https://schema.org/InStock"
+  }
+}</code></pre>
+<p>When Google sees this, it can render the product in rich results — with a price, a thumbnail, and a star rating if you've connected reviews. Click-through rates on rich results are 2–3x higher than plain text results, which means the same ranking position drives meaningfully more traffic.</p>
+<p>Open Graph and Twitter Card meta tags ship in the same head element. A link to a product pasted into WhatsApp, Telegram, or Slack now renders a proper preview card with the product image, name, and price — the difference between a customer tapping through and ignoring the link.</p>
+
+<h2>3. Per-Tenant Sitemap Hierarchy</h2>
+<p>Toster generates a sitemap index at <code>/sitemap.xml</code> that points to one subsitemap per tenant. Each subsitemap lists every active product and category URL, with <code>&lt;lastmod&gt;</code> dates that update automatically when you edit a product. Google's crawler reads the index, discovers every storefront, and revisits changed pages within hours.</p>
+<p>The sitemap is generated lazily on request and cached for an hour — no cron job to maintain, no stale entries when you launch a new menu item. The same path is wired into <code>robots.txt</code> so Google finds it without you submitting anything in Search Console (though submitting still speeds up the first crawl).</p>
+
+<h2>4. Auto-Generated Product Feeds for Paid Channels</h2>
+<p>Paid social and shopping channels need a separate file: a structured product feed, refreshed daily, that they ingest into their ad platforms. Toster ships three formats from the same data:</p>
+<ul>
+<li><strong>Meta CSV</strong> — <code>/api/public/feed/meta.csv</code> — for Meta Commerce Manager (Facebook/Instagram catalog). Required for catalog ads, dynamic retargeting, and Advantage+ Shopping campaigns.</li>
+<li><strong>Google XML</strong> — <code>/api/public/feed/google.xml</code> — for Google Merchant Center. Required for Shopping ads and free Shopping listings in Google search.</li>
+<li><strong>TikTok CSV</strong> — <code>/api/public/feed/tiktok.csv</code> — for TikTok Business Center catalog. Required for Video Shopping Ads and TikTok Shop integration.</li>
+</ul>
+<p>Each feed reflects current inventory: out-of-stock items are marked, prices are current, images use your CDN URLs. Configure the feed URL once in each platform; they re-fetch on their own schedule (Meta hourly, Google daily, TikTok 6-hourly). No manual exports, no broken catalogs after a menu update.</p>
+
+<h2>5. The REST API for Partners and Headless Storefronts</h2>
+<p>Not everyone wants to use Toster's React storefront. Aggregator partners, white-label resellers, and chains that already have a custom storefront need the data, not the UI. Toster exposes the same product catalogue via a public, unauthenticated REST API:</p>
+<ul>
+<li><code>GET /api/public/products</code> — paginated list, filterable by category</li>
+<li><code>GET /api/public/product/:slug</code> — single product with modifiers and images</li>
+<li><code>GET /api/public/categories</code> — full category tree</li>
+<li><code>GET /api/public/category/:slug</code> — products in a category</li>
+</ul>
+<p>Combined with the new <code>POST /api/integrations/orders/import</code> endpoint (authenticated with a scoped API key), a partner can pull your full menu, render it in their own UI, and post orders straight back into Toster — the order shows up in your dispatcher console exactly as if it came from your own storefront. The legacy Cyrillic Telegram-notifier text format and a clean JSON format are both accepted, so a partner that's already integrated with the older notifier pipeline can switch with a single URL change.</p>
+
+<h2>What This Looks Like in Practice — A 30-Day Picture</h2>
+<p>A new tenant turning all of this on from a cold start typically sees:</p>
+<ul>
+<li><strong>Days 1–7</strong>: Google crawls the sitemap, indexes 200–500 product URLs depending on menu size.</li>
+<li><strong>Days 7–14</strong>: First branded searches start showing rich results (image + price). CTR on those queries goes up.</li>
+<li><strong>Days 14–21</strong>: Long-tail unbranded queries ("philadelphia roll prague delivery") start appearing in Search Console with impressions but few clicks — you're now indexed but not yet ranking.</li>
+<li><strong>Days 21–30</strong>: Meta Catalog ads using the auto-generated feed start outperforming static creatives. Dynamic retargeting becomes possible — customers who viewed a product but didn't order see that exact product in their Instagram feed.</li>
+</ul>
+
+<h2>What You Should Do Now</h2>
+<ul>
+<li><strong>Verify your storefront has product slugs</strong> — open any product page, the URL should contain the product name, not a UUID. If it doesn't, your tenant predates the slug migration and Toster will generate slugs on next save of each product.</li>
+<li><strong>Open <code>your-storefront.com/sitemap.xml</code></strong> — you should see your tenant's URL listed in the index. If it's not, contact support.</li>
+<li><strong>Set up Meta Commerce Manager</strong> with the Meta CSV feed URL. Use it to launch a catalog-based retargeting campaign.</li>
+<li><strong>Submit Google Merchant Center</strong> with the Google XML feed URL. Free Shopping listings appear within a few days; paid Shopping ads need a campaign.</li>
+<li><strong>If you have partners</strong> who currently send orders via Telegram bot, issue them an API key (<em>Settings → API Keys</em>, scope <code>orders:write</code>) and point them at <code>POST /api/integrations/orders/import</code>. They drop the Telegram intermediary entirely.</li>
+</ul>
+
+<h2>The Unglamorous Truth</h2>
+<p>Most marketing posts will tell you SEO and paid social are different worlds. They're not. They run on the same data — a clean product catalog with stable URLs, structured metadata, and live availability — exposed in different formats. The chains that get this infrastructure right once stop fighting their tooling and start getting compounding returns: more organic traffic, more efficient ads, more partner integrations, less manual work. The chains that don't keep paying the aggregators their 30% commission for visibility they could be earning themselves.</p>
+    `,
+  },
 ];
 
 export function getPostBySlug(slug: string): Post | undefined {
