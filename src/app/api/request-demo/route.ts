@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import nodemailer from 'nodemailer';
 
+// Reject unknown keys instead of silently accepting them — anything not
+// declared on the schema is now a 400.
 const schema = z.object({
   fullName:      z.string().min(2).max(200),
   email:         z.string().email(),
@@ -13,7 +15,7 @@ const schema = z.object({
   message:       z.string().max(2000).optional(),
   consent:       z.boolean().optional(),
   website:       z.string().max(0).optional(), // honeypot
-});
+}).strict();
 
 const COUNTRY_LABELS: Record<string, string> = {
   UA: '🇺🇦 Ukraine', PL: '🇵🇱 Poland', CZ: '🇨🇿 Czech Republic',
@@ -24,18 +26,61 @@ const NOTIFY_EMAIL = process.env['DEMO_NOTIFY_EMAIL'] ?? 'teslenko.art@gmail.com
 
 type Payload = z.infer<typeof schema>;
 
+// ── Rate limiting ─────────────────────────────────────────────────────────────
+// In-memory IP-keyed sliding window. 5 requests per 10 minutes per IP.
+//
+// Adequate for a single instance; Vercel/Railway scale-out makes this best-effort
+// across replicas (caller hits a different replica, counter resets). Real DoS
+// protection should sit at the edge (Cloudflare WAF, Vercel firewall rules).
+// Upgrade path: swap the Map for @upstash/redis once we genuinely need shared
+// state — keep the same key shape so it's a 5-line change.
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT = 5;
+const rateBuckets = new Map<string, number[]>();
+
+function rateLimitOk(ip: string): boolean {
+  const now = Date.now();
+  const cutoff = now - RATE_WINDOW_MS;
+  const hits = (rateBuckets.get(ip) ?? []).filter((t) => t > cutoff);
+  if (hits.length >= RATE_LIMIT) {
+    rateBuckets.set(ip, hits);
+    return false;
+  }
+  hits.push(now);
+  rateBuckets.set(ip, hits);
+  // Opportunistic GC so the Map doesn't grow unbounded over a long-running
+  // instance. Cheap to do here since we're already iterating buckets occasionally.
+  if (rateBuckets.size > 10_000) {
+    for (const [k, v] of rateBuckets) {
+      if (v.every((t) => t <= cutoff)) rateBuckets.delete(k);
+    }
+  }
+  return true;
+}
+
+function clientIp(req: NextRequest): string {
+  const fwd = req.headers.get('x-forwarded-for');
+  if (fwd) return fwd.split(',')[0]!.trim();
+  return req.headers.get('x-real-ip') ?? 'unknown';
+}
+
+// ── Email + Telegram delivery ─────────────────────────────────────────────────
+
 async function sendEmail(data: Payload): Promise<void> {
   const host = process.env['SMTP_HOST'];
   const user = process.env['SMTP_USER'];
   const pass = process.env['SMTP_PASS'];
   if (!host || !user || !pass) return;
 
+  // No `rejectUnauthorized: false` — all mainstream SMTP providers
+  // (SendGrid, Postmark, Resend, Mailgun, SES) ship valid certs.
+  // Disabling cert verification exposes the SMTP credentials to a MitM
+  // for no real-world benefit.
   const transporter = nodemailer.createTransport({
     host,
     port: parseInt(process.env['SMTP_PORT'] ?? '587'),
     secure: process.env['SMTP_SECURE'] === 'true',
     auth: { user, pass },
-    tls: { rejectUnauthorized: false },
   });
 
   const country = COUNTRY_LABELS[data.country] ?? data.country;
@@ -96,15 +141,26 @@ async function sendTelegram(data: Payload): Promise<void> {
     data.message ? `\n💬 _${escMd(data.message)}_` : '',
   ].filter(Boolean).join('\n');
 
-  await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+  const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'Markdown' }),
   });
+  if (!res.ok) {
+    throw new Error(`Telegram API ${res.status}: ${await res.text().catch(() => '')}`);
+  }
 }
 
 export async function POST(req: NextRequest) {
   try {
+    const ip = clientIp(req);
+    if (!rateLimitOk(ip)) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again in a few minutes.' },
+        { status: 429, headers: { 'Retry-After': '600' } }
+      );
+    }
+
     const body = await req.json();
     const parsed = schema.safeParse(body);
     if (!parsed.success) {
@@ -116,10 +172,19 @@ export async function POST(req: NextRequest) {
 
     const data = parsed.data;
 
-    // Honeypot
+    // Honeypot — bots tend to fill every field. Real users never see this input.
     if (data.website) return NextResponse.json({ ok: true });
 
-    await Promise.allSettled([sendEmail(data), sendTelegram(data)]);
+    // Log per-channel failures so a dropped notification isn't silent.
+    // Promise.allSettled never throws, so the outer catch only fires on
+    // truly unexpected errors (request parsing, unhandled sync exception).
+    const results = await Promise.allSettled([sendEmail(data), sendTelegram(data)]);
+    const channels = ['email', 'telegram'] as const;
+    results.forEach((r, i) => {
+      if (r.status === 'rejected') {
+        console.error(`[request-demo] ${channels[i]} delivery failed:`, r.reason);
+      }
+    });
 
     return NextResponse.json({ ok: true });
   } catch (err) {
