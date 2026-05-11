@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useLocale } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -36,6 +36,7 @@ interface LanguageSwitcherProps {
 export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
   const locale = useLocale() as Locale;
   const pathname = usePathname();
+  const router = useRouter();
 
   const handleLocaleChange = (newLocale: Locale) => {
     // All locales use explicit prefix (localePrefix: 'always'), so just swap the prefix.
@@ -43,7 +44,7 @@ export function LanguageSwitcher({ dark = false }: LanguageSwitcherProps) {
     const hasLocalePrefix = locales.includes(segments[1] as Locale);
     const rest = hasLocalePrefix ? segments.slice(2).join('/') : segments.slice(1).join('/');
     const newPath = `/${newLocale}${rest ? `/${rest}` : ''}`;
-    window.location.href = newPath;
+    router.push(newPath);
   };
 
   return (
