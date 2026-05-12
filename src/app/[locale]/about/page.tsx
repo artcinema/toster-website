@@ -12,7 +12,10 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { fadeInUp, staggerChildren } from '@/lib/motion';
 
-const PODCAST_URL = 'https://github.com/artcinema/toster-website/releases/download/media-v1/The_AI_Brain_Running_Dark_Kitchens.m4a';
+// Served through /api/media/episode/* so browsers can play it inline
+// instead of treating GitHub Release's `Content-Disposition: attachment`
+// as a download. The upstream URL lives in the route handler.
+const PODCAST_URL = '/api/media/episode/ai-brain-dark-kitchens';
 
 const values = [
   {
