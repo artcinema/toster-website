@@ -160,12 +160,37 @@ const softwareSchema = {
   operatingSystem: 'Web, iOS, Android',
   description: 'Food delivery chain management platform: CRM, kitchen display, courier tracking, customer website, mobile apps, and managed marketing.',
   url: 'https://toster.co',
-  offers: {
-    '@type': 'Offer',
-    price: '3',
-    priceCurrency: 'PERCENT',
-    description: 'From 3% of monthly turnover. Includes CRM, customer website, iOS & Android apps, and managed marketing.',
-  },
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Start',
+      price: '250',
+      priceCurrency: 'EUR',
+      url: 'https://toster.co/en/pricing',
+      description: 'Fixed €250/month — SEO-optimized website, iOS & Android apps, and AI-powered CRM.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Starter',
+      priceCurrency: 'EUR',
+      url: 'https://toster.co/en/pricing',
+      description: '3% of monthly turnover. Single location. Core CRM — orders, kitchen, couriers.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Growth',
+      priceCurrency: 'EUR',
+      url: 'https://toster.co/en/pricing',
+      description: '5–7% of monthly turnover. Multi-location chain with managed marketing, AI automation, and loyalty.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Enterprise',
+      priceCurrency: 'EUR',
+      url: 'https://toster.co/en/pricing',
+      description: 'Up to 9% of monthly turnover. White-glove setup, custom integrations, fiscalization, dedicated support.',
+    },
+  ],
   featureList: [
     'Order management with Kanban and table view',
     'Kitchen Display System (KDS)',

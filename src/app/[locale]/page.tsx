@@ -8,6 +8,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Container } from '@/components/ui/container';
+import { JsonLd } from '@/components/JsonLd';
 import { siteConfig } from '@/config/site';
 import { fadeInUp, staggerChildren, viewportConfig } from '@/lib/motion';
 
@@ -69,9 +70,30 @@ function KanbanMockup() {
 // ─── Comparison Table ─────────────────────────────────────────────────────────
 
 function ComparisonIcon({ value }: { value: string }) {
-  if (value === '✅') return <Check className="mx-auto h-5 w-5 text-emerald-500" />;
-  if (value === '❌') return <X className="mx-auto h-5 w-5 text-red-400" />;
-  if (value === '⚠️') return <AlertTriangle className="mx-auto h-5 w-5 text-amber-400" />;
+  // Render an icon for the human eye, but always keep a text equivalent in the
+  // DOM (sr-only) so screen readers and Google's generative-AI systems can read
+  // which product supports which feature from the comparison matrix.
+  if (value === '✅')
+    return (
+      <>
+        <Check aria-hidden className="mx-auto h-5 w-5 text-emerald-500" />
+        <span className="sr-only">Yes</span>
+      </>
+    );
+  if (value === '❌')
+    return (
+      <>
+        <X aria-hidden className="mx-auto h-5 w-5 text-red-400" />
+        <span className="sr-only">No</span>
+      </>
+    );
+  if (value === '⚠️')
+    return (
+      <>
+        <AlertTriangle aria-hidden className="mx-auto h-5 w-5 text-amber-400" />
+        <span className="sr-only">Partial</span>
+      </>
+    );
   return <span className="text-xs text-[#A3A3A3]">{value}</span>;
 }
 
@@ -95,8 +117,22 @@ export default function HomePage() {
 
   const aiIcons = [Mic, Bot, Users, Brain];
 
+  // FAQPage structured data — built from the same translated FAQ items rendered
+  // below, so the answer text Google's AI sees is identical to the visible copy.
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  };
+
   return (
     <>
+      <JsonLd data={faqSchema} />
+
       {/* ─── HERO ─────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-white py-24 sm:py-32 lg:py-40">
         {/* Subtle grid background */}
