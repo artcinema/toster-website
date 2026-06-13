@@ -6,7 +6,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const url = `${BASE}/${locale}/request-demo`;
   return {
-    title: 'Request a Demo — Toster Food Delivery CRM',
+    title: 'Request a Demo — Food Delivery CRM',
     description:
       'Book a personalized Toster demo and see how food delivery chains run orders, kitchen, couriers, loyalty, and AI automation in one platform. We reply within 24 hours.',
     keywords: [

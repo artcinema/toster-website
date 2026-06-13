@@ -6,7 +6,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const url = `${BASE}/${locale}/for-single-location`;
   return {
-    title: 'Food Delivery Software for a Single Location — Toster',
+    title: 'Food Delivery Software for a Single Location',
     description:
       'Run one restaurant or dark kitchen like a chain: order management, kitchen display, courier tracking, customer loyalty, and a branded ordering site on the entry plan. Upgrade as you grow.',
     keywords: [

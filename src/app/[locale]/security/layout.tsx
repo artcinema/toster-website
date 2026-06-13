@@ -6,7 +6,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const url = `${BASE}/${locale}/security`;
   return {
-    title: 'Security & Data Protection — Toster Food Delivery CRM',
+    title: 'Security & Data Protection — Food Delivery CRM',
     description:
       'How Toster protects your business: JWT authentication, HMAC-signed webhooks, audit logs on every change, per-organization data isolation, rate limiting, and GDPR-compliant data export and deletion.',
     keywords: [
