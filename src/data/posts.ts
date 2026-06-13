@@ -2,7 +2,8 @@ export interface Post {
   slug: string;
   title: string;
   excerpt: string;
-  date: string;
+  date: string; // ISO publish date
+  updated?: string; // ISO date of last meaningful edit; powers dateModified + sitemap freshness
   readingTime: number; // minutes
   category: string;
   keywords: string[];
