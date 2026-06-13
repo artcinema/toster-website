@@ -20,6 +20,7 @@ interface Integration {
   logo?: string;
   badge?: string;
   flag?: string;
+  slug?: string; // when set, the tile links to its /integrations/<slug> detail page
 }
 
 interface Category {
@@ -42,11 +43,11 @@ const categories: Category[] = [
     count: 11,
     tagline: 'Orders from every platform land in one queue, in real time.',
     integrations: [
-      { name: 'Bolt Food', abbr: 'BT', color: '#34D186', logo: GF('bolt.eu'), description: 'Native sync — orders, status updates, menus' },
-      { name: 'Glovo', abbr: 'GL', color: '#FFC244', logo: SI('glovo'), description: 'Two-way sync with automatic menu publish' },
-      { name: 'Wolt', abbr: 'WO', color: '#009DE0', logo: GF('wolt.com'), description: 'Real-time order ingestion via courier API' },
+      { name: 'Bolt Food', abbr: 'BT', color: '#34D186', logo: GF('bolt.eu'), description: 'Native sync — orders, status updates, menus', slug: 'bolt-food' },
+      { name: 'Glovo', abbr: 'GL', color: '#FFC244', logo: SI('glovo'), description: 'Two-way sync with automatic menu publish', slug: 'glovo' },
+      { name: 'Wolt', abbr: 'WO', color: '#009DE0', logo: GF('wolt.com'), description: 'Real-time order ingestion via courier API', slug: 'wolt' },
       { name: 'DoorDash', abbr: 'DD', color: '#FF3008', logo: SI('doordash'), description: 'Drive API integration with live status push' },
-      { name: 'Uber Eats', abbr: 'UE', color: '#06C167', logo: SI('ubereats'), description: 'Full menu management + order flow' },
+      { name: 'Uber Eats', abbr: 'UE', color: '#06C167', logo: SI('ubereats'), description: 'Full menu management + order flow', slug: 'uber-eats' },
       { name: 'Grubhub', abbr: 'GH', color: '#F63440', logo: GF('grubhub.com'), description: 'Direct API connection, no middleware' },
       { name: 'Just Eat', abbr: 'JE', color: '#FF8000', logo: SI('justeat'), description: 'Live order sync across EU markets' },
       { name: 'Pyszne.pl', abbr: 'PY', color: '#FF6900', logo: GF('pyszne.pl'), description: 'Polish market specialist integration' },
@@ -61,8 +62,8 @@ const categories: Category[] = [
     count: 6,
     tagline: 'Your customer pays the way they want.',
     integrations: [
-      { name: 'LiqPay', abbr: 'LQ', color: '#00AFF0', logo: GF('liqpay.ua'), description: 'Ukrainian card payments + installments', badge: 'UA' },
-      { name: 'Stripe', abbr: 'ST', color: '#635BFF', logo: SI('stripe'), description: 'Worldwide cards, Link, SEPA, and Stripe Tax' },
+      { name: 'LiqPay', abbr: 'LQ', color: '#00AFF0', logo: GF('liqpay.ua'), description: 'Ukrainian card payments + installments', badge: 'UA', slug: 'liqpay' },
+      { name: 'Stripe', abbr: 'ST', color: '#635BFF', logo: SI('stripe'), description: 'Worldwide cards, Link, SEPA, and Stripe Tax', slug: 'stripe' },
       { name: 'Viva Wallet', abbr: 'VW', color: '#0B4FBF', logo: GF('vivawallet.com'), description: 'EU-native acquiring, 24 countries', badge: 'EU' },
       { name: 'Apple Pay', abbr: 'AP', color: '#1C1C1E', logo: SI('applepay'), description: 'One-tap checkout on iOS and Safari' },
       { name: 'Google Pay', abbr: 'GP', color: '#4285F4', logo: SI('googlepay'), description: 'One-tap checkout on Android and Chrome' },
@@ -88,7 +89,7 @@ const categories: Category[] = [
     label: 'Marketing',
     tagline: 'Run campaigns across every channel from one place.',
     integrations: [
-      { name: 'SendPulse', abbr: 'SP', color: '#6B4EFF', logo: GF('sendpulse.com'), description: 'Email, SMS, Push, Viber, Automation 360' },
+      { name: 'SendPulse', abbr: 'SP', color: '#6B4EFF', logo: GF('sendpulse.com'), description: 'Email, SMS, Push, Viber, Automation 360', slug: 'sendpulse' },
       { name: 'Meta Ads', abbr: 'FB', color: '#1877F2', logo: SI('meta'), description: 'Audience sync, conversion events, CAPI' },
       { name: 'Google Ads', abbr: 'GA', color: '#4285F4', logo: SI('googleads'), description: 'Offline conversion import, audience lists' },
       { name: 'Telegram Ads', abbr: 'TG', color: '#229ED9', logo: SI('telegram'), description: 'Sponsored messages, channel targeting' },
@@ -125,7 +126,7 @@ const categories: Category[] = [
       { name: 'Asterisk AMI', abbr: 'AS', color: '#F59E0B', logo: GF('asterisk.org'), description: 'On-premise PBX integration, call events' },
       { name: 'ElevenLabs AI', abbr: 'EL', color: '#000000', logo: SI('elevenlabs'), description: 'Fully autonomous voice operator, 24/7' },
       { name: 'Twilio', abbr: 'TW', color: '#F22F46', logo: SI('twilio'), description: 'Cloud telephony fallback, SMS, WhatsApp' },
-      { name: 'Telegram', abbr: 'TG', color: '#229ED9', logo: SI('telegram'), description: '13 bots — operators, kitchen, couriers, clients' },
+      { name: 'Telegram', abbr: 'TG', color: '#229ED9', logo: SI('telegram'), description: '13 bots — operators, kitchen, couriers, clients', slug: 'telegram' },
     ],
   },
   {
@@ -189,6 +190,16 @@ function IntegrationCard({ integration }: { integration: Integration }) {
         </div>
         <p className="mt-1 text-xs text-[#525252] leading-relaxed">{integration.description}</p>
       </div>
+
+      {integration.slug && (
+        <Link
+          href={`/integrations/${integration.slug}`}
+          className="inline-flex items-center gap-1 text-xs font-medium text-[#0A0A0A] transition-colors hover:text-[#525252] hover:underline"
+        >
+          View {integration.name} integration
+          <ArrowRight className="h-3 w-3" />
+        </Link>
+      )}
     </motion.div>
   );
 }
