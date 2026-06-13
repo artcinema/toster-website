@@ -22,6 +22,8 @@ const routes = [
   { path: '/integrations', priority: 0.8, changeFreq: 'monthly' },
   { path: '/blog',      priority: 0.8,  changeFreq: 'weekly'  },
   { path: '/vs/poster-pos', priority: 0.8, changeFreq: 'monthly' },
+  { path: '/vs/deliverect', priority: 0.8, changeFreq: 'monthly' },
+  { path: '/vs/iiko', priority: 0.8, changeFreq: 'monthly' },
   { path: '/about',     priority: 0.7,  changeFreq: 'monthly' },
   { path: '/security',         priority: 0.6,  changeFreq: 'yearly'  },
   { path: '/legal/privacy',   priority: 0.3,  changeFreq: 'yearly'  },
