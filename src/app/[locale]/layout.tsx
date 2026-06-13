@@ -160,37 +160,21 @@ const softwareSchema = {
   operatingSystem: 'Web, iOS, Android',
   description: 'Food delivery chain management platform: CRM, kitchen display, courier tracking, customer website, mobile apps, and managed marketing.',
   url: 'https://toster.co',
-  offers: [
-    {
-      '@type': 'Offer',
-      name: 'Start',
-      price: '250',
-      priceCurrency: 'EUR',
-      url: 'https://toster.co/en/pricing',
-      description: 'Fixed €250/month — SEO-optimized website, iOS & Android apps, and AI-powered CRM.',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Starter',
-      priceCurrency: 'EUR',
-      url: 'https://toster.co/en/pricing',
-      description: '3% of monthly turnover. Single location. Core CRM — orders, kitchen, couriers.',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Growth',
-      priceCurrency: 'EUR',
-      url: 'https://toster.co/en/pricing',
-      description: '5–7% of monthly turnover. Multi-location chain with managed marketing, AI automation, and loyalty.',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Enterprise',
-      priceCurrency: 'EUR',
-      url: 'https://toster.co/en/pricing',
-      description: 'Up to 9% of monthly turnover. White-glove setup, custom integrations, fiscalization, dedicated support.',
-    },
-  ],
+  // AggregateOffer with a real lowPrice (the €250 Start tier is the entry
+  // price) is the honest way to model our pricing: Start is fixed, while
+  // Starter/Growth/Enterprise are commission-based (% of turnover) and have no
+  // fixed EUR amount. Listing them as individual Offers without a `price` only
+  // adds "specify price" warnings in the Rich Results Test; an AggregateOffer
+  // gives Google a valid "from €250" price signal instead. The full per-tier
+  // breakdown lives on /pricing and the homepage comparison table, which
+  // Google's generative-AI systems read directly from the rendered page.
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'EUR',
+    lowPrice: '250',
+    offerCount: 4,
+    url: 'https://toster.co/en/pricing',
+  },
   featureList: [
     'Order management with Kanban and table view',
     'Kitchen Display System (KDS)',
