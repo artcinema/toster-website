@@ -42,6 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: post.title,
       description: post.excerpt,
       publishedTime: post.date,
+      modifiedTime: post.updated ?? post.date,
       authors: ['Toster'],
       images: [
         {
@@ -72,7 +73,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated ?? post.date,
     author: { '@type': 'Organization', name: 'Toster', url: BASE },
     publisher: {
       '@type': 'Organization',

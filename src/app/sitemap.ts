@@ -5,12 +5,19 @@ import { integrations } from '@/data/integrations';
 const BASE = 'https://toster.co';
 const locales = ['en', 'uk', 'ru', 'pl', 'cs', 'de', 'es'];
 
+// Honest last-modified for static routes: the date of the last meaningful
+// content/structure update. Bump this when static pages change materially —
+// `new Date()` reports fake freshness on every crawl, which Google learns to
+// ignore. Blog posts use their own real publish/updated date below.
+const STATIC_LAST_MODIFIED = new Date('2026-06-13');
+
 const routes = [
   { path: '',           priority: 1.0,  changeFreq: 'weekly'  },
   { path: '/features',       priority: 0.9,  changeFreq: 'weekly'  },
   { path: '/food-delivery',  priority: 0.9,  changeFreq: 'weekly'  },
   { path: '/ai',             priority: 0.9,  changeFreq: 'weekly'  },
   { path: '/for-chains',     priority: 0.9,  changeFreq: 'weekly'  },
+  { path: '/for-single-location', priority: 0.8, changeFreq: 'monthly' },
   { path: '/pricing',   priority: 0.9,  changeFreq: 'monthly' },
   { path: '/integrations', priority: 0.8, changeFreq: 'monthly' },
   { path: '/blog',      priority: 0.8,  changeFreq: 'weekly'  },
@@ -25,6 +32,10 @@ const routes = [
   { path: '/request-demo', priority: 0.8, changeFreq: 'monthly' },
 ] as const;
 
+// Sitemaps should list only canonical 200-URLs. We emit the locale-prefixed
+// URLs (each is its own canonical via generateMetadata) with hreflang
+// alternates. The bare `${BASE}${path}` URLs 301-redirect to /en, so they are
+// intentionally NOT listed here.
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
@@ -32,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const locale of locales) {
       entries.push({
         url: `${BASE}/${locale}${route.path}`,
-        lastModified: new Date(),
+        lastModified: STATIC_LAST_MODIFIED,
         changeFrequency: route.changeFreq as MetadataRoute.Sitemap[number]['changeFrequency'],
         priority: route.priority,
         alternates: {
@@ -42,13 +53,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       });
     }
-    // Canonical without locale prefix (redirects to /en)
-    entries.push({
-      url: `${BASE}${route.path}`,
-      lastModified: new Date(),
-      changeFrequency: route.changeFreq as MetadataRoute.Sitemap[number]['changeFrequency'],
-      priority: route.priority,
-    });
   }
 
   // Integration pages
@@ -56,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const locale of locales) {
       entries.push({
         url: `${BASE}/${locale}/integrations/${integration.slug}`,
-        lastModified: new Date(),
+        lastModified: STATIC_LAST_MODIFIED,
         changeFrequency: 'monthly',
         priority: 0.7,
         alternates: {
@@ -68,12 +72,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Blog posts
+  // Blog posts — real publish date, or the updated date when set.
   for (const post of posts) {
     for (const locale of locales) {
       entries.push({
         url: `${BASE}/${locale}/blog/${post.slug}`,
-        lastModified: new Date(post.date),
+        lastModified: new Date(post.updated ?? post.date),
         changeFrequency: 'monthly',
         priority: 0.7,
         alternates: {
@@ -83,12 +87,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       });
     }
-    entries.push({
-      url: `${BASE}/blog/${post.slug}`,
-      lastModified: new Date(post.date),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    });
   }
 
   return entries;
