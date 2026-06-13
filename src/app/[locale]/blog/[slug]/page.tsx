@@ -30,11 +30,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return {};
 
   const url = `${BASE}/${locale}/blog/${slug}`;
+  // Article bodies are English-only for now (posts.ts has a single `content`).
+  // Consolidate every locale variant to the /en canonical so Google treats them
+  // as one English page instead of 7 near-duplicates. When `content` becomes
+  // per-locale, switch this back to a self-referencing canonical + hreflang.
+  const canonical = `${BASE}/en/blog/${slug}`;
   return {
     title: `${post.title} | Toster Blog`,
     description: post.excerpt,
     alternates: {
-      canonical: url,
+      canonical,
     },
     openGraph: {
       type: 'article',

@@ -72,21 +72,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Blog posts — real publish date, or the updated date when set.
+  // Blog posts — English-only bodies for now, so list a single /en URL per post
+  // (no per-locale hreflang equality, which would flag near-duplicates). Real
+  // publish date, or the updated date when set. Re-add locales here once
+  // article bodies are actually translated.
   for (const post of posts) {
-    for (const locale of locales) {
-      entries.push({
-        url: `${BASE}/${locale}/blog/${post.slug}`,
-        lastModified: new Date(post.updated ?? post.date),
-        changeFrequency: 'monthly',
-        priority: 0.7,
-        alternates: {
-          languages: Object.fromEntries(
-            locales.map((l) => [l, `${BASE}/${l}/blog/${post.slug}`])
-          ),
-        },
-      });
-    }
+    entries.push({
+      url: `${BASE}/en/blog/${post.slug}`,
+      lastModified: new Date(post.updated ?? post.date),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
   }
 
   return entries;
