@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { posts } from '@/data/posts';
+import { posts, getPostLocales } from '@/data/posts';
 import { integrations } from '@/data/integrations';
 
 const BASE = 'https://toster.co';
@@ -76,17 +76,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Blog posts — English-only bodies for now, so list a single /en URL per post
-  // (no per-locale hreflang equality, which would flag near-duplicates). Real
-  // publish date, or the updated date when set. Re-add locales here once
-  // article bodies are actually translated.
+  // Blog posts — list /en plus any locale with a real translation (getPostLocales
+  // returns ['en', ...translated]). Translated posts get per-locale URLs with
+  // hreflang alternates; English-only posts stay a single /en URL (no fake
+  // hreflang equality). Real publish date, or the updated date when set.
   for (const post of posts) {
-    entries.push({
-      url: `${BASE}/en/blog/${post.slug}`,
-      lastModified: new Date(post.updated ?? post.date),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    });
+    const postLocales = getPostLocales(post.slug);
+    for (const l of postLocales) {
+      entries.push({
+        url: `${BASE}/${l}/blog/${post.slug}`,
+        lastModified: new Date(post.updated ?? post.date),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+        ...(postLocales.length > 1
+          ? {
+              alternates: {
+                languages: Object.fromEntries(
+                  postLocales.map((x) => [x, `${BASE}/${x}/blog/${post.slug}`])
+                ),
+              },
+            }
+          : {}),
+      });
+    }
   }
 
   return entries;

@@ -1,3 +1,5 @@
+import { postTranslations } from './posts-i18n';
+
 export interface Post {
   slug: string;
   title: string;
@@ -1033,6 +1035,24 @@ export const posts: Post[] = [
 
 export function getPostBySlug(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
+}
+
+/** Locales for which this post has a real translation (always includes 'en'). */
+export function getPostLocales(slug: string): string[] {
+  return ['en', ...Object.keys(postTranslations[slug] ?? {})];
+}
+
+/** Title/excerpt/content for a given locale, falling back to the English source. */
+export function getLocalizedPost(
+  post: Post,
+  locale: string,
+): { title: string; excerpt: string; content: string } {
+  const t = postTranslations[post.slug]?.[locale];
+  return {
+    title: t?.title ?? post.title,
+    excerpt: t?.excerpt ?? post.excerpt,
+    content: t?.content ?? post.content,
+  };
 }
 
 export function getRelatedPosts(slug: string, count = 3): Post[] {
