@@ -273,6 +273,218 @@ export const integrations: Integration[] = [
     ],
     relatedSlugs: ['sendpulse', 'liqpay', 'stripe'],
   },
+  {
+    slug: 'glovo',
+    name: 'Glovo',
+    tagline: 'Glovo orders flow straight into your unified Toster queue',
+    description: 'Glovo is a major on-demand delivery marketplace across Southern and Eastern Europe. Toster connects to Glovo so marketplace orders land on the same order board as your website, app, and phone orders — no separate tablet to watch during the rush.',
+    color: '#FFC244',
+    abbr: 'GL',
+    category: 'Aggregators',
+    externalUrl: 'https://glovoapp.com',
+    features: [
+      {
+        title: 'One unified order queue',
+        body: 'Glovo orders appear on the same Kanban board and kitchen display as your direct orders, so your team works from one screen instead of juggling a separate aggregator tablet.',
+      },
+      {
+        title: 'Menu and price sync',
+        body: 'Keep your Glovo menu aligned with Toster: items, modifiers, and prices are managed in one place rather than maintained twice.',
+      },
+      {
+        title: 'Stop-list and availability sync',
+        body: 'When an item runs out and is 86’d in Toster, it can be marked unavailable on Glovo too — fewer refunds and cancelled items.',
+      },
+      {
+        title: 'Status sync back to Glovo',
+        body: 'Order acceptance and preparation status flow back to Glovo so the marketplace and your kitchen stay in step.',
+      },
+    ],
+    howItWorks: 'Once your Glovo store is connected in Toster settings, incoming Glovo orders are created in Toster automatically and routed to the kitchen like any other channel. Menu, availability, and status updates synchronize between the two systems so your team manages everything from Toster.',
+    useCases: [
+      'A Glovo order arrives and is auto-created in Toster — the kitchen sees it on the same board as phone and website orders',
+      'An item sells out and is added to the stop-list in Toster — it is marked unavailable on Glovo to prevent refunds',
+      'Weekend rush: all channels (Glovo, website, app, phone) feed one queue so nothing is missed across multiple tablets',
+    ],
+    faq: [
+      {
+        q: 'Do I still need the Glovo partner tablet?',
+        a: 'The goal of the integration is to let your team work from Toster instead of watching a separate Glovo tablet. Exact requirements depend on your Glovo agreement and region — Toster’s onboarding team confirms the setup for your market.',
+      },
+      {
+        q: 'Does my Glovo menu stay in sync with Toster?',
+        a: 'Yes — the integration is designed to keep your menu, prices, and item availability aligned so you maintain them in one place rather than editing both systems separately.',
+      },
+      {
+        q: 'Which countries does the Glovo integration cover?',
+        a: 'Glovo operates across Southern and Eastern Europe, including markets relevant to Toster such as Ukraine and Poland. Availability depends on Glovo’s coverage and your partner account — confirm with onboarding for your specific locations.',
+      },
+      {
+        q: 'How long does it take to connect Glovo?',
+        a: 'Connecting an aggregator is part of guided onboarding. The time depends on how quickly the marketplace provisions partner access; Toster’s team handles the configuration with you.',
+      },
+    ],
+    relatedSlugs: ['bolt-food', 'wolt', 'uber-eats'],
+  },
+  {
+    slug: 'bolt-food',
+    name: 'Bolt Food',
+    tagline: 'Bolt Food orders in the same board as every other channel',
+    description: 'Bolt Food is the food-delivery marketplace from Bolt, strong across Eastern Europe and the Baltics. Toster connects to Bolt Food so its orders flow into your unified queue alongside Glovo, Wolt, your website, app, and phone orders.',
+    color: '#34D186',
+    abbr: 'BF',
+    category: 'Aggregators',
+    externalUrl: 'https://food.bolt.eu',
+    features: [
+      {
+        title: 'Unified order intake',
+        body: 'Bolt Food orders are created in Toster automatically and shown on the same board your team already uses — one screen for every channel.',
+      },
+      {
+        title: 'Menu and price management in one place',
+        body: 'Manage your Bolt Food menu, modifiers, and prices from Toster rather than maintaining a separate marketplace catalog.',
+      },
+      {
+        title: 'Availability / stop-list sync',
+        body: 'Out-of-stock items can be pushed to Bolt Food so customers don’t order something the kitchen can’t make.',
+      },
+      {
+        title: 'Status sync back to Bolt',
+        body: 'Acceptance and preparation status flow back to Bolt Food, keeping the marketplace and your kitchen aligned.',
+      },
+    ],
+    howItWorks: 'After your Bolt Food store is connected in Toster settings, orders are created in Toster automatically and routed to the kitchen. Menu, availability, and order status synchronize between Bolt Food and Toster so the marketplace is managed from one place.',
+    useCases: [
+      'A Bolt Food order is auto-created in Toster and routed to the right kitchen station',
+      'An item is 86’d in Toster and marked unavailable on Bolt Food, reducing cancellations',
+      'During peak, Bolt Food, Glovo, and direct orders all share one queue instead of multiple tablets',
+    ],
+    faq: [
+      {
+        q: 'Which regions does Bolt Food cover?',
+        a: 'Bolt Food is strong across Eastern Europe and the Baltics, including markets relevant to Toster. Coverage depends on Bolt’s presence in your city and your partner account — onboarding confirms it for your locations.',
+      },
+      {
+        q: 'Can I run Bolt Food and Glovo at the same time?',
+        a: 'Yes. The point of the integration is a single unified queue: Bolt Food, Glovo, Wolt, Uber Eats, and your direct channels can all feed the same order board in Toster.',
+      },
+      {
+        q: 'Does the kitchen display show which channel an order came from?',
+        a: 'Yes. Orders carry their source so your kitchen and dispatch can see at a glance whether an order came from Bolt Food, another marketplace, or your own website/app.',
+      },
+      {
+        q: 'How is the Bolt Food integration set up?',
+        a: 'It is configured during guided onboarding once your Bolt Food partner access is provisioned. Toster’s team handles the connection with you.',
+      },
+    ],
+    relatedSlugs: ['glovo', 'wolt', 'uber-eats'],
+  },
+  {
+    slug: 'wolt',
+    name: 'Wolt',
+    tagline: 'Wolt orders unified with your kitchen and dispatch',
+    description: 'Wolt is a premium delivery marketplace popular across the Nordics, Central and Eastern Europe. Toster connects to Wolt so its orders arrive in your unified Toster queue with the rest of your channels.',
+    color: '#00C2E8',
+    abbr: 'WO',
+    category: 'Aggregators',
+    externalUrl: 'https://wolt.com',
+    features: [
+      {
+        title: 'Orders in one place',
+        body: 'Wolt orders are created in Toster automatically and shown alongside every other channel — no separate device to monitor.',
+      },
+      {
+        title: 'Single menu source of truth',
+        body: 'Maintain your Wolt menu and prices from Toster so your catalog stays consistent across marketplaces and your own apps.',
+      },
+      {
+        title: 'Stop-list sync',
+        body: 'Mark items unavailable once in Toster and have it reflected on Wolt to avoid out-of-stock orders.',
+      },
+      {
+        title: 'Status sync',
+        body: 'Order status flows back to Wolt so the marketplace reflects what the kitchen is actually doing.',
+      },
+    ],
+    howItWorks: 'Connect your Wolt venue in Toster settings; from then on Wolt orders are created in Toster and routed to the kitchen, while menu, availability, and status updates synchronize between the two systems.',
+    useCases: [
+      'A Wolt order is auto-created in Toster and appears on the kitchen display in real time',
+      'A sold-out item is stop-listed in Toster and pushed to Wolt to prevent refunds',
+      'All marketplace and direct orders share one queue, so staff stop juggling tablets at peak',
+    ],
+    faq: [
+      {
+        q: 'Where is Wolt available?',
+        a: 'Wolt operates across the Nordics and much of Central and Eastern Europe. Whether it is available for your venue depends on Wolt’s city coverage and your partner account — onboarding confirms it.',
+      },
+      {
+        q: 'Do I manage the Wolt menu separately?',
+        a: 'The integration is designed so you manage your menu, prices, and availability in Toster and keep Wolt in sync, rather than editing both independently.',
+      },
+      {
+        q: 'Can I see Wolt revenue alongside other channels?',
+        a: 'Orders from every channel live in Toster, so your reporting reflects Wolt orders next to your direct and other-marketplace orders.',
+      },
+      {
+        q: 'How do I connect Wolt?',
+        a: 'Wolt is connected during guided onboarding once partner access is available. Toster’s team configures it with you.',
+      },
+    ],
+    relatedSlugs: ['glovo', 'bolt-food', 'uber-eats'],
+  },
+  {
+    slug: 'uber-eats',
+    name: 'Uber Eats',
+    tagline: 'Uber Eats orders in your single unified queue',
+    description: 'Uber Eats is one of the largest global delivery marketplaces. Toster connects to Uber Eats so its orders flow into the same order board as Glovo, Bolt Food, Wolt, and your own website, app, and phone channels.',
+    color: '#06C167',
+    abbr: 'UE',
+    category: 'Aggregators',
+    externalUrl: 'https://www.ubereats.com',
+    features: [
+      {
+        title: 'Unified order board',
+        body: 'Uber Eats orders are created in Toster automatically and shown with every other channel, so your team works from one screen.',
+      },
+      {
+        title: 'Menu and price sync',
+        body: 'Keep your Uber Eats storefront menu and prices aligned with Toster instead of maintaining a separate catalog.',
+      },
+      {
+        title: 'Availability sync',
+        body: 'Out-of-stock items can be reflected on Uber Eats to cut down on refunds and cancellations.',
+      },
+      {
+        title: 'Status sync back to Uber Eats',
+        body: 'Acceptance and preparation status flow back so the marketplace reflects your kitchen’s real progress.',
+      },
+    ],
+    howItWorks: 'Once your Uber Eats store is connected in Toster settings, orders are created in Toster automatically and routed to the kitchen, with menu, availability, and status synchronized between Uber Eats and Toster.',
+    useCases: [
+      'An Uber Eats order is auto-created in Toster and routed to the correct kitchen station',
+      'An item is stop-listed in Toster and marked unavailable on Uber Eats',
+      'Uber Eats, Glovo, Bolt Food, Wolt, and direct orders all share one unified queue',
+    ],
+    faq: [
+      {
+        q: 'Does Toster integrate with all four major aggregators?',
+        a: 'Yes — Toster connects natively with the four platforms most relevant to its markets: Uber Eats, Glovo, Bolt Food, and Wolt. They all feed the same unified order queue.',
+      },
+      {
+        q: 'Do I maintain my Uber Eats menu separately?',
+        a: 'The integration is designed so you manage your menu, prices, and availability in Toster and keep Uber Eats in sync, rather than editing two catalogs.',
+      },
+      {
+        q: 'Where is the Uber Eats integration available?',
+        a: 'Uber Eats operates in many countries worldwide. Availability for your venue depends on Uber Eats’ local coverage and your partner account — confirm with onboarding for your locations.',
+      },
+      {
+        q: 'How is Uber Eats connected to Toster?',
+        a: 'It is set up during guided onboarding once your Uber Eats partner access is provisioned. Toster’s team handles the configuration.',
+      },
+    ],
+    relatedSlugs: ['glovo', 'bolt-food', 'wolt'],
+  },
 ];
 
 export function getIntegrationBySlug(slug: string): Integration | undefined {
