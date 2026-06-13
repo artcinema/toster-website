@@ -1,4 +1,5 @@
 import { postTranslations } from './posts-i18n';
+import extra2026 from './posts-2026.json';
 
 export interface Post {
   slug: string;
@@ -12,7 +13,7 @@ export interface Post {
   content: string; // HTML string
 }
 
-export const posts: Post[] = [
+const basePosts: Post[] = [
   {
     slug: 'what-is-food-delivery-crm',
     title: 'What Is a Food Delivery CRM and Why Your Chain Needs One',
@@ -1032,6 +1033,10 @@ export const posts: Post[] = [
     `,
   },
 ];
+
+// Base posts (authored inline above) plus the 2026 content batch loaded from
+// posts-2026.json. Newest first so the blog index leads with recent articles.
+export const posts: Post[] = [...(extra2026 as unknown as Post[]), ...basePosts];
 
 export function getPostBySlug(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
