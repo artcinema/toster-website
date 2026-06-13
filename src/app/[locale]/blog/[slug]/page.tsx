@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { Clock, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { JsonLd } from '@/components/JsonLd';
-import { posts, getPostBySlug, getRelatedPosts } from '@/data/posts';
+import { posts, getPostBySlug, getRelatedPosts, getPostLocales, getLocalizedPost } from '@/data/posts';
 import { siteConfig } from '@/config/site';
 
 const BASE = siteConfig.url;
@@ -30,28 +30,40 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return {};
 
   const url = `${BASE}/${locale}/blog/${slug}`;
-  // Article bodies are English-only for now (posts.ts has a single `content`).
-  // Consolidate every locale variant to the /en canonical so Google treats them
-  // as one English page instead of 7 near-duplicates. When `content` becomes
-  // per-locale, switch this back to a self-referencing canonical + hreflang.
-  const canonical = `${BASE}/en/blog/${slug}`;
+  const localized = getLocalizedPost(post, locale);
+
+  // Locales with a real translation are self-canonical and declare hreflang for
+  // the translated set; every other locale serves the English fallback body and
+  // is consolidated to the /en canonical so Google sees one page, not duplicates.
+  const availableLocales = getPostLocales(slug);
+  const isTranslated = availableLocales.includes(locale);
+  const canonical = isTranslated ? url : `${BASE}/en/blog/${slug}`;
+  const languages =
+    isTranslated && availableLocales.length > 1
+      ? {
+          ...Object.fromEntries(availableLocales.map((l) => [l, `${BASE}/${l}/blog/${slug}`])),
+          'x-default': `${BASE}/en/blog/${slug}`,
+        }
+      : undefined;
+
   return {
-    title: `${post.title} | Toster Blog`,
-    description: post.excerpt,
+    title: `${localized.title} | Toster Blog`,
+    description: localized.excerpt,
     alternates: {
       canonical,
+      ...(languages ? { languages } : {}),
     },
     openGraph: {
       type: 'article',
       url,
-      title: post.title,
-      description: post.excerpt,
+      title: localized.title,
+      description: localized.excerpt,
       publishedTime: post.date,
       modifiedTime: post.updated ?? post.date,
       authors: ['Toster'],
       images: [
         {
-          url: `/api/og?title=${encodeURIComponent(post.title)}&sub=${encodeURIComponent(post.excerpt.slice(0, 80))}`,
+          url: `/api/og?title=${encodeURIComponent(localized.title)}&sub=${encodeURIComponent(localized.excerpt.slice(0, 80))}`,
           width: 1200,
           height: 630,
         },
@@ -59,24 +71,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
+      title: localized.title,
+      description: localized.excerpt,
     },
   };
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { locale, slug } = await params;
-  const post = getPostBySlug(slug);
-  if (!post) notFound();
+  const base = getPostBySlug(slug);
+  if (!base) notFound();
 
+  // Merge the locale's translation over the English source so post.title /
+  // post.excerpt / post.content render localized (existing JSX is untouched).
+  const localized = getLocalizedPost(base, locale);
+  const post = { ...base, ...localized };
   const related = getRelatedPosts(slug, 3);
 
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: post.title,
-    description: post.excerpt,
+    inLanguage: locale,
+    headline: localized.title,
+    description: localized.excerpt,
     datePublished: post.date,
     dateModified: post.updated ?? post.date,
     author: { '@type': 'Organization', name: 'Toster', url: BASE },
@@ -130,10 +147,10 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
 
             <h1 className="mb-5 text-3xl font-semibold leading-tight text-[#0A0A0A] sm:text-4xl">
-              {post.title}
+              {localized.title}
             </h1>
 
-            <p className="text-lg leading-relaxed text-[#525252]">{post.excerpt}</p>
+            <p className="text-lg leading-relaxed text-[#525252]">{localized.excerpt}</p>
           </div>
         </Container>
       </section>
