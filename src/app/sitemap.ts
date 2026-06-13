@@ -18,6 +18,8 @@ const routes = [
   { path: '/ai',             priority: 0.9,  changeFreq: 'weekly'  },
   { path: '/for-chains',     priority: 0.9,  changeFreq: 'weekly'  },
   { path: '/for-single-location', priority: 0.8, changeFreq: 'monthly' },
+  { path: '/kitchen-display-system', priority: 0.9, changeFreq: 'monthly' },
+  { path: '/courier-management', priority: 0.9, changeFreq: 'monthly' },
   { path: '/pricing',   priority: 0.9,  changeFreq: 'monthly' },
   { path: '/integrations', priority: 0.8, changeFreq: 'monthly' },
   { path: '/blog',      priority: 0.8,  changeFreq: 'weekly'  },
