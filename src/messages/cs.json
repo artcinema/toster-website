@@ -270,7 +270,7 @@
     "stats": [
       {"value": "4", "label": "Země", "sub": "UA · PL · CZ · DE"},
       {"value": "25+", "label": "Aktivních provozoven", "sub": "a stále roste"},
-      {"value": "500+", "label": "Objednávek / den", "sub": "v sezónním vrcholu"},
+      {"value": "20k+", "label": "Objednávek / den", "sub": "v celé síti"},
       {"value": "70%", "label": "Automatizováno", "sub": "bez ručního routování"}
     ],
     "quote": "Řídili jsme 4 země z jednoho Telegram vlákna. Teď každý manažer vidí jen své město, já vidím vše — a AI agent se stará o reaktivaci, zatímco spím.",

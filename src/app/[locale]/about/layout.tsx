@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     keywords: ['Toster food delivery company', 'food delivery CRM company', 'ADS LLC FZ Dubai', '966 Network'],
     openGraph: {
       title: 'About Toster — We Built This to Run Our Own Chain',
-      description: 'Started in Kyiv in 2022. Now 25+ locations across 4 countries. The platform that runs 966 Network is open to everyone.',
+      description: 'Started in Ukraine in 2014. Built 966 Network — 25+ locations across 4 countries. The platform that runs it is now open to everyone.',
       url,
     },
     alternates: { canonical: url },

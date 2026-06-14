@@ -148,7 +148,7 @@ const organizationSchema = {
     'https://linkedin.com/company/toster-co',
     'https://t.me/no8288',
   ],
-  foundingDate: '2024',
+  foundingDate: '2014',
   numberOfEmployees: { '@type': 'QuantitativeValue', value: 10 },
 };
 
