@@ -10,6 +10,7 @@ import {
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { Container } from '@/components/ui/container';
+import { AnalyticsDashboardMockup } from '@/components/product/AnalyticsDashboardMockup';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { fadeInUp, staggerChildren } from '@/lib/motion';
@@ -88,6 +89,15 @@ export default function ForChainsPage() {
                 hint={t('mapHint')}
               />
             </motion.div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Product UI — analytics dashboard screenshot */}
+      <section className="bg-[#F5F5F5] py-12 sm:py-16">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <AnalyticsDashboardMockup />
           </div>
         </Container>
       </section>
