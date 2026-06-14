@@ -13,6 +13,8 @@ import {
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Container } from '@/components/ui/container';
+import { PosMockup } from '@/components/product/PosMockup';
+import { CustomerCardMockup } from '@/components/product/CustomerCardMockup';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
@@ -205,6 +207,16 @@ export default function FeaturesPage() {
               Toster consolidates 5+ tools into one platform. Here&apos;s what you get.
             </motion.p>
           </motion.div>
+        </Container>
+      </section>
+
+      {/* Product UI — POS + CRM customer card screenshots */}
+      <section className="bg-white pb-12 sm:pb-16">
+        <Container>
+          <div className="mx-auto grid max-w-5xl grid-cols-1 items-start gap-5 lg:grid-cols-2">
+            <PosMockup />
+            <CustomerCardMockup />
+          </div>
         </Container>
       </section>
 
