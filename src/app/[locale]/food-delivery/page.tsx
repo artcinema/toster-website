@@ -8,6 +8,7 @@ import {
   BarChart3, Zap,
 } from 'lucide-react';
 import { Container } from '@/components/ui/container';
+import { OrderBoardMockup } from '@/components/product/OrderBoardMockup';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { JsonLd } from '@/components/JsonLd';
@@ -143,6 +144,15 @@ export default async function FoodDeliveryPage({ params }: PageProps) {
                 </a>
               </Button>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Product UI — order board screenshot */}
+      <section className="bg-[#0A0A0A] pb-20">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <OrderBoardMockup />
           </div>
         </Container>
       </section>

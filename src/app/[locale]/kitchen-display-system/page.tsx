@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Monitor, Timer, Route, Camera, RefreshCw, ShieldCheck } from 'lucide-react';
 import { Container } from '@/components/ui/container';
+import { KdsMockup } from '@/components/product/KdsMockup';
 import { Badge } from '@/components/ui/badge';
 import { JsonLd } from '@/components/JsonLd';
 import { siteConfig } from '@/config/site';
@@ -162,6 +163,15 @@ export default async function KdsLandingPage({
             >
               See the KDS in a demo <ArrowRight className="h-4 w-4" />
             </Link>
+          </div>
+        </Container>
+      </section>
+
+      {/* Product UI — Kitchen Display screenshot */}
+      <section className="bg-white pb-12 sm:pb-16">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <KdsMockup />
           </div>
         </Container>
       </section>
