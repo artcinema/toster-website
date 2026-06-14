@@ -163,6 +163,13 @@ export default function HomePage() {
               >
                 {t('hero.title')}
               </motion.h1>
+              <motion.h2
+                variants={fadeInUp}
+                className="mt-4 text-xl font-medium text-[#0A0A0A] sm:text-2xl"
+                style={{ lineHeight: 1.2 }}
+              >
+                {t('hero.subhead')}
+              </motion.h2>
               <motion.p
                 variants={fadeInUp}
                 className="mt-6 text-lg text-[#525252] leading-relaxed"
