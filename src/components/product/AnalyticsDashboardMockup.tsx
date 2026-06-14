@@ -57,7 +57,7 @@ export function AnalyticsDashboardMockup() {
               <div key={x.h} className="flex flex-1 flex-col items-center gap-1">
                 <div
                   className="w-full rounded-t-sm"
-                  style={{ height: `${(x.v / max) * 100}%`, background: x.v === max ? '#FFD600' : '#E5E5E5' }}
+                  style={{ height: `${Math.round((x.v / max) * 88)}px`, background: x.v === max ? '#FFD600' : '#E5E5E5' }}
                 />
                 <span className="text-[8px] text-[#A3A3A3]">{x.h}</span>
               </div>
