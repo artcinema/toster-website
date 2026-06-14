@@ -270,7 +270,7 @@
     "stats": [
       {"value": "4", "label": "Kraje", "sub": "UA · PL · CZ · DE"},
       {"value": "25+", "label": "Aktywnych lokalizacji", "sub": "i rośniemy"},
-      {"value": "500+", "label": "Zamówień / dzień", "sub": "szczyt sezonu"},
+      {"value": "20k+", "label": "Zamówień / dzień", "sub": "w całej sieci"},
       {"value": "70%", "label": "Zautomatyzowane", "sub": "bez ręcznego routingu"}
     ],
     "quote": "Zarządzaliśmy 4 krajami z jednego wątku Telegram. Teraz każdy menedżer widzi tylko swoje miasto, ja widzę wszystko — a agent AI zajmuje się reaktywacją, gdy śpię.",

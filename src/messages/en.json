@@ -270,7 +270,7 @@
     "stats": [
       {"value": "4", "label": "Countries", "sub": "UA · PL · CZ · DE"},
       {"value": "25+", "label": "Active locations", "sub": "and growing"},
-      {"value": "500+", "label": "Orders / day", "sub": "peak season"},
+      {"value": "20k+", "label": "Orders / day", "sub": "across the network"},
       {"value": "70%", "label": "Automated", "sub": "no manual routing"}
     ],
     "quote": "We were running 4 countries from one Telegram thread. Now every manager sees only their city, I see everything — and the AI agent handles reactivations while I sleep.",

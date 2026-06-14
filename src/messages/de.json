@@ -270,7 +270,7 @@
     "stats": [
       {"value": "4", "label": "Länder", "sub": "UA · PL · CZ · DE"},
       {"value": "25+", "label": "Aktive Standorte", "sub": "und wachsend"},
-      {"value": "500+", "label": "Bestellungen / Tag", "sub": "Hochsaison"},
+      {"value": "20k+", "label": "Bestellungen / Tag", "sub": "im gesamten Netzwerk"},
       {"value": "70%", "label": "Automatisiert", "sub": "kein manuelles Routing"}
     ],
     "quote": "Wir haben 4 Länder aus einem Telegram-Thread heraus geführt. Jetzt sieht jeder Manager nur seine Stadt, ich sehe alles — und der KI-Agent kümmert sich um Reaktivierungen, während ich schlafe.",

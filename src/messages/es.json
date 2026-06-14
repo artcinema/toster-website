@@ -270,7 +270,7 @@
     "stats": [
       {"value": "4", "label": "Países", "sub": "UA · PL · CZ · DE"},
       {"value": "25+", "label": "Locales activos", "sub": "y creciendo"},
-      {"value": "500+", "label": "Pedidos / día", "sub": "temporada alta"},
+      {"value": "20k+", "label": "Pedidos / día", "sub": "en toda la red"},
       {"value": "70%", "label": "Automatizado", "sub": "sin enrutamiento manual"}
     ],
     "quote": "Gestionábamos 4 países desde un hilo de Telegram. Ahora cada gerente ve solo su ciudad, yo lo veo todo — y el agente IA gestiona las reactivaciones mientras duermo.",
