@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: 'About — Built by Operators, for Operators',
     description: 'Toster was built to run 966 Network — a food delivery chain in 4 countries. The same platform is now open to other operators. Meet the team: Artem Teslenko (CEO), Dmitry Khvostik (CTO), Alexander Smiyan (Head of Operations).',
-    keywords: ['Toster food delivery company', 'food delivery CRM company', 'ADS LLC FZ Dubai', '966 Network'],
+    keywords: ['Toster food delivery company', 'food delivery CRM company', '966 Network'],
     openGraph: {
       title: 'About Toster — We Built This to Run Our Own Chain',
       description: 'Started in Ukraine in 2014. Built 966 Network — 25+ locations across 4 countries. The platform that runs it is now open to everyone.',

@@ -18,7 +18,7 @@ export async function generateMetadata({
   const { locale } = await params;
   return {
     title: 'Impressum / Imprint | Toster',
-    description: 'Legal imprint for Toster (ADS L.L.C-FZ) as required by German Telemediengesetz (TMG) §5.',
+    description: 'Legal imprint for Toster as required by German Telemediengesetz (TMG) §5.',
     alternates: { canonical: `${BASE}/${locale}/legal/imprint` },
     robots: { index: true, follow: true },
   };
@@ -56,17 +56,14 @@ export default async function ImprintPage({
 
               <h2>Diensteanbieter / Service Provider</h2>
               <address className="not-italic">
-                <strong>ADS L.L.C-FZ</strong><br />
-                Meydan Grandstand, 6th Floor<br />
-                Meydan Road, Nad Al Sheba<br />
-                Dubai, United Arab Emirates<br />
+                <strong>Toster</strong><br />
                 <br />
                 E-Mail: <a href="mailto:hello@toster.co" className="text-[#0A0A0A] underline">hello@toster.co</a><br />
                 Website: <a href="https://toster.co" className="text-[#0A0A0A] underline">https://toster.co</a>
               </address>
 
               <h2>Verantwortlich für den Inhalt / Responsible for content</h2>
-              <p>ADS L.L.C-FZ, Meydan Grandstand, Dubai, UAE</p>
+              <p>Toster — contact: <a href="mailto:hello@toster.co" className="text-[#0A0A0A] underline">hello@toster.co</a></p>
 
               <h2>Haftungsausschluss / Disclaimer</h2>
               <p>

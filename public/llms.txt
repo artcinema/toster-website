@@ -7,7 +7,6 @@ dark kitchens, and ghost kitchen operators. It consolidates order management, ki
 courier tracking, customer loyalty, marketing automation, and AI into a single platform —
 replacing 5 or more separate tools.
 
-Toster is made by ADS L.L.C-FZ (Meydan Grandstand, 6th Floor, Meydan Road, Nad Al Sheba, Dubai, UAE).
 The platform is used daily by 966 Network — a real food delivery chain operating in
 Ukraine, Poland, Czech Republic, and Germany — and is now open to external operators worldwide.
 

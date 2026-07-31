@@ -18,7 +18,7 @@ export async function generateMetadata({
   const { locale } = await params;
   return {
     title: 'Privacy Policy | Toster',
-    description: 'Privacy Policy for Toster (ADS L.L.C-FZ). How we collect, use, and protect your personal data.',
+    description: 'Privacy Policy for Toster. How we collect, use, and protect your personal data.',
     alternates: {
       canonical: `${BASE}/${locale}/legal/privacy`,
     },
@@ -56,9 +56,7 @@ export default async function PrivacyPage({
 
               <h2>Controller</h2>
               <p>
-                ADS L.L.C-FZ (trading as <strong>Toster</strong>)<br />
-                Meydan Grandstand, 6th Floor, Meydan Road, Nad Al Sheba<br />
-                Dubai, United Arab Emirates<br />
+                <strong>Toster</strong><br />
                 Email: <a href="mailto:privacy@toster.co" className="text-[#0A0A0A] underline">privacy@toster.co</a>
               </p>
 
