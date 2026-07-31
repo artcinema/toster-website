@@ -79,7 +79,7 @@ export async function generateMetadata({
       'food delivery automation',
     ],
     authors: [{ name: 'Toster', url: siteConfig.url }],
-    creator: 'Toster / ADS L.L.C-FZ',
+    creator: 'Toster',
     publisher: 'Toster',
     category: 'Software',
     openGraph: {
@@ -133,17 +133,10 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Toster',
-  legalName: 'ADS L.L.C-FZ',
   url: 'https://toster.co',
   logo: 'https://toster.co/icon.svg',
   description: 'All-in-one CRM platform for food delivery chains. Orders, kitchen, courier, AI, and marketing automation in one platform.',
   email: 'hello@toster.co',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Meydan Grandstand, 6th Floor, Meydan Road, Nad Al Sheba',
-    addressLocality: 'Dubai',
-    addressCountry: 'AE',
-  },
   sameAs: [
     'https://linkedin.com/company/toster-co',
     'https://t.me/no8288',

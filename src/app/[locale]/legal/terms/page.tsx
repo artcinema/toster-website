@@ -50,12 +50,12 @@ export default async function TermsPage({
             <h1 className="mb-8 text-4xl font-bold text-[#0A0A0A]">Terms of Service</h1>
 
             <div className="prose prose-neutral max-w-none text-[#525252]">
-              <p className="text-sm text-[#A3A3A3]">Last updated: May 2026 · Governed by: UAE law</p>
+              <p className="text-sm text-[#A3A3A3]">Last updated: May 2026</p>
 
               <h2>1. Service provider</h2>
               <p>
-                Toster is a software-as-a-service platform operated by ADS L.L.C-FZ, registered
-                in the UAE Free Zone. By using the Toster platform, you agree to these terms.
+                Toster is a software-as-a-service platform. By using the Toster platform, you agree
+                to these terms.
               </p>
 
               <h2>2. Service description</h2>
@@ -105,9 +105,8 @@ export default async function TermsPage({
 
               <h2>8. Governing law</h2>
               <p>
-                These terms are governed by UAE law. Disputes are subject to the exclusive
-                jurisdiction of Dubai courts, with arbitration as an alternative via the DIFC
-                Arbitration Centre.
+                The governing law and the competent forum for any dispute are those set out in the
+                service agreement or order form signed with your organisation.
               </p>
 
               <h2>9. Contact</h2>

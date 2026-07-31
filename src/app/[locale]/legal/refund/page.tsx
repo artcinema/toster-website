@@ -53,7 +53,7 @@ export default async function RefundPage({
               <p className="text-sm text-[#A3A3A3]">Last updated: May 2026</p>
 
               <p>
-                This Refund Policy describes when Toster (ADS L.L.C-FZ) will and will not issue
+                This Refund Policy describes when Toster will and will not issue
                 refunds for subscription fees. Please read this policy carefully before subscribing.
               </p>
 

@@ -53,7 +53,7 @@ export default async function SubprocessorsPage({
               <p className="text-sm text-[#A3A3A3]">Last updated: May 2026</p>
 
               <p>
-                Toster (ADS L.L.C-FZ) uses the following third-party subprocessors to deliver the
+                Toster uses the following third-party subprocessors to deliver the
                 platform. We maintain Data Processing Agreements with each subprocessor and update
                 this list at least 30 days before adding a new subprocessor. Customers who have
                 signed a DPA may object to new subprocessors within that notice period.

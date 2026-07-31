@@ -53,8 +53,8 @@ export default async function AupPage({
               <p className="text-sm text-[#A3A3A3]">Last updated: May 2026 · Effective immediately upon account creation</p>
 
               <p>
-                This Acceptable Use Policy (&ldquo;AUP&rdquo;) governs all use of the Toster platform operated by
-                ADS L.L.C-FZ (&ldquo;Toster&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;). By accessing or using the Service, you agree
+                This Acceptable Use Policy (&ldquo;AUP&rdquo;) governs all use of the Toster platform
+                (&ldquo;Toster&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;). By accessing or using the Service, you agree
                 to comply with this AUP. Violation may result in immediate suspension or termination
                 of your account without refund.
               </p>

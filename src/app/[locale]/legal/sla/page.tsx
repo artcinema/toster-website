@@ -54,8 +54,8 @@ export default async function SlaPage({
 
               <p>
                 This Service Level Agreement (&ldquo;SLA&rdquo;) forms part of your agreement with
-                ADS L.L.C-FZ (&ldquo;Toster&rdquo;) and describes the service commitments we make
-                regarding availability, support, and remedies.
+                Toster and describes the service commitments we make regarding availability,
+                support, and remedies.
               </p>
 
               <h2 className="text-[#0A0A0A]">1. Uptime commitment</h2>
@@ -98,7 +98,7 @@ export default async function SlaPage({
               <h2 className="text-[#0A0A0A]">2. Support response times</h2>
               <p>
                 Support is provided via Telegram and email during business hours (Mon–Fri, 09:00–18:00 UTC+2)
-                except on public holidays in the UAE.
+                except on public holidays.
               </p>
 
               <div className="overflow-x-auto">
