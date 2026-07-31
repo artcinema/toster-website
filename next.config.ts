@@ -1,7 +1,28 @@
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
+import { locales } from './src/i18n/config';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
+
+// The legal pages live under /legal/*, but the footer shipped /privacy-policy
+// and /terms for a while, so those URLs are indexed and linked externally.
+// Keep them alive as 308s instead of letting them 404.
+const legacyLegalPaths = [
+  { from: '/privacy-policy', to: '/legal/privacy' },
+  { from: '/terms', to: '/legal/terms' },
+];
+
+// localePrefix is 'always', so both the bare path (proxy negotiates the locale
+// after the redirect) and every locale-prefixed variant need an entry —
+// /en/privacy-policy is just as indexable as /privacy-policy.
+const legacyLegalRedirects = legacyLegalPaths.flatMap(({ from, to }) => [
+  { source: from, destination: to, permanent: true },
+  ...locales.map((locale) => ({
+    source: `/${locale}${from}`,
+    destination: `/${locale}${to}`,
+    permanent: true,
+  })),
+]);
 
 const securityHeaders = [
   { key: 'X-Frame-Options', value: 'DENY' },
@@ -66,6 +87,7 @@ const nextConfig: NextConfig = {
         destination: 'https://toster.co/',
         permanent: true,
       },
+      ...legacyLegalRedirects,
     ];
   },
 };
