@@ -531,7 +531,7 @@ export default function PricingPage() {
                         I agree to be contacted by the Toster team regarding this inquiry.
                         Your data is processed in accordance with our{' '}
                         <Link
-                          href="/privacy-policy"
+                          href="/legal/privacy"
                           className="underline underline-offset-2 hover:text-white"
                         >
                           Privacy Policy

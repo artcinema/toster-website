@@ -32,7 +32,7 @@ export const footerNav = {
     { href: '/security', i18nKey: 'Footer.nav.security' },
   ],
   legal: [
-    { href: '/privacy-policy', i18nKey: 'Footer.nav.privacy' },
-    { href: '/terms', i18nKey: 'Footer.nav.terms' },
+    { href: '/legal/privacy', i18nKey: 'Footer.nav.privacy' },
+    { href: '/legal/terms', i18nKey: 'Footer.nav.terms' },
   ],
 };
