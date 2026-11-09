@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { Container } from '@/components/ui/container';
+import { Logo } from '@/components/brand/Logo';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { siteConfig } from '@/config/site';
 
@@ -31,11 +32,8 @@ export function Footer() {
       <Container>
         <div className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
           {/* Logo */}
-          <Link href="/" className="flex shrink-0 items-center gap-2 font-semibold text-[#0A0A0A]">
-            <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#FFD600]">
-              <span className="text-sm font-bold">T</span>
-            </span>
-            <span>Toster</span>
+          <Link href="/" className="flex shrink-0 items-center text-[#0A0A0A]">
+            <Logo size={20} />
           </Link>
 
           {/* Nav links */}

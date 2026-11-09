@@ -8,6 +8,7 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
+import { Logo } from '@/components/brand/Logo';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { mainNav } from '@/config/nav';
 import { siteConfig } from '@/config/site';
@@ -46,10 +47,8 @@ export function Header() {
               className="flex items-center gap-2 font-semibold text-[#0A0A0A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD600] focus-visible:ring-offset-2 rounded-md"
               aria-label="Toster — home"
             >
-              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#FFD600]">
-                <span className="text-sm font-bold text-[#0A0A0A]">T</span>
-              </span>
-              <span className="text-lg tracking-tight">Toster</span>
+              {/* Brand kit: on a white header the mark is ink, never yellow (1.4:1). */}
+              <Logo size={22} title="" />
             </Link>
 
             {/* Desktop Nav */}
@@ -92,10 +91,8 @@ export function Header() {
                 <Dialog.Content className="fixed inset-y-0 right-0 z-50 flex w-full max-w-xs flex-col bg-white shadow-xl focus:outline-none">
                   <div className="flex items-center justify-between border-b border-[#E5E5E5] px-6 py-4">
                     <Dialog.Title className="flex items-center gap-2 font-semibold text-[#0A0A0A]">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-md bg-[#FFD600]">
-                        <span className="text-sm font-bold">T</span>
-                      </span>
-                      Toster
+                      <Logo size={20} title="" />
+                      <span className="sr-only">Toster</span>
                     </Dialog.Title>
                     <Dialog.Close asChild>
                       <button
