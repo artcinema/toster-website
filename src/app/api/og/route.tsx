@@ -1,4 +1,14 @@
 import { ImageResponse } from 'next/og';
+import {
+  BRAND_YELLOW,
+  LOGO_BOX_H,
+  LOGO_LOCKUP_W,
+  LOGO_MARK_PATH,
+  LOGO_WORD_PATH,
+} from '@/components/brand/logo-paths';
+
+/** Lockup mark height on the card, px (brand kit: yellow mark on dark, word in white). */
+const LOGO_H = 40;
 
 export const runtime = 'edge';
 
@@ -22,32 +32,16 @@ export async function GET(req: Request) {
           fontFamily: 'sans-serif',
         }}
       >
-        {/* Logo mark */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            marginBottom: '48px',
-          }}
-        >
-          <div
-            style={{
-              width: '44px',
-              height: '44px',
-              borderRadius: '10px',
-              background: '#FFD600',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '22px',
-              fontWeight: 700,
-              color: '#0A0A0A',
-            }}
+        {/* Logo lockup (brand kit 2026-11-09): yellow mark + white wordmark, master paths */}
+        <div style={{ display: 'flex', marginBottom: '48px' }}>
+          <svg
+            width={(LOGO_LOCKUP_W * LOGO_H) / 400}
+            height={(LOGO_BOX_H * LOGO_H) / 400}
+            viewBox={`0 0 ${LOGO_LOCKUP_W} ${LOGO_BOX_H}`}
           >
-            T
-          </div>
-          <span style={{ fontSize: '24px', fontWeight: 600, color: '#FFFFFF' }}>Toster</span>
+            <path d={LOGO_MARK_PATH} fill={BRAND_YELLOW} />
+            <path d={LOGO_WORD_PATH} fill="#FFFFFF" />
+          </svg>
         </div>
 
         {/* Title */}

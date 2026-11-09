@@ -1,4 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="22" fill="#FFD600"/>
-  <text x="50" y="76" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="66" text-anchor="middle" fill="#111111">T</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><rect width="32" height="32" rx="6" fill="#FFD600"/><path transform="translate(6 6) scale(0.05)" d="M160 0H240V160H400V240A160 160 0 0 0 240 400H160V240H0V160A160 160 0 0 0 160 0Z" fill="#111111"/></svg>
